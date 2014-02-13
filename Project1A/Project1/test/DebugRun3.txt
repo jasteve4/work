@@ -1,0 +1,618 @@
+# 1 : Write 4001b388
+L1 Write: 4001b388(tag 10006c, index 28)
+Current set     28:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+L1 SET DIRTY
+Changed set     28:     10006c D    -     -     -     
+# 2 : Read 4001b378
+L1 Read: 4001b378(tag 10006c, index 27)
+Current set     27:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+Changed set     27:     10006c           -     -     -     
+# 3 : Write 4001b3af
+L1 Write: 4001b3af(tag 10006c, index 29)
+Current set     29:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+L1 SET DIRTY
+Changed set     29:     10006c D    -     -     -     
+# 4 : Write 4001b391
+L1 Write: 4001b391(tag 10006c, index 28)
+Current set     28:     10006c      D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+L1 SET DIRTY
+Changed set     28:     10006c      D    -     -     -     
+# 5 : Write 4001b390
+L1 Write: 4001b390(tag 10006c, index 28)
+Current set     28:     10006c      D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+L1 SET DIRTY
+Changed set     28:     10006c      D    -     -     -     
+# 6 : Read 4000d4e4
+L1 Read: 4000d4e4(tag 100035, index 7)
+Current set     7:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+Changed set     7:     100035           -     -     -     
+# 7 : Read 4000d4e8
+L1 Read: 4000d4e8(tag 100035, index 7)
+Current set     7:     100035      -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     7:     100035           -     -     -     
+# 8 : Read 4001b388
+L1 Read: 4001b388(tag 10006c, index 28)
+Current set     28:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     28:     10006c      D    -     -     -     
+# 9 : Read 4001b378
+L1 Read: 4001b378(tag 10006c, index 27)
+Current set     27:     10006c      -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     27:     10006c           -     -     -     
+# 10 : Read 4000d50f
+L1 Read: 4000d50f(tag 100035, index 8)
+Current set     8:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+Changed set     8:     100035           -     -     -     
+# 11 : Read 4000d50f
+L1 Read: 4000d50f(tag 100035, index 8)
+Current set     8:     100035      -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     8:     100035           -     -     -     
+# 12 : Write 400160b8
+L1 Write: 400160b8(tag 100058, index 5)
+Current set     5:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+L1 SET DIRTY
+Changed set     5:     100058 D    -     -     -     
+# 13 : Write 40013c30
+L1 Write: 40013c30(tag 10004f, index 1)
+Current set     1:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+L1 SET DIRTY
+Changed set     1:     10004f D    -     -     -     
+# 14 : Write 40013c00
+L1 Write: 40013c00(tag 10004f, index 0)
+Current set     0:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+L1 SET DIRTY
+Changed set     0:     10004f D    -     -     -     
+# 15 : Read 4000d550
+L1 Read: 4000d550(tag 100035, index 10)
+Current set     10:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+Changed set     10:     100035           -     -     -     
+# 16 : Read 4000d4d8
+L1 Read: 4000d4d8(tag 100035, index 6)
+Current set     6:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+Changed set     6:     100035           -     -     -     
+# 17 : Read 4001b378
+L1 Read: 4001b378(tag 10006c, index 27)
+Current set     27:     10006c      -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     27:     10006c           -     -     -     
+# 18 : Read 4001b388
+L1 Read: 4001b388(tag 10006c, index 28)
+Current set     28:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     28:     10006c      D    -     -     -     
+# 19 : Write 40013350
+L1 Write: 40013350(tag 10004c, index 26)
+Current set     26:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+L1 SET DIRTY
+Changed set     26:     10004c D    -     -     -     
+# 20 : Read 4000d45c
+L1 Read: 4000d45c(tag 100035, index 2)
+Current set     2:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+Changed set     2:     100035           -     -     -     
+# 21 : Read 400160a0
+L1 Read: 400160a0(tag 100058, index 5)
+Current set     5:     100058 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     5:     100058      D    -     -     -     
+# 22 : Read 4001b3a0
+L1 Read: 4001b3a0(tag 10006c, index 29)
+Current set     29:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     29:     10006c      D    -     -     -     
+# 23 : Read 4000caa4
+L1 Read: 4000caa4(tag 100032, index 21)
+Current set     21:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+Changed set     21:     100032           -     -     -     
+# 24 : Read 4001b3a1
+L1 Read: 4001b3a1(tag 10006c, index 29)
+Current set     29:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     29:     10006c      D    -     -     -     
+# 25 : Read 4000caa4
+L1 Read: 4000caa4(tag 100032, index 21)
+Current set     21:     100032      -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     21:     100032           -     -     -     
+# 26 : Read 4001b3a2
+L1 Read: 4001b3a2(tag 10006c, index 29)
+Current set     29:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     29:     10006c      D    -     -     -     
+# 27 : Read 4000cb14
+L1 Read: 4000cb14(tag 100032, index 24)
+Current set     24:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+Changed set     24:     100032           -     -     -     
+# 28 : Read 4000d524
+L1 Read: 4000d524(tag 100035, index 9)
+Current set     9:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+Changed set     9:     100035           -     -     -     
+# 29 : Read 4000d624
+L1 Read: 4000d624(tag 100035, index 17)
+Current set     17:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+Changed set     17:     100035           -     -     -     
+# 30 : Read 4001b3a3
+L1 Read: 4001b3a3(tag 10006c, index 29)
+Current set     29:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     29:     10006c      D    -     -     -     
+# 31 : Read 4000b8a3
+L1 Read: 4000b8a3(tag 10002e, index 5)
+Current set     5:     100058 D    -     -     -     
+L1 MISS
+L1 UPDATE LRU
+Changed set     5:     10002e           100058      D    -     -     
+# 32 : Read 40013350
+L1 Read: 40013350(tag 10004c, index 26)
+Current set     26:     10004c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     26:     10004c      D    -     -     -     
+# 33 : Write 400160e4
+L1 Write: 400160e4(tag 100058, index 7)
+Current set     7:     100035           -     -     -     
+L1 MISS
+L1 UPDATE LRU
+L1 SET DIRTY
+Changed set     7:     100058 D    100035      -     -     
+# 34 : Read 4001b3a3
+L1 Read: 4001b3a3(tag 10006c, index 29)
+Current set     29:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     29:     10006c      D    -     -     -     
+# 35 : Read 4000d620
+L1 Read: 4000d620(tag 100035, index 17)
+Current set     17:     100035      -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     17:     100035           -     -     -     
+# 36 : Read 4000b517
+L1 Read: 4000b517(tag 10002d, index 8)
+Current set     8:     100035      -     -     -     
+L1 MISS
+L1 UPDATE LRU
+Changed set     8:     10002d           100035           -     -     
+# 37 : Read 4000d624
+L1 Read: 4000d624(tag 100035, index 17)
+Current set     17:     100035      -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     17:     100035           -     -     -     
+# 38 : Read 4001b3a3
+L1 Read: 4001b3a3(tag 10006c, index 29)
+Current set     29:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     29:     10006c      D    -     -     -     
+# 39 : Read 4000b8a3
+L1 Read: 4000b8a3(tag 10002e, index 5)
+Current set     5:     10002e      100058 D    -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     5:     10002e           100058      D    -     -     
+# 40 : Read 4001b3a3
+L1 Read: 4001b3a3(tag 10006c, index 29)
+Current set     29:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     29:     10006c      D    -     -     -     
+# 41 : Write 400191f0
+L1 Write: 400191f0(tag 100064, index 15)
+Current set     15:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+L1 SET DIRTY
+Changed set     15:     100064 D    -     -     -     
+# 42 : Read 4001b3a4
+L1 Read: 4001b3a4(tag 10006c, index 29)
+Current set     29:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     29:     10006c      D    -     -     -     
+# 43 : Read 4000b8ac
+L1 Read: 4000b8ac(tag 10002e, index 5)
+Current set     5:     10002e      100058 D    -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     5:     10002e           100058      D    -     -     
+# 44 : Read 4001b3a4
+L1 Read: 4001b3a4(tag 10006c, index 29)
+Current set     29:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     29:     10006c      D    -     -     -     
+# 45 : Write 400191f1
+L1 Write: 400191f1(tag 100064, index 15)
+Current set     15:     100064      D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+L1 SET DIRTY
+Changed set     15:     100064      D    -     -     -     
+# 46 : Read 4001b3a5
+L1 Read: 4001b3a5(tag 10006c, index 29)
+Current set     29:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     29:     10006c      D    -     -     -     
+# 47 : Read 4000b8b2
+L1 Read: 4000b8b2(tag 10002e, index 5)
+Current set     5:     10002e      100058 D    -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     5:     10002e           100058      D    -     -     
+# 48 : Read 4001b3a5
+L1 Read: 4001b3a5(tag 10006c, index 29)
+Current set     29:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     29:     10006c      D    -     -     -     
+# 49 : Write 400191f2
+L1 Write: 400191f2(tag 100064, index 15)
+Current set     15:     100064      D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+L1 SET DIRTY
+Changed set     15:     100064      D    -     -     -     
+# 50 : Read 4001b3a6
+L1 Read: 4001b3a6(tag 10006c, index 29)
+Current set     29:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     29:     10006c      D    -     -     -     
+# 51 : Read 4000b8ab
+L1 Read: 4000b8ab(tag 10002e, index 5)
+Current set     5:     10002e      100058 D    -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     5:     10002e           100058      D    -     -     
+# 52 : Read 4001b3a6
+L1 Read: 4001b3a6(tag 10006c, index 29)
+Current set     29:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     29:     10006c      D    -     -     -     
+# 53 : Write 400191f3
+L1 Write: 400191f3(tag 100064, index 15)
+Current set     15:     100064      D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+L1 SET DIRTY
+Changed set     15:     100064      D    -     -     -     
+# 54 : Read 4001b3a7
+L1 Read: 4001b3a7(tag 10006c, index 29)
+Current set     29:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     29:     10006c      D    -     -     -     
+# 55 : Read 4000b8a1
+L1 Read: 4000b8a1(tag 10002e, index 5)
+Current set     5:     10002e      100058 D    -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     5:     10002e           100058      D    -     -     
+# 56 : Read 4001b3a7
+L1 Read: 4001b3a7(tag 10006c, index 29)
+Current set     29:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     29:     10006c      D    -     -     -     
+# 57 : Write 400191f4
+L1 Write: 400191f4(tag 100064, index 15)
+Current set     15:     100064      D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+L1 SET DIRTY
+Changed set     15:     100064      D    -     -     -     
+# 58 : Read 4001b3a8
+L1 Read: 4001b3a8(tag 10006c, index 29)
+Current set     29:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     29:     10006c      D    -     -     -     
+# 59 : Read 4000b85d
+L1 Read: 4000b85d(tag 10002e, index 2)
+Current set     2:     100035      -     -     -     
+L1 MISS
+L1 UPDATE LRU
+Changed set     2:     10002e           100035           -     -     
+# 60 : Read 4001b3a8
+L1 Read: 4001b3a8(tag 10006c, index 29)
+Current set     29:     10006c D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     29:     10006c      D    -     -     -     
+# 61 : Read 4000b4d1
+L1 Read: 4000b4d1(tag 10002d, index 6)
+Current set     6:     100035      -     -     -     
+L1 MISS
+L1 UPDATE LRU
+Changed set     6:     10002d           100035           -     -     
+# 62 : Read 400191f4
+L1 Read: 400191f4(tag 100064, index 15)
+Current set     15:     100064 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     15:     100064      D    -     -     -     
+# 63 : Write 400191f5
+L1 Write: 400191f5(tag 100064, index 15)
+Current set     15:     100064      D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+L1 SET DIRTY
+Changed set     15:     100064      D    -     -     -     
+# 64 : Read 400191f0
+L1 Read: 400191f0(tag 100064, index 15)
+Current set     15:     100064 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     15:     100064      D    -     -     -     
+# 65 : Read 400191f0
+L1 Read: 400191f0(tag 100064, index 15)
+Current set     15:     100064 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     15:     100064      D    -     -     -     
+# 66 : Read 4000d620
+L1 Read: 4000d620(tag 100035, index 17)
+Current set     17:     100035      -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     17:     100035           -     -     -     
+# 67 : Read 400191f0
+L1 Read: 400191f0(tag 100064, index 15)
+Current set     15:     100064 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     15:     100064      D    -     -     -     
+# 68 : Read 4000b517
+L1 Read: 4000b517(tag 10002d, index 8)
+Current set     8:     10002d      100035      -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     8:     10002d           100035           -     -     
+# 69 : Read 400191f0
+L1 Read: 400191f0(tag 100064, index 15)
+Current set     15:     100064 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     15:     100064      D    -     -     -     
+# 70 : Read 400191f0
+L1 Read: 400191f0(tag 100064, index 15)
+Current set     15:     100064 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     15:     100064      D    -     -     -     
+# 71 : Read 400191f1
+L1 Read: 400191f1(tag 100064, index 15)
+Current set     15:     100064 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     15:     100064      D    -     -     -     
+# 72 : Read 400191f1
+L1 Read: 400191f1(tag 100064, index 15)
+Current set     15:     100064 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     15:     100064      D    -     -     -     
+# 73 : Read 400191f2
+L1 Read: 400191f2(tag 100064, index 15)
+Current set     15:     100064 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     15:     100064      D    -     -     -     
+# 74 : Read 400191f2
+L1 Read: 400191f2(tag 100064, index 15)
+Current set     15:     100064 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     15:     100064      D    -     -     -     
+# 75 : Read 400191f3
+L1 Read: 400191f3(tag 100064, index 15)
+Current set     15:     100064 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     15:     100064      D    -     -     -     
+# 76 : Read 400191f3
+L1 Read: 400191f3(tag 100064, index 15)
+Current set     15:     100064 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     15:     100064      D    -     -     -     
+# 77 : Read 400191f4
+L1 Read: 400191f4(tag 100064, index 15)
+Current set     15:     100064 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     15:     100064      D    -     -     -     
+# 78 : Read 400191f4
+L1 Read: 400191f4(tag 100064, index 15)
+Current set     15:     100064 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     15:     100064      D    -     -     -     
+# 79 : Read 400191f5
+L1 Read: 400191f5(tag 100064, index 15)
+Current set     15:     100064 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     15:     100064      D    -     -     -     
+# 80 : Read 4000d624
+L1 Read: 4000d624(tag 100035, index 17)
+Current set     17:     100035      -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     17:     100035           -     -     -     
+# 81 : Read 4000b8a3
+L1 Read: 4000b8a3(tag 10002e, index 5)
+Current set     5:     10002e      100058 D    -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     5:     10002e           100058      D    -     -     
+# 82 : Read 4000d45c
+L1 Read: 4000d45c(tag 100035, index 2)
+Current set     2:     10002e      100035      -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     2:     100035           10002e           -     -     
+# 83 : Read 40013c38
+L1 Read: 40013c38(tag 10004f, index 1)
+Current set     1:     10004f D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     1:     10004f      D    -     -     -     
+# 84 : Read 4001b438
+L1 Read: 4001b438(tag 10006d, index 1)
+Current set     1:     10004f D    -     -     -     
+L1 MISS
+L1 UPDATE LRU
+Changed set     1:     10006d           10004f      D    -     -     
+# 85 : Read 4001b458
+L1 Read: 4001b458(tag 10006d, index 2)
+Current set     2:     100035      10002e      -     -     
+L1 MISS
+L1 UPDATE LRU
+Changed set     2:     10006d           100035           10002e           -     
+# 86 : Read 400191f0
+L1 Read: 400191f0(tag 100064, index 15)
+Current set     15:     100064 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     15:     100064      D    -     -     -     
+# 87 : Read 400191f1
+L1 Read: 400191f1(tag 100064, index 15)
+Current set     15:     100064 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     15:     100064      D    -     -     -     
+# 88 : Read 400191f4
+L1 Read: 400191f4(tag 100064, index 15)
+Current set     15:     100064 D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     15:     100064      D    -     -     -     
+# 89 : Read 4001b438
+L1 Read: 4001b438(tag 10006d, index 1)
+Current set     1:     10006d      10004f D    -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     1:     10006d           10004f      D    -     -     
+# 90 : Read 4001b43c
+L1 Read: 4001b43c(tag 10006d, index 1)
+Current set     1:     10006d      10004f D    -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     1:     10006d           10004f      D    -     -     
+# 91 : Read 4001b638
+L1 Read: 4001b638(tag 10006d, index 17)
+Current set     17:     100035      -     -     -     
+L1 MISS
+L1 UPDATE LRU
+Changed set     17:     10006d           100035           -     -     
+# 92 : Read 4000d4b8
+L1 Read: 4000d4b8(tag 100035, index 5)
+Current set     5:     10002e      100058 D    -     -     
+L1 MISS
+L1 UPDATE LRU
+Changed set     5:     100035           10002e           100058      D    -     
+# 93 : Write 7b033c74
+L1 Write: 7b033c74(tag 1ec0cf, index 3)
+Current set     3:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+L1 SET DIRTY
+Changed set     3:     1ec0cf D    -     -     -     
+# 94 : Read 7b033c74
+L1 Read: 7b033c74(tag 1ec0cf, index 3)
+Current set     3:     1ec0cf D    -     -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     3:     1ec0cf      D    -     -     -     
+# 95 : Read 4001b438
+L1 Read: 4001b438(tag 10006d, index 1)
+Current set     1:     10006d      10004f D    -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     1:     10006d           10004f      D    -     -     
+# 96 : Read 4001b438
+L1 Read: 4001b438(tag 10006d, index 1)
+Current set     1:     10006d      10004f D    -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     1:     10006d           10004f      D    -     -     
+# 97 : Read 4001b43c
+L1 Read: 4001b43c(tag 10006d, index 1)
+Current set     1:     10006d      10004f D    -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     1:     10006d           10004f      D    -     -     
+# 98 : Read 4001b638
+L1 Read: 4001b638(tag 10006d, index 17)
+Current set     17:     10006d      100035      -     -     
+L1 HIT
+L1 UPDATE LRU
+Changed set     17:     10006d           100035           -     -     
+# 99 : Write 4001f550
+L1 Write: 4001f550(tag 10007d, index 10)
+Current set     10:     100035           -     -     -     
+L1 MISS
+L1 UPDATE LRU
+L1 SET DIRTY
+Changed set     10:     10007d D    100035      -     -     
+# 100 : Write 4001f60d
+L1 Write: 4001f60d(tag 10007d, index 16)
+Current set     16:     -     -     -     -     
+L1 MISS
+L1 UPDATE LRU
+L1 SET DIRTY
+Changed set     16:     10007d D    -     -     -     
