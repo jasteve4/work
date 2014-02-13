@@ -45,7 +45,7 @@ public class Cache {
         
 	read_counter++;
         if(debug){
-            System.out.print("Current set     "+ index + "     ");
+            System.out.print("Current set     "+ index + ":     ");
         }    
         for(int J = 0; J < assoc; J++){
             if(debug){
@@ -71,7 +71,7 @@ public class Cache {
                 Debug(name + " HIT");
                 update_LRU(J, index);
                 if(debug){
-                    System.out.print("Change set     "+ index + "     ");
+                    System.out.print("Changed set     "+ index + ":     ");
                 }
                 for(int N = 0; N < assoc; N++){
                     if(debug){
@@ -101,7 +101,7 @@ public class Cache {
         tags_matrix[index][0].tag = tag;
         tags_matrix[index][0].Address = 0;
         if(debug){
-            System.out.print("Change set     "+ index + "     ");
+            System.out.print("Changed set     "+ index + ":     ");
         }
         for(int N = 0; N < assoc; N++){
             if(debug){
@@ -129,7 +129,7 @@ public class Cache {
         
 	write_counter++;
         if(debug){
-            System.out.print("Current set     "+ index + "     ");
+            System.out.print("Current set     "+ index + ":     ");
         }
         for(int N = 0; N < assoc; N++){
             if(debug){
@@ -154,9 +154,10 @@ public class Cache {
                 Debug(name + " HIT");
 		write_hit_counter++;
                 update_LRU(J, index);
+                Debug(name + " SET DIRTY");
                 tags_matrix[index][J].DirtyBit = true;
                 if(debug){
-                    System.out.print("Change set     "+ index + "     ");
+                    System.out.print("Changed set     "+ index + ":     ");
                 }
                 for(int N = 0; N < assoc; N++){
                     if(debug){
@@ -187,7 +188,7 @@ public class Cache {
         tags_matrix[index][0].Address = 0;
         Debug(name + " SET DIRTY");
         if(debug){
-            System.out.print("Change set     "+ index + "     ");
+            System.out.print("Changed set     "+ index + ":     ");
         }
         for(int N = 0; N < assoc; N++){
             if(debug){
@@ -218,7 +219,7 @@ public class Cache {
             
             cacheEntry temp = tags_matrix[index][position];
             for(int J = position; J > 0; J--){
-			tags_matrix[index][J] = tags_matrix[index][J-1];
+			    tags_matrix[index][J] = tags_matrix[index][J-1];
             }
             tags_matrix[index][0] = temp;
             Debug(name + " UPDATE LRU");
