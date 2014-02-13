@@ -20,7 +20,7 @@ public class Cache {
     public int read_counter = 0;
     public int read_hit_counter = 0;
     public int read_miss_counter = 0;
-    
+    public int address;
     
     public Cache(int sets, int assoc) {
 		
@@ -45,7 +45,7 @@ public class Cache {
         
 	read_counter++;
         if(debug){
-            System.out.print("Current set     "+ index + "     ");
+            System.out.print("Current set     "+ index + ":     ");
         }    
         for(int J = 0; J < assoc; J++){
             if(debug){
@@ -71,7 +71,7 @@ public class Cache {
                 Debug(name + " HIT");
                 update_LRU(J, index);
                 if(debug){
-                    System.out.print("Change set     "+ index + "     ");
+                    System.out.print("Changed set     "+ index + ":     ");
                 }
                 for(int N = 0; N < assoc; N++){
                     if(debug){
@@ -99,9 +99,9 @@ public class Cache {
 	read_miss_counter++;
         update_LRU(assoc-1, index);
         tags_matrix[index][0].tag = tag;
-        tags_matrix[index][0].Address = 0;
+        tags_matrix[index][0].Address = this.address;
         if(debug){
-            System.out.print("Change set     "+ index + "     ");
+            System.out.print("Changed set     "+ index + ":     ");
         }
         for(int N = 0; N < assoc; N++){
             if(debug){
@@ -129,7 +129,7 @@ public class Cache {
         
 	write_counter++;
         if(debug){
-            System.out.print("Current set     "+ index + "     ");
+            System.out.print("Current set     "+ index + ":     ");
         }
         for(int N = 0; N < assoc; N++){
             if(debug){
@@ -150,44 +150,62 @@ public class Cache {
         } 
         Debug("");
 	for(int J=0; J < assoc; J++){	
-            if(tags_matrix[index][J].tag == tag){
-                Debug(name + " HIT");
-		write_hit_counter++;
+            if(tags_matrix[index][J].Address == -1){
+                Debug(name + " MISS");
+                write_miss_counter++;
                 update_LRU(J, index);
                 tags_matrix[index][J].DirtyBit = true;
-                if(debug){
-                    System.out.print("Change set     "+ index + "     ");
+                tags_matrix[index][J].tag = tag;
+                tags_matrix[index][J].Address = this.address;
+                Debug(name + " SET DIRTY");
+            }
+            else if(J == assoc - 1){
+                for(int i = 0; i < assoc -1; i ++){
+                    if(tags_matrix[index][i].count == assoc-1){
+                        Debug(name + " MISS");
+                        write_miss_counter++;
+                        update_LRU(i, index);
+                        tags_matrix[index][i].DirtyBit = true;
+                        tags_matrix[index][i].tag = tag;
+                        tags_matrix[index][i].Address = this.address;
+                        Debug(name + " SET DIRTY");
+                    }
                 }
-                for(int N = 0; N < assoc; N++){
+            }
+            else{
+                if(tags_matrix[index][J].tag == tag){
+                    Debug(name + " HIT");
+                    write_hit_counter++;
+                    update_LRU(J, index);
+                    Debug(name + " SET DIRTY");
+                    tags_matrix[index][J].DirtyBit = true;
                     if(debug){
-                        if(tags_matrix[index][N].Address == -1){
-                            System.out.print("-     ");
-                        }
-                        else{
-                            System.out.print(Integer.toHexString(tags_matrix[index][N].tag)+"     ");
-                            if(tags_matrix[index][N].DirtyBit){
-                                System.out.print(" D    ");
+                        System.out.print("Changed set     "+ index + ":     ");
+                    }
+                    for(int N = 0; N < assoc; N++){
+                        if(debug){
+                            if(tags_matrix[index][N].Address == -1){
+                                System.out.print("-     ");
                             }
                             else{
-                                System.out.print("      ");
+                                System.out.print(Integer.toHexString(tags_matrix[index][N].tag)+"     ");
+                                if(tags_matrix[index][N].DirtyBit){
+                                    System.out.print(" D    ");
+                                }
+                                else{
+                                    System.out.print("      ");
+                                }
                             }
-                        }
 
-                    }
-                }  
-                Debug("");
-                return;
+                        }
+                    }  
+                    Debug("");
+                    return;
+                }
             }
         }
-        Debug(name + " MISS");
-	write_miss_counter++;
-        update_LRU(assoc-1, index);
-        tags_matrix[index][0].DirtyBit = true;
-        tags_matrix[index][0].tag = tag;
-        tags_matrix[index][0].Address = 0;
-        Debug(name + " SET DIRTY");
         if(debug){
-            System.out.print("Change set     "+ index + "     ");
+            System.out.print("Changed set     "+ index + ":     ");
         }
         for(int N = 0; N < assoc; N++){
             if(debug){
@@ -216,11 +234,22 @@ public class Cache {
 	
 	private void update_LRU(int position, int index){
             
-            cacheEntry temp = tags_matrix[index][position];
+            /*cacheEntry temp = tags_matrix[index][position];
             for(int J = position; J > 0; J--){
-			tags_matrix[index][J] = tags_matrix[index][J-1];
+			    tags_matrix[index][J] = tags_matrix[index][J-1];
             }
-            tags_matrix[index][0] = temp;
+            tags_matrix[index][0] = temp;*/
+            int min_count = tags_matrix[index][position].count;
+            for(int j = 0; j < assoc-1;j++){
+                if(j == position){
+                    tags_matrix[index][j].count = 0; 
+                    continue;
+                }
+                else if(tags_matrix[index][j].count < min_count){
+                    tags_matrix[index][j].count++;
+                }
+            }
+            
             Debug(name + " UPDATE LRU");
 		
 	}
@@ -229,6 +258,7 @@ public class Cache {
         
         //String bin = String.format("%32s",Integer.toBinaryString(hex)).replace(' ','0');
         parse(address);
+        this.address = address;
         
         if(state)
         {
