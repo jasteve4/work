@@ -1,73 +1,265 @@
 public class Cache {
 	
-    String[][] tags_matrix = null;
+    cacheEntry[][] tags_matrix = null;
     int assoc;
     int sets;
-
+    public boolean write_policy;
+    public int block_offeset_bits;
+    public int tag_bits;
+    public int index_bits;
+    public boolean state;
+    public boolean debug;
+    public Cache next_cache = null;
+    public String name;
+    public int iteration;
+    public int tag;
+    public int index;
+    public int write_counter = 0;
+    public int write_hit_counter = 0;
+    public int write_miss_counter = 0;
+    public int read_counter = 0;
+    public int read_hit_counter = 0;
+    public int read_miss_counter = 0;
+    
+    
     public Cache(int sets, int assoc) {
 		
         this.assoc = assoc;
         this.sets = sets;
-        tags_matrix = new String[this.sets][this.assoc];
+        this.tags_matrix = new cacheEntry[this.sets][this.assoc];
+        for(int i = 0; i < this.sets; i++)
+        {
+            for(int j = 0; j < this.assoc; j++)
+            {
+                this.tags_matrix[i][j] = new cacheEntry();
+                this.tags_matrix[i][j].tag = 0;
+                this.tags_matrix[i][j].DirtyBit = false;
+                this.tags_matrix[i][j].Address = -1;
+            }
+        }
 		
     }
-	
-    public void read(String bin, int index_bits, int tag_bits){
-        
-        int read_counter = 0;
-        int read_hit_counter = 0;
-        int read_miss_counter = 0;
-        
-        String tag = bin.substring(0,tag_bits);
-        int index = Integer.parseInt(bin.substring(tag_bits,tag_bits + index_bits));
+    
+    public void read(){
+      
         
 	read_counter++;
+        if(debug){
+            System.out.print("Current set     "+ index + "     ");
+        }    
+        for(int J = 0; J < assoc; J++){
+            if(debug){
+                if(tags_matrix[index][J].Address == -1){
+                    System.out.print("-     ");
+                }
+                else{
+                    System.out.print(Integer.toHexString(tags_matrix[index][J].tag));
+                    if(tags_matrix[index][J].DirtyBit){
+                        System.out.print(" D    ");
+                    }
+                    else{
+                        System.out.print("      ");
+                    }
+                }
+                    
+            }
+        }
+        Debug("");
 	for(int J=0; J<assoc; J++){	
-            if(tags_matrix[index][J] == tag){
+            if(tags_matrix[index][J].tag == tag){
 		read_hit_counter++;
-                update(J, index, tag);
+                Debug(name + " HIT");
+                update_LRU(J, index);
+                if(debug){
+                    System.out.print("Change set     "+ index + "     ");
+                }
+                for(int N = 0; N < assoc; N++){
+                    if(debug){
+                        if(tags_matrix[index][N].Address == -1){
+                            System.out.print("-     ");
+                        }
+                        else{
+                            System.out.print(Integer.toHexString(tags_matrix[index][N].tag)+"     ");
+                            if(tags_matrix[index][N].DirtyBit){
+                                System.out.print(" D    ");
+                            }
+                            else{
+                                System.out.print("      ");
+                            }
+                        }
+                    
+                    }
+                }
+                Debug("");
                 return;
             }
 	}
-		
+        Debug(name + " MISS");	
+        
 	read_miss_counter++;
-	for(int J=0; J<assoc; J++){
-            update(assoc-1, index, tag);
-            return;
-	}
+        update_LRU(assoc-1, index);
+        tags_matrix[index][0].tag = tag;
+        tags_matrix[index][0].Address = 0;
+        if(debug){
+            System.out.print("Change set     "+ index + "     ");
+        }
+        for(int N = 0; N < assoc; N++){
+            if(debug){
+                if(tags_matrix[index][N].Address == -1){
+                    System.out.print("-     ");
+                }
+                else{
+                    System.out.print(Integer.toHexString(tags_matrix[index][N].tag)+"     ");
+                    if(tags_matrix[index][N].DirtyBit){
+                        System.out.print(" D    ");
+                    }
+                    else{
+                        System.out.print("      ");
+                    }
+                }
+
+            }
+        }  
+        Debug("");
+        return;
     }
 	
-	public void write(String bin, int index_bits, int tag_bits){
+	public void write(){
         
-        int write_counter = 0;
-        int write_hit_counter = 0;
-        int write_miss_counter = 0;
-        
-        String tag = bin.substring(0,tag_bits);
-        int index = Integer.parseInt(bin.substring(tag_bits,tag_bits + index_bits));
         
 	write_counter++;
-	for(int J=0; J<assoc; J++){	
-            if(tags_matrix[index][J] == tag){
+        if(debug){
+            System.out.print("Current set     "+ index + "     ");
+        }
+        for(int N = 0; N < assoc; N++){
+            if(debug){
+                if(tags_matrix[index][N].Address == -1){
+                    System.out.print("-     ");
+                }
+                else{
+                    System.out.print(Integer.toHexString(tags_matrix[index][N].tag)+"     ");
+                    if(tags_matrix[index][N].DirtyBit){
+                        System.out.print(" D    ");
+                    }
+                    else{
+                        System.out.print("      ");
+                    } 
+                }
+
+            }
+        } 
+        Debug("");
+	for(int J=0; J < assoc; J++){	
+            if(tags_matrix[index][J].tag == tag){
+                Debug(name + " HIT");
 		write_hit_counter++;
-                update(J, index, tag);
+                update_LRU(J, index);
+                tags_matrix[index][J].DirtyBit = true;
+                if(debug){
+                    System.out.print("Change set     "+ index + "     ");
+                }
+                for(int N = 0; N < assoc; N++){
+                    if(debug){
+                        if(tags_matrix[index][N].Address == -1){
+                            System.out.print("-     ");
+                        }
+                        else{
+                            System.out.print(Integer.toHexString(tags_matrix[index][N].tag)+"     ");
+                            if(tags_matrix[index][N].DirtyBit){
+                                System.out.print(" D    ");
+                            }
+                            else{
+                                System.out.print("      ");
+                            }
+                        }
+
+                    }
+                }  
+                Debug("");
                 return;
             }
-	}
-		
+        }
+        Debug(name + " MISS");
 	write_miss_counter++;
-	for(int J=0; J<assoc; J++){
-            update(assoc-1, index, tag);
-            return;
-	}
+        update_LRU(assoc-1, index);
+        tags_matrix[index][0].DirtyBit = true;
+        tags_matrix[index][0].tag = tag;
+        tags_matrix[index][0].Address = 0;
+        Debug(name + " SET DIRTY");
+        if(debug){
+            System.out.print("Change set     "+ index + "     ");
+        }
+        for(int N = 0; N < assoc; N++){
+            if(debug){
+                if(tags_matrix[index][N].Address == -1){
+                    System.out.print("-     ");
+                }
+                else{
+                    System.out.print(Integer.toHexString(tags_matrix[index][N].tag));
+                    if(tags_matrix[index][N].DirtyBit){
+                        System.out.print(" D    ");
+                    }
+                    else{
+                        System.out.print("      ");
+                    }                    
+                    
+                    
+                    
+                }
+
+            }
+        }  
+        Debug("");
+        return;
+	
     }
 	
-	private void update(int position, int index, String tag){
+	private void update_LRU(int position, int index){
+            
+            cacheEntry temp = tags_matrix[index][position];
+            for(int J = position; J > 0; J--){
+			tags_matrix[index][J] = tags_matrix[index][J-1];
+            }
+            tags_matrix[index][0] = temp;
+            Debug(name + " UPDATE LRU");
 		
-		for(int J=0; J<position; J++){
-			tags_matrix[index][position-J] = tags_matrix[index][position-J-1];  //right shift matrix	
-		}
-		tags_matrix[index][0] = tag;
 	}
+
+    public void run(Integer address) {
+        
+        //String bin = String.format("%32s",Integer.toBinaryString(hex)).replace(' ','0');
+        parse(address);
+        
+        if(state)
+        {
+            Debug("# " + iteration + " : Read "+ Integer.toHexString(address));
+            Debug(name + " Read: " + Integer.toHexString(address) + "(tag "+ Integer.toHexString(tag) + ", index " + index + ")" );
+            read();
+        }
+        else
+        {
+            Debug("# " + iteration + " : Write "+ Integer.toHexString(address));
+            Debug(name + " Write: " + Integer.toHexString(address) + "(tag "+ Integer.toHexString(tag) + ", index " + index + ")" );
+            write();
+        }
+    
+    
+    }
 	
+    public void Debug(Object object)
+    {
+        if(debug)
+        {
+            System.out.println(object);
+        }
+    }
+    
+    public void parse(Integer address)
+    {
+        tag = (address >> (index_bits + block_offeset_bits));
+        index = (address >> (block_offeset_bits)) & (int)(Math.pow(2, index_bits) - 1) ;
+        //tag = Integer.parseInt(bin.substring(0,tag_bits));
+        //index = Integer.parseInt(bin.substring(tag_bits,tag_bits + index_bits));
+    }
+    
 }
