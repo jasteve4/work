@@ -1,91 +1,555 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>NC State University : WebAuth : Login Required</title>
-<meta name="viewport" content="width=device-width" />
-<link href="/wrap-inc/classifyDevice.php" rel="stylesheet" type="text/css" />
-</head>
-<body onload="document.affil.login.focus(); document.affil.login.select();">
-    <!-- Begin NCSU branding bar -->
-<div id="ncsu-brand-bar">
-    <link rel="stylesheet" type="text/css" href="https://ssl.ncsu.edu/brand/utility-bar/iframe/css/utility_bar_iframe.css" media="screen" /> 
-    <iframe name="ncsu_branding_bar" id="ncsu_branding_bar" frameborder="0" src="https://ssl.ncsu.edu/brand/utility-bar/iframe/secure/index.php?color=black&amp;inurl=&amp;center=yes" scrolling="no">  
-    Your browser does not support inline frames or  
-    is currently configured  not to display inline frames.<br />
-    Visit <a href="http://ncsu.edu/">http://www.ncsu.edu</a>.
-    </iframe>
-</div>
-    <!-- End NCSU branding bar -->
-
-<div id="container">
-<div id="header">
-    <div class="logo"><a href="http://ncsu.edu"><img
-    src="/wrap-img/stripbrick-whiteonred.gif"></a></div>
-    <div class="left">
-      <h1>Login Required</h1>
-      <em class="security-help">Please choose an affiliation.</em>
-    </div>   
-    <div class="right"><strong style="font-size:125%"><a href="/wrap-bin/was16.cgi?logout">Logout</a></strong></div>
-</div> 
-
-<div style="clear:both"></div>
-<div id="securityGraphic">
-
-<!-- WAS::StartHTML ends -->
-<div class="security-help">
-<img src="/wrap-bin/stopsign/15fb9df281495739eb403ad0bc0e94" width="400" height="125" 
- alt="security image missing?" /><br/>
-<a href="https://webauth.ncsu.edu/wrap/whatisthis.html">What is this?</a><br />
-</div>
-<div id="loginBlock">
-<h2>Campus Affiliation</h2>
-<form method="post" action="/wrap-bin/was16.cgi?gosite" enctype="application/x-www-form-urlencoded" name="affil">
-           <label for="WAS_SITE">
-           <p>Please indicate with whom you are affiliated:</p></label>
-<select name="WAS_SITE" >
-<option value="/wrap-bin/was16.cgi?getuser">NC State University</option>
-<option value="https://www.lib.ncsu.edu/proxy/patronauth.html?wascom+/wrap-bin/was16.cgi+10.139.71.144+1392261453">NCSU Libraries Patron</option>
-<option value="/wrap-bin/was16.cgi?guest">Guest Access</option>
-</select><br /><br />
-<input type="submit" name="login" value="Continue Login" /></form></div>
-
-<!-- WAS::MiddleHTML begins -->
-</div>
-<div id="main">
-<!-- WAS::MiddleHTML ends -->
-
-    <p><strong>What is this?</strong><br />
-    WRAP is an authentication system for NC State University faculty, staff and students. It requires you to login using your NC State Unity user ID and password.
-    If you are not an NC State faculty, staff, or student, you can still
-    login using our Guest account. Note, however, that this account has
-    restricted rights.</p>
-    <p><strong>How does this work?</strong><br />
-    WRAP issues an encrypted cookie named WRAP16. Your browser must accept this cookie and pass it
-    to other ncsu.edu webservers for WRAP to work correctly. </p>
-
-    <p><strong>How do I log out?</strong><br />
-    You can remove your WRAP cookie by using the
-    <a href="/wrap-bin/was16.cgi?logout">logout link</a>. Otherwise,
-    your cookie will automatically expire after a certain period of time,
-    or your browser will remove the cookie when you close your session. </p>
-    <p><strong>What if I think this is a scam?</strong><br />
-    We have added a dynamically-generated security image to each of the WRAP login pages, to make it easier for our users to detect fake login sites that are trying to steal the users' password credentials.
-    You can learn more about this image and how to verify that your login is secure by visiting our <a href="https://webauth.ncsu.edu/wrap/whatisthis.html">WRAP information site</a>.<br />
-    It these items do not check out please <em>do not login to this page</em>, and report the site to the <a href="http://help.ncsu.edu">NC State Help Desk</a> at <a href="mailto:help@ncsu.edu">help@ncsu.edu</a>.</p>
-
-
-<!-- WAS::EndHTML begins -->
-</div>
-<div id="footer">
-      <p><a href="https://webauth.ncsu.edu/" target="webAuth">WebAuth</a> is a
-         service is provided by the
-         <a href="http://oit.ncsu.edu/">Office of Information Technology</a>
-         at <a href="http://www.ncsu.edu/">NC State University</a>
-      </p>
-     <div id="oit-logo">
-        <a href="http://oit.ncsu.edu" border="0" target="oit"><img src="/wrap-img/oit.jpg" align="right" alt="Office of Information Technology" /></a>
-     </div>
-</div>
-</body>
-</html>
-
+# 1 : Read 40012998
+L1 Read: 40012998(tag 400129, index 4)
+Current set	4:	 -     	 -     	 -     	 -     
+L1 MISS
+Count_Block Update
+Changed set	4:  400129   	 -     	 -     	 -     
+# 2 : Read 40012988
+L1 Read: 40012988(tag 400129, index 4)
+Current set	4:  400129   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129   	 -     	 -     	 -     
+# 3 : Read 4008b390
+L1 Read: 4008b390(tag 4008b3, index 4)
+Current set	4:  400129   	 -     	 -     	 -     
+L1 MISS
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 4 : Write 4002e84c
+L1 Write: 4002e84c(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 5 : Write 4002e850
+L1 Write: 4002e850(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 6 : Read 40012988
+L1 Read: 40012988(tag 400129, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 7 : Write 4003c200
+L1 Write: 4003c200(tag 4003c2, index 0)
+Current set	0:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	0:	 -     	 -     	 -     	 -     
+# 8 : Read 40012988
+L1 Read: 40012988(tag 400129, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 9 : Write 40049600
+L1 Write: 40049600(tag 400496, index 0)
+Current set	0:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	0:	 -     	 -     	 -     	 -     
+# 10 : Read 40012a00
+L1 Read: 40012a00(tag 40012a, index 0)
+Current set	0:	 -     	 -     	 -     	 -     
+L1 MISS
+Count_Block Update
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 11 : Read 4001298c
+L1 Read: 4001298c(tag 400129, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 12 : Read 4008b390
+L1 Read: 4008b390(tag 4008b3, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 13 : Write 4002e84c
+L1 Write: 4002e84c(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 14 : Write 4002e850
+L1 Write: 4002e850(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 15 : Read 4001298c
+L1 Read: 4001298c(tag 400129, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 16 : Write 4003c204
+L1 Write: 4003c204(tag 4003c2, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 17 : Read 4001298c
+L1 Read: 4001298c(tag 400129, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 18 : Write 40049604
+L1 Write: 40049604(tag 400496, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 19 : Read 40012a04
+L1 Read: 40012a04(tag 40012a, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 20 : Read 40012990
+L1 Read: 40012990(tag 400129, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 21 : Read 4008b390
+L1 Read: 4008b390(tag 4008b3, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 22 : Write 4002e84c
+L1 Write: 4002e84c(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 23 : Write 4002e850
+L1 Write: 4002e850(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 24 : Read 40012990
+L1 Read: 40012990(tag 400129, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 25 : Write 4003c208
+L1 Write: 4003c208(tag 4003c2, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 26 : Read 40012990
+L1 Read: 40012990(tag 400129, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 27 : Write 40049608
+L1 Write: 40049608(tag 400496, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 28 : Read 40012a08
+L1 Read: 40012a08(tag 40012a, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 29 : Write 4002e864
+L1 Write: 4002e864(tag 4002e8, index 3)
+Current set	3:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	3:	 -     	 -     	 -     	 -     
+# 30 : Read 40012994
+L1 Read: 40012994(tag 400129, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 31 : Read 4008b390
+L1 Read: 4008b390(tag 4008b3, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 32 : Write 4002e84c
+L1 Write: 4002e84c(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 33 : Write 4002e850
+L1 Write: 4002e850(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 34 : Read 40012994
+L1 Read: 40012994(tag 400129, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 35 : Write 4003c20c
+L1 Write: 4003c20c(tag 4003c2, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 36 : Read 40012994
+L1 Read: 40012994(tag 400129, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 37 : Write 4004960c
+L1 Write: 4004960c(tag 400496, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 38 : Read 40012a0c
+L1 Read: 40012a0c(tag 40012a, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 39 : Read 40012998
+L1 Read: 40012998(tag 400129, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 40 : Read 4008b390
+L1 Read: 4008b390(tag 4008b3, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 41 : Write 4002e84c
+L1 Write: 4002e84c(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 42 : Write 4002e850
+L1 Write: 4002e850(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 43 : Read 40012998
+L1 Read: 40012998(tag 400129, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 44 : Write 4003c210
+L1 Write: 4003c210(tag 4003c2, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 45 : Read 40012998
+L1 Read: 40012998(tag 400129, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 46 : Write 40049610
+L1 Write: 40049610(tag 400496, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 47 : Read 40012a10
+L1 Read: 40012a10(tag 40012a, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 48 : Read 4001299c
+L1 Read: 4001299c(tag 400129, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 49 : Read 4008b390
+L1 Read: 4008b390(tag 4008b3, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 50 : Write 4002e84c
+L1 Write: 4002e84c(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 51 : Write 4002e850
+L1 Write: 4002e850(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 52 : Read 4001299c
+L1 Read: 4001299c(tag 400129, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 53 : Write 4003c214
+L1 Write: 4003c214(tag 4003c2, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 54 : Read 4001299c
+L1 Read: 4001299c(tag 400129, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 55 : Write 40049614
+L1 Write: 40049614(tag 400496, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 56 : Read 40012a14
+L1 Read: 40012a14(tag 40012a, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 57 : Write 4002e868
+L1 Write: 4002e868(tag 4002e8, index 3)
+Current set	3:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	3:	 -     	 -     	 -     	 -     
+# 58 : Read 400129a0
+L1 Read: 400129a0(tag 400129, index 5)
+Current set	5:	 -     	 -     	 -     	 -     
+L1 MISS
+Count_Block Update
+Changed set	5:  400129   	 -     	 -     	 -     
+# 59 : Read 4008b390
+L1 Read: 4008b390(tag 4008b3, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 60 : Write 4002e84c
+L1 Write: 4002e84c(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 61 : Write 4002e850
+L1 Write: 4002e850(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 62 : Read 400129a0
+L1 Read: 400129a0(tag 400129, index 5)
+Current set	5:  400129   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	5:  400129   	 -     	 -     	 -     
+# 63 : Write 4003c218
+L1 Write: 4003c218(tag 4003c2, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 64 : Read 400129a0
+L1 Read: 400129a0(tag 400129, index 5)
+Current set	5:  400129   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	5:  400129   	 -     	 -     	 -     
+# 65 : Write 40049618
+L1 Write: 40049618(tag 400496, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 66 : Read 40012a18
+L1 Read: 40012a18(tag 40012a, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 67 : Read 400129a4
+L1 Read: 400129a4(tag 400129, index 5)
+Current set	5:  400129   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	5:  400129   	 -     	 -     	 -     
+# 68 : Read 4008b390
+L1 Read: 4008b390(tag 4008b3, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 69 : Write 4002e84c
+L1 Write: 4002e84c(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 70 : Write 4002e850
+L1 Write: 4002e850(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 71 : Read 400129a4
+L1 Read: 400129a4(tag 400129, index 5)
+Current set	5:  400129   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	5:  400129   	 -     	 -     	 -     
+# 72 : Write 4003c21c
+L1 Write: 4003c21c(tag 4003c2, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 73 : Read 400129a4
+L1 Read: 400129a4(tag 400129, index 5)
+Current set	5:  400129   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	5:  400129   	 -     	 -     	 -     
+# 74 : Write 4004961c
+L1 Write: 4004961c(tag 400496, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 75 : Read 40012a1c
+L1 Read: 40012a1c(tag 40012a, index 0)
+Current set	0:  40012a   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	0:  40012a   	 -     	 -     	 -     
+# 76 : Read 400129a8
+L1 Read: 400129a8(tag 400129, index 5)
+Current set	5:  400129   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	5:  400129   	 -     	 -     	 -     
+# 77 : Read 4008b390
+L1 Read: 4008b390(tag 4008b3, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 78 : Write 4002e84c
+L1 Write: 4002e84c(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 79 : Write 4002e850
+L1 Write: 4002e850(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 80 : Read 400129a8
+L1 Read: 400129a8(tag 400129, index 5)
+Current set	5:  400129   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	5:  400129   	 -     	 -     	 -     
+# 81 : Write 4003c220
+L1 Write: 4003c220(tag 4003c2, index 1)
+Current set	1:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	1:	 -     	 -     	 -     	 -     
+# 82 : Read 400129a8
+L1 Read: 400129a8(tag 400129, index 5)
+Current set	5:  400129   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	5:  400129   	 -     	 -     	 -     
+# 83 : Write 40049620
+L1 Write: 40049620(tag 400496, index 1)
+Current set	1:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	1:	 -     	 -     	 -     	 -     
+# 84 : Read 40012a20
+L1 Read: 40012a20(tag 40012a, index 1)
+Current set	1:	 -     	 -     	 -     	 -     
+L1 MISS
+Count_Block Update
+Changed set	1:  40012a   	 -     	 -     	 -     
+# 85 : Read 400129ac
+L1 Read: 400129ac(tag 400129, index 5)
+Current set	5:  400129   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	5:  400129   	 -     	 -     	 -     
+# 86 : Read 4008b390
+L1 Read: 4008b390(tag 4008b3, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 87 : Write 4002e84c
+L1 Write: 4002e84c(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 88 : Write 4002e850
+L1 Write: 4002e850(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 89 : Read 400129ac
+L1 Read: 400129ac(tag 400129, index 5)
+Current set	5:  400129   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	5:  400129   	 -     	 -     	 -     
+# 90 : Write 4003c224
+L1 Write: 4003c224(tag 4003c2, index 1)
+Current set	1:  40012a   	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	1:  40012a   	 -     	 -     	 -     
+# 91 : Read 400129ac
+L1 Read: 400129ac(tag 400129, index 5)
+Current set	5:  400129   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	5:  400129   	 -     	 -     	 -     
+# 92 : Write 40049624
+L1 Write: 40049624(tag 400496, index 1)
+Current set	1:  40012a   	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	1:  40012a   	 -     	 -     	 -     
+# 93 : Read 40012a24
+L1 Read: 40012a24(tag 40012a, index 1)
+Current set	1:  40012a   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	1:  40012a   	 -     	 -     	 -     
+# 94 : Read 400129b0
+L1 Read: 400129b0(tag 400129, index 5)
+Current set	5:  400129   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	5:  400129   	 -     	 -     	 -     
+# 95 : Read 4008b390
+L1 Read: 4008b390(tag 4008b3, index 4)
+Current set	4:  400129     4008b3   	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	4:  400129     4008b3   	 -     	 -     
+# 96 : Write 4002e84c
+L1 Write: 4002e84c(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 97 : Write 4002e850
+L1 Write: 4002e850(tag 4002e8, index 2)
+Current set	2:	 -     	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	2:	 -     	 -     	 -     	 -     
+# 98 : Read 400129b0
+L1 Read: 400129b0(tag 400129, index 5)
+Current set	5:  400129   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	5:  400129   	 -     	 -     	 -     
+# 99 : Write 4003c228
+L1 Write: 4003c228(tag 4003c2, index 1)
+Current set	1:  40012a   	 -     	 -     	 -     
+L1 MISS, WRITE THROUGH
+Changed set	1:  40012a   	 -     	 -     	 -     
+# 100 : Read 400129b0
+L1 Read: 400129b0(tag 400129, index 5)
+Current set	5:  400129   	 -     	 -     	 -     
+L1 HIT
+Count_Block Update
+Changed set	5:  400129   	 -     	 -     	 -     
