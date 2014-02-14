@@ -97,6 +97,7 @@ public class Cache {
         Debug(name + " MISS");	
         
 	read_miss_counter++;
+        if(
         update_LRU(assoc-1, index);
         tags_matrix[index][0].tag = tag;
         tags_matrix[index][0].Address = 0;

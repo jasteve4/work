@@ -24,26 +24,24 @@ public class sim_cache {
         int index_bits = (int) (Math.log(L1_Sets)/Math.log(2));
         int block_offset_bits = (int) (Math.log(L1_Blocksize)/Math.log(2));
         int tag_bits = 32 - index_bits - block_offset_bits;  
-            
-            
+        boolean output = true;   
+        int line_count = 0;
         Cache L1cache = new Cache(L1_Sets, L1_Assoc);
         L1cache.write_policy = L1_Write_Policy;
         L1cache.block_offeset_bits = block_offset_bits;
         L1cache.tag_bits = tag_bits;
         L1cache.index_bits = index_bits;
-        L1cache.debug = true;
+        L1cache.debug = false;
         L1cache.name = "L1";
         
         
             
         BufferedReader br = new BufferedReader(new FileReader(trace_file));
         
-        
-        
-//        while((line = br.readLine()) != null) {
-        while(iteration < 101) {
+        while((line = br.readLine()) != null) {
+            line_count++;
+ //       while(iteration < 101) {
             
-           line = br.readLine();
            L1cache.iteration = iteration;
            iteration++;
            if(line.substring(0,1).equals("r")){
@@ -58,9 +56,24 @@ public class sim_cache {
             //bin = String.format("%32s",Integer.toBinaryString(hex)).replace(' ','0');
             
             L1cache.run(address);
-
+            
         }
+        Output(" a. number of L1 reads:          "+ L1cache.read_counter );
+        Output(" b. number of L1 read misses:    "+ L1cache.read_miss_counter  );
+        Output(" c. number of L1 writes:         "+ L1cache.write_counter );
+        Output(" d. number of L1 write misses:   "+ L1cache.write_miss_counter );
+        Output(" f. number of writebacks from L1:"+ L1cache.read_counter );
+        Output("  g. total memory traffic:       "+ L1cache.read_counter );
 
     }
+
+    public static void Output(Object object){
+        if(true){
+            System.out.println(object);
+        }
+    }
+
+
+
 
 }
