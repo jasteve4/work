@@ -21,6 +21,7 @@ public class Cache {
     public int read_hit_counter = 0;
     public int read_miss_counter = 0;
     public int address;
+    public int main_memory_count = 0;
     
     public Cache(int sets, int assoc) {
 		
@@ -40,10 +41,7 @@ public class Cache {
 		
     }
     
-    public void read(){
-      
-        
-	read_counter++;
+    public void currentDebug(){
         if(debug){
             System.out.print("Current set     "+ index + ":     ");
         }    
@@ -65,99 +63,212 @@ public class Cache {
             }
         }
         Debug("");
-	for(int J=0; J<assoc; J++){	
-            if(tags_matrix[index][J].tag == tag){
-		read_hit_counter++;
-                Debug(name + " HIT");
-                update_LRU(J, index);
+    }
+    
+    public void ChangeDebug(){
+         if(debug){
+            System.out.print("Changed set     "+ index + ":     ");
+            }
+            for(int N = 0; N < assoc; N++){
                 if(debug){
-                    System.out.print("Changed set     "+ index + ":     ");
-                }
-                for(int N = 0; N < assoc; N++){
-                    if(debug){
-                        if(tags_matrix[index][N].Address == -1){
-                            System.out.print("-     ");
+                    if(tags_matrix[index][N].Address == -1){
+                        System.out.print("-     ");
+                    }
+                    else{
+                        System.out.print(Integer.toHexString(tags_matrix[index][N].tag)+"     ");
+                        if(tags_matrix[index][N].DirtyBit){
+                            System.out.print(" D    ");
                         }
                         else{
-                            System.out.print(Integer.toHexString(tags_matrix[index][N].tag)+"     ");
-                            if(tags_matrix[index][N].DirtyBit){
-                                System.out.print(" D    ");
+                            System.out.print("      ");
+                        }
+                    }
+
+                }
+            }
+            Debug("");
+    }
+    
+    public void read(){
+	read_counter++;
+        currentDebug();
+	for(int J=0; J<assoc; J++){	
+            if(tags_matrix[index][J].Address != -1){ // for empty in the cache
+                if(tags_matrix[index][J].tag == tag){
+                    read_hit_counter++;
+                    Debug(name + " HIT");
+                    update_LRU(J, index);
+                    ChangeDebug();
+                    return;
+                }
+                else if(J == assoc -1){  // at the end of the assoc
+                    for(int i = 0; i< assoc; i ++){
+                        if(tags_matrix[index][i].count == assoc-1){ 
+                            if(write_policy){ // Write thruogh
+                               Debug(name + " MISS");	
+                               read_miss_counter++;
+                               update_LRU(i, index);
+                               tags_matrix[index][i].tag = tag;
+                               tags_matrix[index][i].Address = this.address;
+                               ChangeDebug();
+                               return;
                             }
-                            else{
-                                System.out.print("      ");
+                            else{      // Write Back
+                                if(tags_matrix[index][i].DirtyBit){ // Dirty bit write back
+                                    Debug(name + " MISS");	
+                                    read_miss_counter++;
+                                    if(next_cache != null){ // write back to the next level
+                                        next_cache.run(tags_matrix[index][i].Address);
+                                    }
+                                    else{ // access the next level
+                                        main_memory_count++;
+                                    }
+                                    update_LRU(i, index);
+                                    tags_matrix[index][i].tag = tag;
+                                    tags_matrix[index][i].Address = this.address;
+                                    ChangeDebug();
+                                    return;
+                                }
+                                else{ // dirty bit clean
+                                    Debug(name + " MISS");	
+                                    read_miss_counter++;
+                                    update_LRU(i, index);
+                                    tags_matrix[index][i].tag = tag;
+                                    tags_matrix[index][i].Address = this.address;
+                                    ChangeDebug();
+                                    return;
+                                }
                             }
                         }
-                    
                     }
-                }
-                Debug("");
+                }       
+            }
+            else{
+                Debug(name + " MISS");	
+                read_miss_counter++;
+                update_LRU(J, index);
+                tags_matrix[index][J].tag = tag;
+                tags_matrix[index][J].Address = this.address;
+                ChangeDebug();
                 return;
             }
 	}
-        Debug(name + " MISS");	
-        
-	read_miss_counter++;
-        update_LRU(assoc-1, index);
-        tags_matrix[index][0].tag = tag;
-        tags_matrix[index][0].Address = this.address;
-        if(debug){
-            System.out.print("Changed set     "+ index + ":     ");
-        }
-        for(int N = 0; N < assoc; N++){
-            if(debug){
-                if(tags_matrix[index][N].Address == -1){
-                    System.out.print("-     ");
-                }
-                else{
-                    System.out.print(Integer.toHexString(tags_matrix[index][N].tag)+"     ");
-                    if(tags_matrix[index][N].DirtyBit){
-                        System.out.print(" D    ");
-                    }
-                    else{
-                        System.out.print("      ");
-                    }
-                }
-
-            }
-        }  
-        Debug("");
-        return;
     }
 	
-	public void write(){
-        
-        
+    public void write(){
 	write_counter++;
-        if(debug){
-            System.out.print("Current set     "+ index + ":     ");
-        }
-        for(int N = 0; N < assoc; N++){
-            if(debug){
-                if(tags_matrix[index][N].Address == -1){
-                    System.out.print("-     ");
+        currentDebug();
+	for(int J=0; J<assoc; J++){	
+            if(tags_matrix[index][J].Address != -1){ // for empty in the cache
+                if(tags_matrix[index][J].tag == tag){
+                    write_hit_counter++;
+                    Debug(name + " HIT");
+                    update_LRU(J, index);
+                    ChangeDebug();
+                    return;
                 }
-                else{
-                    System.out.print(Integer.toHexString(tags_matrix[index][N].tag)+"     ");
-                    if(tags_matrix[index][N].DirtyBit){
-                        System.out.print(" D    ");
+                else if(J == assoc -1){  // at the end of the assoc
+                    for(int i = 0; i< assoc; i ++){
+                        if(tags_matrix[index][i].count == assoc-1){ 
+                            if(write_policy){ // Write thruogh
+                               Debug(name + " MISS");	
+                               write_miss_counter++;
+                               update_LRU(i, index);
+                               tags_matrix[index][i].tag = tag;
+                               tags_matrix[index][i].Address = this.address;
+                               ChangeDebug();
+                               return;
+                            }
+                            else{      // Write Back
+                                if(tags_matrix[index][i].DirtyBit){ // Dirty bit write back
+                                    Debug(name + " MISS");	
+                                    write_miss_counter++;
+                                    if(next_cache != null){ // write back to the next level
+                                        next_cache.run(tags_matrix[index][i].Address);
+                                    }
+                                    else{ // access the next level
+                                        main_memory_count++;
+                                    }
+                                    update_LRU(i, index);
+                                    tags_matrix[index][i].tag = tag;
+                                    tags_matrix[index][i].Address = this.address;
+                                    ChangeDebug();
+                                    return;
+                                }
+                                else{ // dirty bit clean
+                                    Debug(name + " MISS");	
+                                    read_miss_counter++;
+                                    update_LRU(i, index);
+                                    tags_matrix[index][i].tag = tag;
+                                    tags_matrix[index][i].Address = this.address;
+                                    ChangeDebug();
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }       
+            }
+            else{
+                Debug(write_policy);
+                if(write_policy){
+                    Debug(name + " MISS, WRITE THROUGH");	
+                    write_miss_counter++;
+                    if(next_cache != null){
+                        next_cache.run(tags_matrix[index][J].Address);
                     }
                     else{
-                        System.out.print("      ");
-                    } 
+                        main_memory_count++;
+                    }
+                    ChangeDebug();
+                    return;
                 }
-
+                else{
+                    Debug(name + " MISS");	
+                    write_miss_counter++;
+                    update_LRU(J, index);
+                    tags_matrix[index][J].tag = tag;
+                    tags_matrix[index][J].Address = this.address;
+                    ChangeDebug();
+                    return;
+                }
             }
-        } 
+	}        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+ /*       currentDebug();
         Debug("");
 	for(int J=0; J < assoc; J++){	
             if(tags_matrix[index][J].Address == -1){
-                Debug(name + " MISS");
-                write_miss_counter++;
-                update_LRU(J, index);
-                tags_matrix[index][J].DirtyBit = true;
-                tags_matrix[index][J].tag = tag;
-                tags_matrix[index][J].Address = this.address;
-                Debug(name + " SET DIRTY");
+                if(state)
+                {
+                    Debug(name + " MISS, WRITE THROUGH");
+                    write_miss_counter++;
+                    update_LRU(J, index);
+                    tags_matrix[index][J].DirtyBit = false;
+                    tags_matrix[index][J].tag = tag;
+                    tags_matrix[index][J].Address = this.address;
+                    Debug(name + " SET DIRTY");
+                }
+                else
+                {
+                    Debug(name + " MISS");
+                    write_miss_counter++;
+                    update_LRU(J, index);
+                    tags_matrix[index][J].DirtyBit = true;
+                    tags_matrix[index][J].tag = tag;
+                    tags_matrix[index][J].Address = this.address;
+                    Debug(name + " SET DIRTY");
+                }
             }
             else if(J == assoc - 1){
                 for(int i = 0; i < assoc -1; i ++){
@@ -179,27 +290,7 @@ public class Cache {
                     update_LRU(J, index);
                     Debug(name + " SET DIRTY");
                     tags_matrix[index][J].DirtyBit = true;
-                    if(debug){
-                        System.out.print("Changed set     "+ index + ":     ");
-                    }
-                    for(int N = 0; N < assoc; N++){
-                        if(debug){
-                            if(tags_matrix[index][N].Address == -1){
-                                System.out.print("-     ");
-                            }
-                            else{
-                                System.out.print(Integer.toHexString(tags_matrix[index][N].tag)+"     ");
-                                if(tags_matrix[index][N].DirtyBit){
-                                    System.out.print(" D    ");
-                                }
-                                else{
-                                    System.out.print("      ");
-                                }
-                            }
-
-                        }
-                    }  
-                    Debug("");
+                    ChangeDebug();
                     return;
                 }
             }
@@ -228,17 +319,12 @@ public class Cache {
             }
         }  
         Debug("");
-        return;
+        return;*/
 	
     }
 	
 	private void update_LRU(int position, int index){
             
-            /*cacheEntry temp = tags_matrix[index][position];
-            for(int J = position; J > 0; J--){
-			    tags_matrix[index][J] = tags_matrix[index][J-1];
-            }
-            tags_matrix[index][0] = temp;*/
             int min_count = tags_matrix[index][position].count;
             for(int j = 0; j < assoc-1;j++){
                 if(j == position){

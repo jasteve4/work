@@ -9,8 +9,8 @@ public class sim_cache {
 	int L1_Blocksize = Integer.parseInt(args[0]);
         int L1_Size = Integer.parseInt(args[1]);
         int L1_Assoc = Integer.parseInt(args[2]);
-        boolean L1_Replacement_Policy = Boolean.parseBoolean(args[3]);
-        boolean L1_Write_Policy = Boolean.parseBoolean(args[4]);
+        int L1_Replacement_Policy = Integer.parseInt(args[3]);
+        int L1_Write_Policy = Integer.parseInt(args[4]);
         String trace_file = (args[5]);
         int iteration = 1;
         
@@ -27,7 +27,13 @@ public class sim_cache {
             
             
         Cache L1cache = new Cache(L1_Sets, L1_Assoc);
-        L1cache.write_policy = L1_Write_Policy;
+        
+        if(L1_Write_Policy == 1){
+            L1cache.write_policy = true;  
+        }
+        else{
+            L1cache.write_policy = false; 
+        }
         L1cache.block_offeset_bits = block_offset_bits;
         L1cache.tag_bits = tag_bits;
         L1cache.index_bits = index_bits;

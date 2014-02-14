@@ -1,0 +1,6 @@
+ a. number of L1 reads:          60613
+ b. number of L1 read misses:    850
+ c. number of L1 writes:         39387
+ d. number of L1 write misses:   817
+ f. number of writebacks from L1:60613
+  g. total memory traffic:       60613
