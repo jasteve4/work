@@ -26,6 +26,8 @@ bus_op_t Firefly::PrRd(ulong addr, int processorNumber)
 			// won't show up in count till we set its state
 		if (shared_line) {newline->set_state(S); cache2cache++;}
 		else {newline->set_state(V); memoryTransactions++;}
+		
+		busRds++;
 		return busRd; // Read miss --> BusRd
     }
     else // This is a hit
@@ -49,6 +51,7 @@ bus_op_t Firefly::PrWr(ulong addr, int processorNumber)
 		if (shared_line) {newline->set_state(S); cache2cache++;} 
 		else {newline->set_state(D); memoryTransactions++;}
 
+		busUpds++;
 		return busUpd; // Write miss --> BusUpd
     }
     else
@@ -67,6 +70,7 @@ bus_op_t Firefly::PrWr(ulong addr, int processorNumber)
 			if (shared_line) {line->set_state(S);}
 			else {line->set_state(D);}
 
+			busUpds++;
 			return busUpd; // Write hit in S --> BusUpd
 		}
 		else return none; // Write hit in state D, no bus action
