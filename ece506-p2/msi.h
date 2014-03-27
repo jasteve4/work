@@ -14,5 +14,6 @@ class Msi : public Cache {
   int BusRd(ulong addr);
   int BusRdX(ulong addr);
   int BusUpgr(ulong addr) { return 0; }
+  int BusUpd(ulong addr){ return 0; };
 };
 

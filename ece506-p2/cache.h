@@ -99,6 +99,7 @@ public:
     virtual int BusRd(ulong) = 0;
     virtual int BusRdX(ulong) = 0;
     virtual int BusUpgr(ulong) = 0;
+    virtual int BusUpd(ulong) = 0;
 };
 
 #endif

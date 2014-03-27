@@ -13,6 +13,9 @@ using namespace std;
 #include "cache.h"
 #include "msi_w.h"
 #include "msi.h"
+#include "dragon.h"
+#include "firefly.h"
+
 
 const int max_processors = 16;
 int num_processors;
@@ -66,8 +69,10 @@ int main(int argc, char *argv[])
     {
       switch (cache_type)
       {
-        case 1: processor_cache[i] = new Msi_w::Msi_w(cache_size, cache_assoc, blk_size,num_processors); break;
         case 0: processor_cache[i] = new Msi::Msi(cache_size, cache_assoc, blk_size,num_processors); break;
+        case 1: processor_cache[i] = new Msi_w::Msi_w(cache_size, cache_assoc, blk_size,num_processors); break;
+        case 2: processor_cache[i] = new Dragon::Dragon(cache_size, cache_assoc, blk_size,num_processors); break;
+        case 3: processor_cache[i] = new Firefly::Firefly(cache_size, cache_assoc, blk_size,num_processors); break;
         default: break; 
       }
     }
@@ -115,6 +120,16 @@ int main(int argc, char *argv[])
               if (i!=proc_no) 
               {
                 processor_cache[i]->BusRd(addr);
+              }
+          }
+      }
+      else if (bus_op==busUpd)
+      { // Read miss
+          for (i=0; i<num_processors; i++)
+          {
+              if (i!=proc_no) 
+              {
+                processor_cache[i]->BusUpd(addr);
               }
           }
       }

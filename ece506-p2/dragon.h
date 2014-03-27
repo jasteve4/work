@@ -17,6 +17,7 @@ class Dragon : public Cache {
 		int BusRd(ulong addr);
 		int BusUpd(ulong addr);
 		int BusRdX(ulong addr) { return 0; };
+                int BusUpgr(ulong addr) { return 0;};
 };
 
 #endif //DRAGON_H__
