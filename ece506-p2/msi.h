@@ -13,5 +13,6 @@ class Msi : public Cache {
   cacheLine *allocateLine(ulong addr);
   int BusRd(ulong addr);
   int BusRdX(ulong addr);
+  int BusUpgr(ulong addr) { return 0; }
 };
 
