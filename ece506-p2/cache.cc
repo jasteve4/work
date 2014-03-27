@@ -137,13 +137,13 @@ void Cache::printStats(int processorNumber)
         printf("09. total miss rate: \t\t\t\t");
 	printf("%.6lf", ((double) getRM() + (double) getWM()) / ((double) getReads() + (double) getWrites()));
 	cout << endl;
-	printf("010. number of writebacks: \t\t\t");
+	printf("10. number of writebacks: \t\t\t");
 	cout << (int) getWB();
 	cout << endl;
-	printf("011. number of memory transactions: \t\t");
+	printf("11. number of memory transactions: \t\t");
 	cout << (int) getmemTrans();
 	cout << endl;
-	printf("012. number of cache-to-cache transfers: \t");
+	printf("12. number of cache-to-cache transfers: \t");
 	cout<<(int)getcache2cache();
 	cout << endl;
 }

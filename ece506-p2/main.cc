@@ -45,8 +45,8 @@ int main(int argc, char *argv[])
     int cache_size = atoi(argv[1]);
     int cache_assoc= atoi(argv[2]);
     int blk_size   = atoi(argv[3]);
-    int cache_type   = atoi(argv[4]);
-    num_processors = atoi(argv[5]);/*1, 2, 4, 8*/
+    int cache_type   = atoi(argv[5]);
+    num_processors = atoi(argv[4]);/*1, 2, 4, 8*/
     char *fname =  (char *)malloc(20);
      fname = argv[6];
 

@@ -24,6 +24,7 @@ bus_op_t Dragon::PrRd(ulong addr, int processorNumber) {
 		// won't show up in count till we set its state
 	if (shared_line) {newline->set_state(Sc); cache2cache++;}
 		    else {newline->set_state(E); memoryTransactions++;}
+        busRds++;
 	return busRd; // Read miss --> BusRd
     }
     else { // This is a hit
@@ -41,9 +42,9 @@ bus_op_t Dragon::PrWr(ulong addr, int processorNumber) {
 	writeMisses++;
 	cacheLine *newline = allocateLine(addr);
         int shared_line = sharers(addr) > 0; // see comment in PrRd method
-	if (shared_line) {newline->set_state(Sm); cache2cache++;} 
-		    else {newline->set_state(M); memoryTransactions++;}
-
+	if (shared_line) {newline->set_state(Sm); cache2cache++; busUpds++;} 
+		    else {newline->set_state(M); memoryTransactions++;busRds++;}
+        
 	return busUpd; // Write miss --> BusUpd
     }
     else {
@@ -58,7 +59,7 @@ bus_op_t Dragon::PrWr(ulong addr, int processorNumber) {
 	    int shared_line = sharers(addr) > 1;
 	    if (shared_line) line->set_state(Sm);
 	    else {line->set_state(M);}
-
+            busUpds++;
 	    return busUpd; // Write hit in Sc or SM --> BusUpd
 	    }
 	else return none; // Write hit in state M, no bus action
