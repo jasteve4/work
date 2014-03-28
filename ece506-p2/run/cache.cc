@@ -109,6 +109,7 @@ cacheLine *Cache::findLineToReplace(ulong addr)
 
 void Cache::printStats(int processorNumber)
 { 
+	cout << "f=========== Simulation results (Cache " << processorNumber << ") ============" << endl;
 	printf("number of reads, \t\t\t\t");
 	cout << (int) getReads();
 	cout << endl;
