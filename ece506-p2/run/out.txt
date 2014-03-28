@@ -15,6 +15,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	msi
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			6423
 number of writes, 				11942
@@ -27,6 +28,7 @@ total miss rate, 				0.051572
 number of writebacks, 			569
 number of memory transactions, 		6995
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			6452
 number of writes, 				11710
@@ -39,6 +41,7 @@ total miss rate, 				0.052669
 number of writebacks, 			570
 number of memory transactions, 		7024
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			6456
 number of writes, 				12383
@@ -51,6 +54,7 @@ total miss rate, 				0.050722
 number of writebacks, 			584
 number of memory transactions, 		7042
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			6468
 number of writes, 				12108
@@ -69,6 +73,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	msi
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5995
 number of writes, 				11942
@@ -81,6 +86,7 @@ total miss rate, 				0.048137
 number of writebacks, 			517
 number of memory transactions, 		6515
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			6012
 number of writes, 				11710
@@ -93,6 +99,7 @@ total miss rate, 				0.049078
 number of writebacks, 			508
 number of memory transactions, 		6522
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			6014
 number of writes, 				12383
@@ -105,6 +112,7 @@ total miss rate, 				0.047251
 number of writebacks, 			528
 number of memory transactions, 		6544
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			6025
 number of writes, 				12108
@@ -123,6 +131,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	msi
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5740
 number of writes, 				11942
@@ -135,6 +144,7 @@ total miss rate, 				0.046090
 number of writebacks, 			406
 number of memory transactions, 		6149
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5750
 number of writes, 				11710
@@ -147,6 +157,7 @@ total miss rate, 				0.046940
 number of writebacks, 			407
 number of memory transactions, 		6159
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5751
 number of writes, 				12383
@@ -159,6 +170,7 @@ total miss rate, 				0.045185
 number of writebacks, 			414
 number of memory transactions, 		6167
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5756
 number of writes, 				12108
@@ -177,6 +189,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	msi
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5635
 number of writes, 				11942
@@ -189,6 +202,7 @@ total miss rate, 				0.045248
 number of writebacks, 			228
 number of memory transactions, 		5866
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5646
 number of writes, 				11710
@@ -201,6 +215,7 @@ total miss rate, 				0.046091
 number of writebacks, 			246
 number of memory transactions, 		5894
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5644
 number of writes, 				12383
@@ -213,6 +228,7 @@ total miss rate, 				0.044345
 number of writebacks, 			234
 number of memory transactions, 		5880
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5652
 number of writes, 				12108
@@ -231,6 +247,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	msi
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5601
 number of writes, 				11942
@@ -243,6 +260,7 @@ total miss rate, 				0.044975
 number of writebacks, 			128
 number of memory transactions, 		5732
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5610
 number of writes, 				11710
@@ -255,6 +273,7 @@ total miss rate, 				0.045797
 number of writebacks, 			132
 number of memory transactions, 		5744
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5610
 number of writes, 				12383
@@ -267,6 +286,7 @@ total miss rate, 				0.044078
 number of writebacks, 			136
 number of memory transactions, 		5748
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5617
 number of writes, 				12108
@@ -285,6 +305,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	msi w/ bus upgrade
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			6423
 number of writes, 				11942
@@ -297,6 +318,7 @@ total miss rate, 				0.051572
 number of writebacks, 			569
 number of memory transactions, 		6995
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			6452
 number of writes, 				11710
@@ -309,6 +331,7 @@ total miss rate, 				0.052669
 number of writebacks, 			570
 number of memory transactions, 		7024
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			6456
 number of writes, 				12383
@@ -321,6 +344,7 @@ total miss rate, 				0.050722
 number of writebacks, 			584
 number of memory transactions, 		7042
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			6468
 number of writes, 				12108
@@ -339,6 +363,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	msi w/ bus upgrade
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5995
 number of writes, 				11942
@@ -351,6 +376,7 @@ total miss rate, 				0.048137
 number of writebacks, 			517
 number of memory transactions, 		6515
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			6012
 number of writes, 				11710
@@ -363,6 +389,7 @@ total miss rate, 				0.049078
 number of writebacks, 			508
 number of memory transactions, 		6522
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			6014
 number of writes, 				12383
@@ -375,6 +402,7 @@ total miss rate, 				0.047251
 number of writebacks, 			528
 number of memory transactions, 		6544
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			6025
 number of writes, 				12108
@@ -393,6 +421,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	msi w/ bus upgrade
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5740
 number of writes, 				11942
@@ -405,6 +434,7 @@ total miss rate, 				0.046090
 number of writebacks, 			406
 number of memory transactions, 		6149
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5750
 number of writes, 				11710
@@ -417,6 +447,7 @@ total miss rate, 				0.046940
 number of writebacks, 			407
 number of memory transactions, 		6159
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5751
 number of writes, 				12383
@@ -429,6 +460,7 @@ total miss rate, 				0.045185
 number of writebacks, 			414
 number of memory transactions, 		6167
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5756
 number of writes, 				12108
@@ -447,6 +479,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	msi w/ bus upgrade
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5635
 number of writes, 				11942
@@ -459,6 +492,7 @@ total miss rate, 				0.045248
 number of writebacks, 			228
 number of memory transactions, 		5866
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5646
 number of writes, 				11710
@@ -471,6 +505,7 @@ total miss rate, 				0.046091
 number of writebacks, 			246
 number of memory transactions, 		5894
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5644
 number of writes, 				12383
@@ -483,6 +518,7 @@ total miss rate, 				0.044345
 number of writebacks, 			234
 number of memory transactions, 		5880
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5652
 number of writes, 				12108
@@ -501,6 +537,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	msi w/ bus upgrade
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5601
 number of writes, 				11942
@@ -513,6 +550,7 @@ total miss rate, 				0.044975
 number of writebacks, 			128
 number of memory transactions, 		5732
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5610
 number of writes, 				11710
@@ -525,6 +563,7 @@ total miss rate, 				0.045797
 number of writebacks, 			132
 number of memory transactions, 		5744
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5610
 number of writes, 				12383
@@ -537,6 +576,7 @@ total miss rate, 				0.044078
 number of writebacks, 			136
 number of memory transactions, 		5748
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5617
 number of writes, 				12108
@@ -555,6 +595,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	dragon
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			6423
 number of writes, 				11942
@@ -567,6 +608,7 @@ total miss rate, 				0.051572
 number of writebacks, 			567
 number of memory transactions, 		2169
 number of cache-to-cache transfers, 	4824
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			6452
 number of writes, 				11710
@@ -579,6 +621,7 @@ total miss rate, 				0.052669
 number of writebacks, 			562
 number of memory transactions, 		2124
 number of cache-to-cache transfers, 	4892
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			6456
 number of writes, 				12383
@@ -591,6 +634,7 @@ total miss rate, 				0.050722
 number of writebacks, 			569
 number of memory transactions, 		2154
 number of cache-to-cache transfers, 	4873
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			6468
 number of writes, 				12108
@@ -609,6 +653,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	dragon
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5995
 number of writes, 				11942
@@ -621,6 +666,7 @@ total miss rate, 				0.048137
 number of writebacks, 			512
 number of memory transactions, 		2006
 number of cache-to-cache transfers, 	4504
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			6012
 number of writes, 				11710
@@ -633,6 +679,7 @@ total miss rate, 				0.049078
 number of writebacks, 			506
 number of memory transactions, 		1993
 number of cache-to-cache transfers, 	4527
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			6014
 number of writes, 				12383
@@ -645,6 +692,7 @@ total miss rate, 				0.047251
 number of writebacks, 			519
 number of memory transactions, 		2015
 number of cache-to-cache transfers, 	4520
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			6025
 number of writes, 				12108
@@ -663,6 +711,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	dragon
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5740
 number of writes, 				11942
@@ -675,6 +724,7 @@ total miss rate, 				0.046090
 number of writebacks, 			404
 number of memory transactions, 		1839
 number of cache-to-cache transfers, 	4308
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5750
 number of writes, 				11710
@@ -687,6 +737,7 @@ total miss rate, 				0.046940
 number of writebacks, 			408
 number of memory transactions, 		1838
 number of cache-to-cache transfers, 	4322
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5751
 number of writes, 				12383
@@ -699,6 +750,7 @@ total miss rate, 				0.045185
 number of writebacks, 			409
 number of memory transactions, 		1848
 number of cache-to-cache transfers, 	4314
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5756
 number of writes, 				12108
@@ -717,6 +769,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	dragon
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5635
 number of writes, 				11942
@@ -729,6 +782,7 @@ total miss rate, 				0.045248
 number of writebacks, 			226
 number of memory transactions, 		1639
 number of cache-to-cache transfers, 	4225
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5646
 number of writes, 				11710
@@ -741,6 +795,7 @@ total miss rate, 				0.046091
 number of writebacks, 			243
 number of memory transactions, 		1656
 number of cache-to-cache transfers, 	4235
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5644
 number of writes, 				12383
@@ -753,6 +808,7 @@ total miss rate, 				0.044345
 number of writebacks, 			232
 number of memory transactions, 		1647
 number of cache-to-cache transfers, 	4231
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5652
 number of writes, 				12108
@@ -771,6 +827,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	dragon
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5601
 number of writes, 				11942
@@ -783,6 +840,7 @@ total miss rate, 				0.044975
 number of writebacks, 			128
 number of memory transactions, 		1536
 number of cache-to-cache transfers, 	4196
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5610
 number of writes, 				11710
@@ -795,6 +853,7 @@ total miss rate, 				0.045797
 number of writebacks, 			127
 number of memory transactions, 		1532
 number of cache-to-cache transfers, 	4207
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5610
 number of writes, 				12383
@@ -807,6 +866,7 @@ total miss rate, 				0.044078
 number of writebacks, 			135
 number of memory transactions, 		1541
 number of cache-to-cache transfers, 	4206
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5617
 number of writes, 				12108
@@ -825,6 +885,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	firefly
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			6423
 number of writes, 				11942
@@ -837,6 +898,7 @@ total miss rate, 				0.051572
 number of writebacks, 			4
 number of memory transactions, 		1606
 number of cache-to-cache transfers, 	4824
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			6452
 number of writes, 				11710
@@ -849,6 +911,7 @@ total miss rate, 				0.052669
 number of writebacks, 			8
 number of memory transactions, 		1570
 number of cache-to-cache transfers, 	4892
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			6456
 number of writes, 				12383
@@ -861,6 +924,7 @@ total miss rate, 				0.050722
 number of writebacks, 			13
 number of memory transactions, 		1598
 number of cache-to-cache transfers, 	4873
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			6468
 number of writes, 				12108
@@ -879,6 +943,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	firefly
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5995
 number of writes, 				11942
@@ -891,6 +956,7 @@ total miss rate, 				0.048137
 number of writebacks, 			2
 number of memory transactions, 		1496
 number of cache-to-cache transfers, 	4504
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			6012
 number of writes, 				11710
@@ -903,6 +969,7 @@ total miss rate, 				0.049078
 number of writebacks, 			7
 number of memory transactions, 		1494
 number of cache-to-cache transfers, 	4527
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			6014
 number of writes, 				12383
@@ -915,6 +982,7 @@ total miss rate, 				0.047251
 number of writebacks, 			7
 number of memory transactions, 		1503
 number of cache-to-cache transfers, 	4520
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			6025
 number of writes, 				12108
@@ -933,6 +1001,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	firefly
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5740
 number of writes, 				11942
@@ -945,6 +1014,7 @@ total miss rate, 				0.046090
 number of writebacks, 			2
 number of memory transactions, 		1437
 number of cache-to-cache transfers, 	4308
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5750
 number of writes, 				11710
@@ -957,6 +1027,7 @@ total miss rate, 				0.046940
 number of writebacks, 			6
 number of memory transactions, 		1436
 number of cache-to-cache transfers, 	4322
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5751
 number of writes, 				12383
@@ -969,6 +1040,7 @@ total miss rate, 				0.045185
 number of writebacks, 			7
 number of memory transactions, 		1446
 number of cache-to-cache transfers, 	4314
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5756
 number of writes, 				12108
@@ -987,6 +1059,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	firefly
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5635
 number of writes, 				11942
@@ -999,6 +1072,7 @@ total miss rate, 				0.045248
 number of writebacks, 			1
 number of memory transactions, 		1414
 number of cache-to-cache transfers, 	4225
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5646
 number of writes, 				11710
@@ -1011,6 +1085,7 @@ total miss rate, 				0.046091
 number of writebacks, 			4
 number of memory transactions, 		1417
 number of cache-to-cache transfers, 	4235
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5644
 number of writes, 				12383
@@ -1023,6 +1098,7 @@ total miss rate, 				0.044345
 number of writebacks, 			7
 number of memory transactions, 		1422
 number of cache-to-cache transfers, 	4231
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5652
 number of writes, 				12108
@@ -1041,6 +1117,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	firefly
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5601
 number of writes, 				11942
@@ -1053,6 +1130,7 @@ total miss rate, 				0.044975
 number of writebacks, 			1
 number of memory transactions, 		1409
 number of cache-to-cache transfers, 	4196
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5610
 number of writes, 				11710
@@ -1065,6 +1143,7 @@ total miss rate, 				0.045797
 number of writebacks, 			3
 number of memory transactions, 		1408
 number of cache-to-cache transfers, 	4207
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5610
 number of writes, 				12383
@@ -1077,6 +1156,7 @@ total miss rate, 				0.044078
 number of writebacks, 			2
 number of memory transactions, 		1408
 number of cache-to-cache transfers, 	4206
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5617
 number of writes, 				12108
@@ -1095,6 +1175,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	msi
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5595
 number of writes, 				11942
@@ -1107,6 +1188,7 @@ total miss rate, 				0.044927
 number of writebacks, 			107
 number of memory transactions, 		5705
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5604
 number of writes, 				11710
@@ -1119,6 +1201,7 @@ total miss rate, 				0.045748
 number of writebacks, 			115
 number of memory transactions, 		5721
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5604
 number of writes, 				12383
@@ -1131,6 +1214,7 @@ total miss rate, 				0.044030
 number of writebacks, 			106
 number of memory transactions, 		5712
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5611
 number of writes, 				12108
@@ -1149,6 +1233,7 @@ L1_BLOCKSIZE,		128
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	msi
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5069
 number of writes, 				11942
@@ -1161,6 +1246,7 @@ total miss rate, 				0.040705
 number of writebacks, 			145
 number of memory transactions, 		5217
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5080
 number of writes, 				11710
@@ -1173,6 +1259,7 @@ total miss rate, 				0.041464
 number of writebacks, 			154
 number of memory transactions, 		5235
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5080
 number of writes, 				12383
@@ -1185,6 +1272,7 @@ total miss rate, 				0.039915
 number of writebacks, 			146
 number of memory transactions, 		5228
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5086
 number of writes, 				12108
@@ -1203,6 +1291,7 @@ L1_BLOCKSIZE,		256
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	msi
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			4628
 number of writes, 				11942
@@ -1215,6 +1304,7 @@ total miss rate, 				0.037166
 number of writebacks, 			201
 number of memory transactions, 		4832
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			4633
 number of writes, 				11710
@@ -1227,6 +1317,7 @@ total miss rate, 				0.037816
 number of writebacks, 			200
 number of memory transactions, 		4834
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			4630
 number of writes, 				12383
@@ -1239,6 +1330,7 @@ total miss rate, 				0.036380
 number of writebacks, 			186
 number of memory transactions, 		4818
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			4640
 number of writes, 				12108
@@ -1257,6 +1349,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	msi w/ bus upgrade
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5595
 number of writes, 				11942
@@ -1269,6 +1362,7 @@ total miss rate, 				0.044927
 number of writebacks, 			107
 number of memory transactions, 		5705
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5604
 number of writes, 				11710
@@ -1281,6 +1375,7 @@ total miss rate, 				0.045748
 number of writebacks, 			115
 number of memory transactions, 		5721
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5604
 number of writes, 				12383
@@ -1293,6 +1388,7 @@ total miss rate, 				0.044030
 number of writebacks, 			106
 number of memory transactions, 		5712
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5611
 number of writes, 				12108
@@ -1311,6 +1407,7 @@ L1_BLOCKSIZE,		128
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	msi w/ bus upgrade
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5069
 number of writes, 				11942
@@ -1323,6 +1420,7 @@ total miss rate, 				0.040705
 number of writebacks, 			145
 number of memory transactions, 		5217
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5080
 number of writes, 				11710
@@ -1335,6 +1433,7 @@ total miss rate, 				0.041464
 number of writebacks, 			154
 number of memory transactions, 		5235
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5080
 number of writes, 				12383
@@ -1347,6 +1446,7 @@ total miss rate, 				0.039915
 number of writebacks, 			146
 number of memory transactions, 		5228
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5086
 number of writes, 				12108
@@ -1365,6 +1465,7 @@ L1_BLOCKSIZE,		256
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	msi w/ bus upgrade
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			4628
 number of writes, 				11942
@@ -1377,6 +1478,7 @@ total miss rate, 				0.037166
 number of writebacks, 			201
 number of memory transactions, 		4832
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			4633
 number of writes, 				11710
@@ -1389,6 +1491,7 @@ total miss rate, 				0.037816
 number of writebacks, 			200
 number of memory transactions, 		4834
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			4630
 number of writes, 				12383
@@ -1401,6 +1504,7 @@ total miss rate, 				0.036380
 number of writebacks, 			186
 number of memory transactions, 		4818
 number of cache-to-cache transfers, 	0
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			4640
 number of writes, 				12108
@@ -1419,6 +1523,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	dragon
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5595
 number of writes, 				11942
@@ -1431,6 +1536,7 @@ total miss rate, 				0.044927
 number of writebacks, 			107
 number of memory transactions, 		1513
 number of cache-to-cache transfers, 	4192
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5604
 number of writes, 				11710
@@ -1443,6 +1549,7 @@ total miss rate, 				0.045748
 number of writebacks, 			110
 number of memory transactions, 		1514
 number of cache-to-cache transfers, 	4202
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5604
 number of writes, 				12383
@@ -1455,6 +1562,7 @@ total miss rate, 				0.044030
 number of writebacks, 			105
 number of memory transactions, 		1509
 number of cache-to-cache transfers, 	4202
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5611
 number of writes, 				12108
@@ -1473,6 +1581,7 @@ L1_BLOCKSIZE,		128
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	dragon
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5069
 number of writes, 				11942
@@ -1485,6 +1594,7 @@ total miss rate, 				0.040705
 number of writebacks, 			145
 number of memory transactions, 		1407
 number of cache-to-cache transfers, 	3810
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5080
 number of writes, 				11710
@@ -1497,6 +1607,7 @@ total miss rate, 				0.041464
 number of writebacks, 			149
 number of memory transactions, 		1430
 number of cache-to-cache transfers, 	3800
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5080
 number of writes, 				12383
@@ -1509,6 +1620,7 @@ total miss rate, 				0.039915
 number of writebacks, 			145
 number of memory transactions, 		1418
 number of cache-to-cache transfers, 	3809
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5086
 number of writes, 				12108
@@ -1527,6 +1639,7 @@ L1_BLOCKSIZE,		256
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	dragon
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			4628
 number of writes, 				11942
@@ -1539,6 +1652,7 @@ total miss rate, 				0.037166
 number of writebacks, 			198
 number of memory transactions, 		1329
 number of cache-to-cache transfers, 	3500
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			4633
 number of writes, 				11710
@@ -1551,6 +1665,7 @@ total miss rate, 				0.037816
 number of writebacks, 			200
 number of memory transactions, 		1388
 number of cache-to-cache transfers, 	3446
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			4630
 number of writes, 				12383
@@ -1563,6 +1678,7 @@ total miss rate, 				0.036380
 number of writebacks, 			185
 number of memory transactions, 		1341
 number of cache-to-cache transfers, 	3476
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			4640
 number of writes, 				12108
@@ -1581,6 +1697,7 @@ L1_BLOCKSIZE,		64
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	firefly
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5595
 number of writes, 				11942
@@ -1593,6 +1710,7 @@ total miss rate, 				0.044927
 number of writebacks, 			0
 number of memory transactions, 		1406
 number of cache-to-cache transfers, 	4192
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5604
 number of writes, 				11710
@@ -1605,6 +1723,7 @@ total miss rate, 				0.045748
 number of writebacks, 			2
 number of memory transactions, 		1406
 number of cache-to-cache transfers, 	4202
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5604
 number of writes, 				12383
@@ -1617,6 +1736,7 @@ total miss rate, 				0.044030
 number of writebacks, 			1
 number of memory transactions, 		1405
 number of cache-to-cache transfers, 	4202
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5611
 number of writes, 				12108
@@ -1635,6 +1755,7 @@ L1_BLOCKSIZE,		128
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	firefly
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			5069
 number of writes, 				11942
@@ -1647,6 +1768,7 @@ total miss rate, 				0.040705
 number of writebacks, 			0
 number of memory transactions, 		1262
 number of cache-to-cache transfers, 	3810
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			5080
 number of writes, 				11710
@@ -1659,6 +1781,7 @@ total miss rate, 				0.041464
 number of writebacks, 			3
 number of memory transactions, 		1284
 number of cache-to-cache transfers, 	3800
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			5080
 number of writes, 				12383
@@ -1671,6 +1794,7 @@ total miss rate, 				0.039915
 number of writebacks, 			2
 number of memory transactions, 		1275
 number of cache-to-cache transfers, 	3809
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			5086
 number of writes, 				12108
@@ -1689,6 +1813,7 @@ L1_BLOCKSIZE,		256
 NUMBER OF PROCESSORS,	4
 COHERENCE PROTOCOL,	firefly
 TRACE FILE,		canneal.04t.longTrace
+f=========== Simulation results (Cache 0) ============
 number of reads, 				112661
 number of read misses, 			4628
 number of writes, 				11942
@@ -1701,6 +1826,7 @@ total miss rate, 				0.037166
 number of writebacks, 			1
 number of memory transactions, 		1132
 number of cache-to-cache transfers, 	3500
+f=========== Simulation results (Cache 1) ============
 number of reads, 				110830
 number of read misses, 			4633
 number of writes, 				11710
@@ -1713,6 +1839,7 @@ total miss rate, 				0.037816
 number of writebacks, 			3
 number of memory transactions, 		1191
 number of cache-to-cache transfers, 	3446
+f=========== Simulation results (Cache 2) ============
 number of reads, 				114938
 number of read misses, 			4630
 number of writes, 				12383
@@ -1725,6 +1852,7 @@ total miss rate, 				0.036380
 number of writebacks, 			3
 number of memory transactions, 		1159
 number of cache-to-cache transfers, 	3476
+f=========== Simulation results (Cache 3) ============
 number of reads, 				113428
 number of read misses, 			4640
 number of writes, 				12108
