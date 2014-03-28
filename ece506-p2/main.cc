@@ -48,7 +48,17 @@ int main(int argc, char *argv[])
     int cache_type   = atoi(argv[4]);
     num_processors = atoi(argv[5]);/*1, 2, 4, 8*/
     char *fname =  (char *)malloc(20);
-     fname = argv[6];
+    fname = argv[6];
+
+	char* cache_label;
+	switch (cache_type)
+	{
+		case 0: cache_label = "MSI"; break;
+		case 1: cache_label = "MSI with BusUpgr"; break;
+		case 2: cache_label = "Firefly"; break;
+		case 3: cache_label = "Dragon"; break;
+		default: break;
+	}
 
     
     //*******prints out simulator configuration here*******//
@@ -57,7 +67,7 @@ int main(int argc, char *argv[])
     printf("L1_ASSOC:\t\t%d\n", cache_assoc);
     printf("L1_BLOCKSIZE:\t\t%d\n", blk_size);
     printf("NUMBER OF PROCESSORS:\t%d\n", num_processors);
-    printf("COHERENCE PROTOCOL:\t\t%d\n", cache_type);
+    printf("COHERENCE PROTOCOL:\t%d\n", cache_label);
     printf("TRACE FILE:\t\t%s\n", fname);
 
  
