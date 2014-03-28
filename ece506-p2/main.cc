@@ -50,16 +50,6 @@ int main(int argc, char *argv[])
     char *fname =  (char *)malloc(20);
     fname = argv[6];
 
-	char* cache_label;
-	switch (cache_type)
-	{
-		case 0: cache_label = "MSI"; break;
-		case 1: cache_label = "MSI with BusUpgr"; break;
-		case 2: cache_label = "Firefly"; break;
-		case 3: cache_label = "Dragon"; break;
-		default: break;
-	}
-
     
     //*******prints out simulator configuration here*******//
     printf("===== 506 SMP Simulator configuration =====\n");
@@ -67,7 +57,16 @@ int main(int argc, char *argv[])
     printf("L1_ASSOC:\t\t%d\n", cache_assoc);
     printf("L1_BLOCKSIZE:\t\t%d\n", blk_size);
     printf("NUMBER OF PROCESSORS:\t%d\n", num_processors);
-    printf("COHERENCE PROTOCOL:\t%d\n", cache_label);
+    
+    switch (cache_type)
+	{
+		case 0: printf("COHERENCE PROTOCOL:\tmsi\n"); break;
+		case 1: printf("COHERENCE PROTOCOL:\tmsi w/ bus upgrade\n"); break;
+		case 2: printf("COHERENCE PROTOCOL:\tdragon\n"); break;
+		case 3: printf("COHERENCE PROTOCOL:\tfirefly\n"); break;
+		default: break;
+	}
+	
     printf("TRACE FILE:\t\t%s\n", fname);
 
  
