@@ -4,3 +4,4 @@
 		       efg@ncsu.edu
 ********************************************************/
 int sharers(ulong);
+int update(int,int,int); 
