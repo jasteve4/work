@@ -13,3 +13,5 @@ block_size = ["64", "128","256"]
 for pro in protocal: 
   for size in block_size:
     system("./smp_cache 1048576  8 "+ size  +" 4 " + pro  + " canneal.04t.longTrace")
+
+system("make clean")
