@@ -9,7 +9,7 @@
 class MESI : public Cache {
  public:
   MESI(int s, int a, int b, int p ): Cache(s, a, b, p) {};
-  ~MESI() { /* insert real code here */};
+  ~MESI() { };
   void PrRd(ulong addr, int processorNumber);
   void PrWr(ulong addr, int processorNumber);
   cacheLine *allocateLine(ulong addr) {return 0;}
