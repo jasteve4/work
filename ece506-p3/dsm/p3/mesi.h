@@ -12,7 +12,7 @@ class MESI : public Cache {
   ~MESI() { };
   void PrRd(ulong addr, int processorNumber);
   void PrWr(ulong addr, int processorNumber);
-  cacheLine *allocateLine(ulong addr);
+  cacheLine *allocateLine(ulong addr, int processorNumber);
   void signalRd(ulong, int); 
   void signalRdX(ulong, int); 
   void signalUpgr(ulong, int); 

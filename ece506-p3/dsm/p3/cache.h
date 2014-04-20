@@ -110,7 +110,7 @@ public:
     virtual ~Cache() { delete cache;}
 
     cacheLine * findLineToReplace(ulong addr);
-    virtual cacheLine * allocateLine(ulong) = 0;
+    virtual cacheLine * allocateLine(ulong, int) = 0;
     virtual void notifyCtrl(ulong) = 0;
     cacheLine * findLine(ulong addr);
     cacheLine * getLRU(ulong);
@@ -120,6 +120,8 @@ public:
     ulong getWB(){return writeBacks;}
     ulong getmemTrans() {return memoryTransactions;}
     ulong getcache2cache() {return cache2cache;}
+    ulong getInt() { return interventions; }
+    ulong getInv() { return invalidations; }
 	
     void writeBack(ulong)   {writeBacks++;}
     void printStats(int);

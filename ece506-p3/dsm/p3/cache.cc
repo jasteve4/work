@@ -159,10 +159,16 @@ void Cache::printStats(int processorNumber) {
 	printf("06. number of writebacks: \t\t\t");
 	cout << (int) getWB();
 	cout << endl;
-	printf("07. number of memory invalidations: \t\t");
+	printf("07. number of memory transactions: \t\t");
 	cout << (int) getmemTrans();
 	cout << endl;
-	printf("08. number of cache-to-cache transfers: \t");
+	printf("08. number of Interventions: \t\t");
+	cout << (int) getInt();
+	cout << endl;
+	printf("09. number of Invalidations: \t\t");
+	cout << (int) getInv();
+	cout << endl;
+	printf("10. number of cache-to-cache transfers: \t");
 	cout<<(int)getcache2cache();
 	cout << endl;
 }
