@@ -19,12 +19,20 @@ void MESI::PrRd(ulong addr, int processorNumber) {
     cacheLine * line = this->findLine(addr);
     if (line == NULL) { /* PrRd miss, block state has to be invalid */
         this->readMisses++;
-	this->memoryTransactions++;
-        cacheLine *newline = this->allocateLine(addr, processorNumber);
+	
 	/* PrRd miss, send the read to the directory */
-	this->signalRd(addr, processorNumber);
-	/* change the state in the local cache */
-	newline->set_state(S);
+        this->signalRd(addr, processorNumber);
+
+        cacheLine *newline = this->allocateLine(addr, processorNumber);
+	int shared_line = sharers(addr) > 0;
+	if (shared_line) {
+	   /* block is in peer caches, so mark as shared */
+	   newline->set_state(S);
+	} else {
+	  /* block not in peer caches, mark as E */
+	  newline->set_state(E);
+	  this->memoryTransactions++;
+	}
     } else { /* PrRd hit, block state has to be S or M, remains unchanged */
         this->updateLRU(line);
         /* PrRd hit, nothing to do, Directory should have the correct state */
@@ -56,16 +64,16 @@ void MESI::PrWr(ulong addr, int processorNumber) {
            line->set_state(M);
            /* PrWr hit in S, perform DSM related activities */
         } else {
-           /* PrWr hit in state M, directory should be EM for this block */
+           /* PrWr hit in state M or E, directory should be EM for this block */
+	   line->set_state(M);
         }
     }
 }
 
 cacheLine * MESI::allocateLine(ulong addr, int processorNumber) {
-    ulong tag;
+    ulong tag, victim_tag;
     cache_state state;
 
-    /* TODO: Eviction may cause change in the directory contents, need to implement that here */
     cacheLine *victim = this->findLineToReplace(addr);
     assert(victim != 0);
     state = victim->get_state();
@@ -74,12 +82,13 @@ cacheLine * MESI::allocateLine(ulong addr, int processorNumber) {
         this->memoryTransactions++;
     }
 
+    victim_tag = victim->get_tag();
     tag = this->tagField(addr);
     victim->set_tag(tag);
     victim->set_state(empty);
 
-    /* notify the directory that this block is getting evicted */
-    dirEntry *d_entry = this->directory->findEntry(tag);
+    /* notify the directory that this victim block is getting evicted */
+    dirEntry *d_entry = this->directory->findEntry(victim_tag);
     if(d_entry != NULL) {
       if(d_entry->state == EM) {
 	d_entry->tag = 0;
@@ -106,11 +115,13 @@ void MESI::signalRd(ulong addr, int processorNumber) {
        /* check the state of the block */
        if(d_entry->state == EM) {
 	 /* send intervention to owner node and change state */
+	 this->cache2cache++;
 	 sendInt(addr, processorNumber);
 	 d_entry->state = S_;
        } else {
-	 /* nothing to do if shared state S */
+	 /* nothing to do if shared state S_ */
        }
+       d_entry->bit[processorNumber] = true;
     } else {
        /* not in directory, mark state to be EM */
        d_entry = this->directory->findUncached(tag);
@@ -131,7 +142,8 @@ void MESI::signalRdX(ulong addr, int processorNumber) {
        /* in the directory, update sharing vector and state */
        /* check the state of the block */
        if(d_entry->state == EM) {
-         /* send intervention to owner node and change state */
+         /* send invalidation to owner node and change state */
+	 this->cache2cache++;
          sendInv(addr, processorNumber);
          d_entry->state = EM;
        } else {
@@ -139,6 +151,7 @@ void MESI::signalRdX(ulong addr, int processorNumber) {
 	 sendInv(addr, processorNumber);
 	 d_entry->state = EM;
        }
+       d_entry->bit[processorNumber] = true;
     } else {
        /* not in directory, mark state to be EM */
        d_entry = this->directory->findUncached(tag);
@@ -158,10 +171,11 @@ void MESI::signalUpgr(ulong addr, int processorNumber) {
     if(d_entry != NULL) {
        /* in the directory, update sharing vector and state */
        /* check the state of the block */
-       if(d_entry->state == S) {
+       if(d_entry->state == S_) {
          /* send intervention to owner node and change state */
          sendInv(addr, processorNumber);
          d_entry->state = EM;
+	 d_entry->bit[processorNumber] = true;
        }
     }
 }
@@ -174,9 +188,10 @@ void MESI::Int(ulong addr) {
     this->interventions++;
     if (line != NULL) {
        state = line->get_state();
-       if(state == E || state == M) {
-         line->set_state(S);
+       if(state == M || state == E) {
+	 this->writeBack(addr);
        }
+       line->set_state(S);
     }
 }
 
@@ -184,8 +199,14 @@ void MESI::Inv(ulong addr) {
     /* handle scenario when this cache receives an Invalidation */
     /* change state of block in local cache to I */
     cacheLine *line = this->findLine(addr);
+    cache_state state;
     this->invalidations++;
     if (line != NULL) {
+       state = line->get_state();
+       if(state == M) {
+	/* received an Inv, flush if state is M */
+	this->writeBack(addr);
+       }
        line->set_state(I);
     }
 }
