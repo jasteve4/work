@@ -12,10 +12,9 @@
 #include <string.h>
 using namespace std;
 
-#define NUM_PROCESSORS 4
-
 #include "cache.h"
 #include "mesi.h"
+#include "main.h"
 
 const int max_processors = 16;
 int blk_size;

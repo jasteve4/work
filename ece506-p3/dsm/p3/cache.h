@@ -40,7 +40,7 @@ enum dir_state {
 class dirEntry {
   public:
     ulong tag;
-    uchar state;
+    int state;
     bool bit[4];
 
     dirEntry() {

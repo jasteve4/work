@@ -73,6 +73,7 @@ void MESI::PrWr(ulong addr, int processorNumber) {
 cacheLine * MESI::allocateLine(ulong addr, int processorNumber) {
     ulong tag, victim_tag;
     cache_state state;
+    bool shared;
 
     cacheLine *victim = this->findLineToReplace(addr);
     assert(victim != 0);
@@ -90,12 +91,25 @@ cacheLine * MESI::allocateLine(ulong addr, int processorNumber) {
     /* notify the directory that this victim block is getting evicted */
     dirEntry *d_entry = this->directory->findEntry(victim_tag);
     if(d_entry != NULL) {
-      if(d_entry->state == EM) {
+      /* loop through all the caches to find out if any other cache has a copy of this block
+      * If not, set the state to Uncached, If yes, reset the proc_no bit
+      */
+      d_entry->bit[processorNumber] = false;
+      for(int i = 0; i < NUM_PROCESSORS; i++) {
+	if((i != processorNumber) && d_entry->bit[i] && (d_entry->state == S_)) {
+	   shared = true;
+	   break;
+	} else {
+	  shared = false;
+	}
+      }
+      /* block not shared, set it to uncached */
+      if(shared == false) {
 	d_entry->tag = 0;
 	d_entry->state = U;
-	d_entry->bit[processorNumber] = false;
-      } else { /* this block is shared */
-	d_entry->bit[processorNumber] = false;
+	for(int j = 0; j < NUM_PROCESSORS; j++) {
+	   d_entry->bit[j] = false;
+	}
       }
     }
     /** Note that this cache line has already been upgraded to MRU
