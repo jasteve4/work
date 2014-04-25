@@ -1,9 +1,4 @@
- 506 DSM MESIF FBV simulator configuration 
 L1_SIZE:		32768
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
  Simulation results (Cache 0)
 number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
 112661, 6359, 11942, 36, 0.051323, 2168, 1990, 4748
@@ -16,12 +11,7 @@ number of reads, number of read misses, number of writes, write misses, total mi
  Simulation results (Cache 3)
 number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
 113428, 6405, 12108, 34, 0.051292, 2211, 1994, 50
- 506 DSM MESIF FBV simulator configuration 
 L1_SIZE:		65536
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
  Simulation results (Cache 0)
 number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
 112661, 6032, 11942, 24, 0.048602, 2007, 1940, 4538
@@ -34,12 +24,7 @@ number of reads, number of read misses, number of writes, write misses, total mi
  Simulation results (Cache 3)
 number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
 113428, 6060, 12108, 23, 0.048456, 2056, 1938, 39
- 506 DSM MESIF FBV simulator configuration 
 L1_SIZE:		131072
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
  Simulation results (Cache 0)
 number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
 112661, 5817, 11942, 13, 0.046789, 1801, 1889, 4373
@@ -52,12 +37,7 @@ number of reads, number of read misses, number of writes, write misses, total mi
  Simulation results (Cache 3)
 number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
 113428, 5850, 12108, 12, 0.046696, 1824, 1884, 26
- 506 DSM MESIF FBV simulator configuration 
 L1_SIZE:		262144
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
  Simulation results (Cache 0)
 number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
 112661, 5746, 11942, 13, 0.046219, 1616, 1873, 4316
@@ -70,12 +50,7 @@ number of reads, number of read misses, number of writes, write misses, total mi
  Simulation results (Cache 3)
 number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
 113428, 5783, 12108, 10, 0.046146, 1617, 1865, 30
- 506 DSM MESIF FBV simulator configuration 
 L1_SIZE:		524288
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
  Simulation results (Cache 0)
 number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
 112661, 5721, 11942, 10, 0.045994, 1543, 1852, 4295
@@ -88,282 +63,7 @@ number of reads, number of read misses, number of writes, write misses, total mi
  Simulation results (Cache 3)
 number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
 113428, 5761, 12108, 7, 0.045947, 1542, 1846, 28
- 506 DSM MESIF FBV simulator configuration 
-L1_SIZE:		32768
-L1_ASSOC:		8
 L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
- Simulation results (Cache 0)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-112661, 6359, 11942, 36, 0.051323, 2168, 1990, 4748
- Simulation results (Cache 1)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-110830, 6391, 11710, 38, 0.052465, 2131, 2012, 1618
- Simulation results (Cache 2)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-114938, 6385, 12383, 37, 0.050439, 2174, 1982, 43
- Simulation results (Cache 3)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-113428, 6405, 12108, 34, 0.051292, 2211, 1994, 50
- 506 DSM MESIF FBV simulator configuration 
-L1_SIZE:		65536
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
- Simulation results (Cache 0)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-112661, 6032, 11942, 24, 0.048602, 2007, 1940, 4538
- Simulation results (Cache 1)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-110830, 6057, 11710, 26, 0.049641, 1985, 1958, 1538
- Simulation results (Cache 2)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-114938, 6033, 12383, 25, 0.047581, 2016, 1927, 29
- Simulation results (Cache 3)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-113428, 6060, 12108, 23, 0.048456, 2056, 1938, 39
- 506 DSM MESIF FBV simulator configuration 
-L1_SIZE:		131072
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
- Simulation results (Cache 0)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-112661, 5817, 11942, 13, 0.046789, 1801, 1889, 4373
- Simulation results (Cache 1)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-110830, 5845, 11710, 14, 0.047813, 1800, 1902, 1481
- Simulation results (Cache 2)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-114938, 5817, 12383, 14, 0.045798, 1812, 1885, 21
- Simulation results (Cache 3)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-113428, 5850, 12108, 12, 0.046696, 1824, 1884, 26
- 506 DSM MESIF FBV simulator configuration 
-L1_SIZE:		262144
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
- Simulation results (Cache 0)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-112661, 5746, 11942, 13, 0.046219, 1616, 1873, 4316
- Simulation results (Cache 1)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-110830, 5780, 11710, 12, 0.047266, 1584, 1884, 1468
- Simulation results (Cache 2)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-114938, 5748, 12383, 12, 0.045240, 1629, 1869, 22
- Simulation results (Cache 3)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-113428, 5783, 12108, 10, 0.046146, 1617, 1865, 30
- 506 DSM MESIF FBV simulator configuration 
-L1_SIZE:		524288
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
- Simulation results (Cache 0)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-112661, 5721, 11942, 10, 0.045994, 1543, 1852, 4295
- Simulation results (Cache 1)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-110830, 5762, 11710, 9, 0.047095, 1509, 1862, 1463
- Simulation results (Cache 2)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-114938, 5728, 12383, 9, 0.045059, 1544, 1853, 19
- Simulation results (Cache 3)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-113428, 5761, 12108, 7, 0.045947, 1542, 1846, 28
- 506 DSM MESIF FBV simulator configuration 
-L1_SIZE:		32768
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
- Simulation results (Cache 0)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-112661, 6359, 11942, 36, 0.051323, 2168, 1990, 4748
- Simulation results (Cache 1)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-110830, 6391, 11710, 38, 0.052465, 2131, 2012, 1618
- Simulation results (Cache 2)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-114938, 6385, 12383, 37, 0.050439, 2174, 1982, 43
- Simulation results (Cache 3)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-113428, 6405, 12108, 34, 0.051292, 2211, 1994, 50
- 506 DSM MESIF FBV simulator configuration 
-L1_SIZE:		65536
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
- Simulation results (Cache 0)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-112661, 6032, 11942, 24, 0.048602, 2007, 1940, 4538
- Simulation results (Cache 1)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-110830, 6057, 11710, 26, 0.049641, 1985, 1958, 1538
- Simulation results (Cache 2)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-114938, 6033, 12383, 25, 0.047581, 2016, 1927, 29
- Simulation results (Cache 3)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-113428, 6060, 12108, 23, 0.048456, 2056, 1938, 39
- 506 DSM MESIF FBV simulator configuration 
-L1_SIZE:		131072
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
- Simulation results (Cache 0)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-112661, 5817, 11942, 13, 0.046789, 1801, 1889, 4373
- Simulation results (Cache 1)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-110830, 5845, 11710, 14, 0.047813, 1800, 1902, 1481
- Simulation results (Cache 2)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-114938, 5817, 12383, 14, 0.045798, 1812, 1885, 21
- Simulation results (Cache 3)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-113428, 5850, 12108, 12, 0.046696, 1824, 1884, 26
- 506 DSM MESIF FBV simulator configuration 
-L1_SIZE:		262144
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
- Simulation results (Cache 0)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-112661, 5746, 11942, 13, 0.046219, 1616, 1873, 4316
- Simulation results (Cache 1)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-110830, 5780, 11710, 12, 0.047266, 1584, 1884, 1468
- Simulation results (Cache 2)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-114938, 5748, 12383, 12, 0.045240, 1629, 1869, 22
- Simulation results (Cache 3)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-113428, 5783, 12108, 10, 0.046146, 1617, 1865, 30
- 506 DSM MESIF FBV simulator configuration 
-L1_SIZE:		524288
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
- Simulation results (Cache 0)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-112661, 5721, 11942, 10, 0.045994, 1543, 1852, 4295
- Simulation results (Cache 1)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-110830, 5762, 11710, 9, 0.047095, 1509, 1862, 1463
- Simulation results (Cache 2)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-114938, 5728, 12383, 9, 0.045059, 1544, 1853, 19
- Simulation results (Cache 3)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-113428, 5761, 12108, 7, 0.045947, 1542, 1846, 28
- 506 DSM MESIF FBV simulator configuration 
-L1_SIZE:		32768
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
- Simulation results (Cache 0)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-112661, 6359, 11942, 36, 0.051323, 2168, 1990, 4748
- Simulation results (Cache 1)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-110830, 6391, 11710, 38, 0.052465, 2131, 2012, 1618
- Simulation results (Cache 2)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-114938, 6385, 12383, 37, 0.050439, 2174, 1982, 43
- Simulation results (Cache 3)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-113428, 6405, 12108, 34, 0.051292, 2211, 1994, 50
- 506 DSM MESIF FBV simulator configuration 
-L1_SIZE:		65536
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
- Simulation results (Cache 0)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-112661, 6032, 11942, 24, 0.048602, 2007, 1940, 4538
- Simulation results (Cache 1)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-110830, 6057, 11710, 26, 0.049641, 1985, 1958, 1538
- Simulation results (Cache 2)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-114938, 6033, 12383, 25, 0.047581, 2016, 1927, 29
- Simulation results (Cache 3)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-113428, 6060, 12108, 23, 0.048456, 2056, 1938, 39
- 506 DSM MESIF FBV simulator configuration 
-L1_SIZE:		131072
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
- Simulation results (Cache 0)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-112661, 5817, 11942, 13, 0.046789, 1801, 1889, 4373
- Simulation results (Cache 1)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-110830, 5845, 11710, 14, 0.047813, 1800, 1902, 1481
- Simulation results (Cache 2)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-114938, 5817, 12383, 14, 0.045798, 1812, 1885, 21
- Simulation results (Cache 3)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-113428, 5850, 12108, 12, 0.046696, 1824, 1884, 26
- 506 DSM MESIF FBV simulator configuration 
-L1_SIZE:		262144
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
- Simulation results (Cache 0)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-112661, 5746, 11942, 13, 0.046219, 1616, 1873, 4316
- Simulation results (Cache 1)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-110830, 5780, 11710, 12, 0.047266, 1584, 1884, 1468
- Simulation results (Cache 2)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-114938, 5748, 12383, 12, 0.045240, 1629, 1869, 22
- Simulation results (Cache 3)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-113428, 5783, 12108, 10, 0.046146, 1617, 1865, 30
- 506 DSM MESIF FBV simulator configuration 
-L1_SIZE:		524288
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
- Simulation results (Cache 0)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-112661, 5721, 11942, 10, 0.045994, 1543, 1852, 4295
- Simulation results (Cache 1)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-110830, 5762, 11710, 9, 0.047095, 1509, 1862, 1463
- Simulation results (Cache 2)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-114938, 5728, 12383, 9, 0.045059, 1544, 1853, 19
- Simulation results (Cache 3)
-number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
-113428, 5761, 12108, 7, 0.045947, 1542, 1846, 28
- 506 DSM MESIF FBV simulator configuration 
-L1_SIZE:		1048576
-L1_ASSOC:		8
-L1_BLOCKSIZE:		64
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
  Simulation results (Cache 0)
 number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
 112661, 5716, 11942, 9, 0.045946, 1520, 1845, 4291
@@ -376,12 +76,7 @@ number of reads, number of read misses, number of writes, write misses, total mi
  Simulation results (Cache 3)
 number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
 113428, 5754, 12108, 6, 0.045883, 1525, 1837, 27
- 506 DSM MESIF FBV simulator configuration 
-L1_SIZE:		1048576
-L1_ASSOC:		8
 L1_BLOCKSIZE:		128
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
  Simulation results (Cache 0)
 number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
 112661, 5293, 11942, 10, 0.042559, 1476, 1801, 3999
@@ -394,12 +89,7 @@ number of reads, number of read misses, number of writes, write misses, total mi
  Simulation results (Cache 3)
 number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
 113428, 5337, 12108, 7, 0.042569, 1503, 1784, 32
- 506 DSM MESIF FBV simulator configuration 
-L1_SIZE:		1048576
-L1_ASSOC:		8
 L1_BLOCKSIZE:		256
-NUMBER OF PROCESSORS:	4
-TRACE FILE:		canneal.04t.longTrace
  Simulation results (Cache 0)
 number of reads, number of read misses, number of writes, write misses, total miss rate, number of writebacks, number of Invalidations, number of cache-to-cache transfers
 112661, 4903, 11942, 8, 0.039413, 1401, 1764, 3717
