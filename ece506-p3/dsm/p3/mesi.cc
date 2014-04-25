@@ -96,7 +96,7 @@ cacheLine * MESI::allocateLine(ulong addr, int processorNumber) {
       */
       d_entry->bit[processorNumber] = false;
       for(int i = 0; i < NUM_PROCESSORS; i++) {
-	if((i != processorNumber) && d_entry->bit[i] && (d_entry->state == S_)) {
+	if((i != processorNumber) && d_entry->bit[i]) { 
 	   shared = true;
 	   break;
 	} else {
