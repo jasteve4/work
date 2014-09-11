@@ -1,0 +1,24 @@
+---------------------------------
+FROM -> TO = 0 -> (end of benchmark)
+---------------------------------
+PERFECT_BRANCH_PREDICTION = false
+---------------------------------
+starting *fast* functional simulation
+SKIPPING TO 0 ...
+DONE SKIPPING.
+sim: simulation time: 40s (3263155.050000 insts/sec)
+sim: number of instructions: 130,526,202
+sim: number of instructions *after skip amount*: 130,526,202
+control = 17484802
+calls   = 917376
+returns = 917374
+loads   = 27303487
+stores  = 12619007
+PC of 9,900th instruction encountered = 0x418748
+address of third LOAD encountered   = 0x7fffb018
+address of third STORE encountered  = 0x7fffafc8
+not-taken conditional branches = 3709512
+taken conditional branches     = 10866169
+ILP Limit Study: INSTRUCTIONS = 130526202
+ILP Limit Study: CYCLES       = 16288434
+ILP Limit Study: IPC          = 8.01

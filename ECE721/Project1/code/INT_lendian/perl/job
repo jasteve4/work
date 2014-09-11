@@ -1,0 +1,1 @@
+perlbmk -I./lib splitmail.pl 850 5 19 18 1500
