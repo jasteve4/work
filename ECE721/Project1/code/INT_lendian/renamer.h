@@ -1,19 +1,109 @@
 
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+using namespace std;
+
+
+
+
+class BranchCheckPoint
+{
+
+  public:
+                        BranchCheckPoint(int);
+    unsigned int        *SMT;
+    unsigned int        checkpoint_FL_head_index; 
+    unsigned long long  checkpoint_GMB;
+};
+
+class FreeList
+{
+  public:
+    unsigned int        physical_reg;    
+                        FreeList();
+};
+
+
+class FreeFIFO
+{
+  public:
+
+    unsigned int        head_pointer, tail_pointer, size, entry_count;
+    bool                empty, full;
+    FreeList            *entry;
+
+                        FreeFIFO (unsigned int);
+    unsigned int        Pop();
+    void                Push(unsigned int);
+    unsigned int        Walk_Back();
+    void                Walk_Forward();
+    void                Reset_Head();
+    void                Reset_Tail();
+
+};
+
+class ActiveList
+{
+
+  public:
+    bool                dest_flag;
+    unsigned int        physical_reg;    
+    unsigned int        logical_reg;
+    bool                completed_bit;
+    bool                excepiton_bit;
+    bool                load_flag ;
+    bool                store_flag ;
+    bool                branch_flag;
+    unsigned long long  program_counter;
+                        ActiveList();
+    void                Reset();
+};
+
+
+
+class ActiveFIFO
+{
+  public:
+
+    unsigned int        head_pointer, tail_pointer, size, entry_count;
+    bool                empty, full;
+    ActiveList          *entry;
+
+                        ActiveFIFO (unsigned int);
+    unsigned int        Pop();
+    void                Push(unsigned int);
+    unsigned int        Walk_Back();
+    void                Walk_Forward();
+    void                Reset_Head();
+    void                Reset_Tail();
+
+};
+
+
+
+
 class renamer {
 private:
 	/////////////////////////////////////////////////////////////////////
 	// Put private class variables here.
 	/////////////////////////////////////////////////////////////////////
-
 	/////////////////////////////////////////////////////////////////////
 	// Structure 1: Rename Map Table
 	// Entry contains: physical register mapping
 	/////////////////////////////////////////////////////////////////////
+unsigned int *RMT;
+
 
 	/////////////////////////////////////////////////////////////////////
 	// Structure 2: Architectural Map Table
 	// Entry contains: physical register mapping
 	/////////////////////////////////////////////////////////////////////
+unsigned int *AMT;
+
 
 	/////////////////////////////////////////////////////////////////////
 	// Structure 3: Free List
@@ -24,7 +114,7 @@ private:
 	// * Structure includes head, tail, and possibly other variables
 	//   depending on your implementation.
 	/////////////////////////////////////////////////////////////////////
-
+FreeFIFO *free_list;
 	/////////////////////////////////////////////////////////////////////
 	// Structure 4: Active List
 	//
@@ -44,7 +134,7 @@ private:
 	// * Structure includes head, tail, and possibly other variables
 	//   depending on your implementation.
 	/////////////////////////////////////////////////////////////////////
-
+ActiveFIFO *active_list;
 	/////////////////////////////////////////////////////////////////////
 	// Structure 5: Physical Register File
 	// Entry contains: value
@@ -52,11 +142,15 @@ private:
 	// Notes:
 	// * The value must be of the following type: unsigned long long
 	/////////////////////////////////////////////////////////////////////
+unsigned long long *PRF;
+
 
 	/////////////////////////////////////////////////////////////////////
 	// Structure 6: Physical Register File Ready Bit Array
 	// Entry contains: ready bit
 	/////////////////////////////////////////////////////////////////////
+unsigned int *PRF_ready_bit;
+
 
 	/////////////////////////////////////////////////////////////////////
 	// Structure 7: Global Branch Mask (GBM)
@@ -94,7 +188,7 @@ private:
 	// is configurable by the user of the simulator, and can range from
 	// 1 to 64.
 	/////////////////////////////////////////////////////////////////////
-	unsigned long long GBM;
+unsigned long long *GBM;
 
 	/////////////////////////////////////////////////////////////////////
 	// Structure 8: Branch Checkpoints
@@ -104,8 +198,9 @@ private:
 	// 2. checkpointed Free List head index
 	// 3. checkpointed GBM
 	/////////////////////////////////////////////////////////////////////
-
-	/////////////////////////////////////////////////////////////////////
+BranchCheckPoint *branch_check_point;
+	
+        /////////////////////////////////////////////////////////////////////
 	// Private functions.
 	// e.g., a generic function to copy state from one map to another.
 	/////////////////////////////////////////////////////////////////////
