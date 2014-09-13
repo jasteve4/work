@@ -22,9 +22,8 @@ int main()
   cout << "=========Begin==================" << endl;
   while(!active_list.empty) cout << active_list.Pop() << endl;
   cout << "=================================" << endl;*/
-  BranchCheckPoint branch_check_point (1024);
-  cout << branch_check_point.checkpoint_GMB << endl;
-  
+ // BranchCheckPoint branch_check_point (1024);
+ // cout << branch_check_point.checkpoint_GMB << endl;
   return 0;
   
 }
