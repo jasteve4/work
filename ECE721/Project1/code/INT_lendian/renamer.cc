@@ -364,32 +364,32 @@ renamer::renamer(unsigned int n_log_regs,
 		unsigned int n_phys_regs,
 		unsigned int n_branches)
 {
-    assert(1 <= n_branch);
-    assert(n_branch <= 64)
-    PRF = new long long[n_phys_regs];
-    for(int i = 0; i < n_phys_regs; i++) PRF[i] = 0;
+    assert(1 <= n_branches);
+    assert(n_branches <= 64);
+    this->PRF = new unsigned long long[n_phys_regs];
+    for(int i = 0; i < n_phys_regs; i++) this->PRF[i] = 0;
     
-    RMT = new int [n_log_regs];
-    for(int i = 0; i < n_log_regs; i++) RMT[i] = i;
+    this->RMT = new unsigned int [n_log_regs];
+    for(int i = 0; i < n_log_regs; i++) this->RMT[i] = i;
 
-    AMT = new int [n_log_regs];
-    for(int i = 0; i < n_log_regs; i++) AMT[i] = RMT[i];
+    this->AMT = new unsigned int [n_log_regs];
+    for(int i = 0; i < n_log_regs; i++) this->AMT[i] = this->RMT[i];
 
-    PRF_ready_bit = new int [n_phys_regs];
-    for(int i = 0; i < n_pyys_regs)
+    this->PRF_ready_bit = new unsigned int [n_phys_regs];
+    for(int i = 0; i < n_phys_regs; i++)
     {
-        if(i < n_log_regs) PRF_ready_bit = 1;
-        else PRF_ready_bit = 0;
+        if(i < n_log_regs) this->PRF_ready_bit[i] = 1;
+        else this->PRF_ready_bit[i] = 0;
     }
 
-    GBM = new long long;
+    GBM = 0;
     
-    free_list = new FreeFIFO(n_phys_regs - n_log_regs); 
-    for(int i = 0; i < n_phys_regs - n_log_regs; i++) free_list.entry[i].physical_reg = n_log_regs + i;
+    this->free_list = new FreeFIFO(n_phys_regs - n_log_regs); 
+    for(int i = 0; i < n_phys_regs - n_log_regs; i++) this->free_list->entry[i].physical_reg = n_log_regs + i;
 
-    active_list = new ActiveFIFO(n_phys_regs - n_log_regs);
+    this->active_list = new ActiveFIFO(n_phys_regs - n_log_regs);
      
-
+    this->branch_check_point = new BranchCheckPoint(n_log_regs); 
 
 
 }
@@ -506,7 +506,7 @@ unsigned int renamer::rename_rdst(unsigned int log_reg)
 	// 2. checkpointed Free List head index
 	// 3. checkpointed GBM
 	/////////////////////////////////////////////////////////////////////
-unsigned int checkpoint()
+unsigned int renamer::checkpoint()
 {
 
   return 0;
@@ -530,7 +530,7 @@ unsigned int checkpoint()
 	// Return "true" (stall) if the Active List does not have enough
 	// space for all instructions in the dispatch bundle.
 	/////////////////////////////////////////////////////////////////////
-bool stall_dispatch(unsigned int bundle_inst)
+bool renamer::stall_dispatch(unsigned int bundle_inst)
 {
 
   return false;

@@ -24,6 +24,10 @@ int main()
   cout << "=================================" << endl;*/
  // BranchCheckPoint branch_check_point (1024);
  // cout << branch_check_point.checkpoint_GMB << endl;
+  
+  FreeFIFO free_list (1024);
+  free_list.entry[0].physical_reg = 0
+  
   return 0;
   
 }

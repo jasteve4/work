@@ -188,7 +188,7 @@ unsigned int *PRF_ready_bit;
 	// is configurable by the user of the simulator, and can range from
 	// 1 to 64.
 	/////////////////////////////////////////////////////////////////////
-unsigned long long *GBM;
+unsigned long long GBM;
 
 	/////////////////////////////////////////////////////////////////////
 	// Structure 8: Branch Checkpoints
