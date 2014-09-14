@@ -423,8 +423,8 @@ renamer::~renamer(){}
 	/////////////////////////////////////////////////////////////////////
 bool renamer::stall_reg(unsigned int bundle_dst)
 {
-
-  return false;
+    if(this->free_list->entry_count + bundle_dst <= this->free_list->size) return false;
+    else return true;
 }
 
 	/////////////////////////////////////////////////////////////////////
@@ -532,8 +532,8 @@ unsigned int renamer::checkpoint()
 	/////////////////////////////////////////////////////////////////////
 bool renamer::stall_dispatch(unsigned int bundle_inst)
 {
-
-  return false;
+    if(this->active_list->entry_count + bundle_inst <= this->active_list->size) return false;
+    else return true;
 
 }
 
@@ -573,7 +573,15 @@ unsigned int renamer::dispatch_inst(bool dest_valid,
 			   unsigned int PC)
 {
 
-  return 0;
+    assert(this->active_list->entry_count < this->active_list->size);
+
+
+
+
+
+
+
+    return 0;
 
 }
 
@@ -588,8 +596,8 @@ unsigned int renamer::dispatch_inst(bool dest_valid,
 	/////////////////////////////////////////////////////////////////////
 bool renamer::is_ready(unsigned int phys_reg)
 {
-
-  return false;
+    
+    return PRF_ready_bit[phys_reg];
 
 }
 
@@ -598,8 +606,8 @@ bool renamer::is_ready(unsigned int phys_reg)
 	/////////////////////////////////////////////////////////////////////
 void renamer::clear_ready(unsigned int phys_reg)
 {
-
-
+    
+    PRF_ready_bit[phys_reg] = false;
 
 }
 
@@ -609,6 +617,7 @@ void renamer::clear_ready(unsigned int phys_reg)
 void renamer::set_ready(unsigned int phys_reg)
 {
 
+    PRF_ready_bit[phys_reg] = true;
 
 }
 
@@ -622,7 +631,8 @@ void renamer::set_ready(unsigned int phys_reg)
 	/////////////////////////////////////////////////////////////////////
 unsigned long long renamer::read(unsigned int phys_reg)
 {
-return 0;
+
+return PRF[phys_reg];
 
 }
 
@@ -637,7 +647,7 @@ return 0;
 void renamer::write(unsigned int phys_reg, unsigned long long value)
 {
 
-
+    PRF[phys_reg] = value;
 
 
 }
@@ -648,7 +658,7 @@ void renamer::write(unsigned int phys_reg, unsigned long long value)
 void renamer::set_complete(unsigned int AL_index)
 {
 
-
+    this->active_list->entry[AL_index].completed_bit = true;
 
 }
 
