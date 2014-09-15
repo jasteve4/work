@@ -37,12 +37,8 @@ class FreeFIFO
     FreeList            *entry;
 
                         FreeFIFO (unsigned int);
-    unsigned int        Pop();
-    void                Push(unsigned int);
-    unsigned int        Walk_Back();
-    void                Walk_Forward();
-    void                Reset_Head();
-    void                Reset_Tail();
+    void                Pop();
+    void                Push();
 
 };
 
@@ -56,11 +52,10 @@ class ActiveList
     bool                completed_bit;
     bool                excepiton_bit;
     bool                load_flag ;
-    bool                store_flag ;
+    bool                store_flag;
     bool                branch_flag;
     unsigned long long  program_counter;
                         ActiveList();
-    void                Reset();
 };
 
 
@@ -74,12 +69,8 @@ class ActiveFIFO
     ActiveList          *entry;
 
                         ActiveFIFO (unsigned int);
-    unsigned int        Pop();
-    void                Push(unsigned int);
-    unsigned int        Walk_Back();
-    void                Walk_Forward();
-    void                Reset_Head();
-    void                Reset_Tail();
+    void                Pop();
+    void                Push();
 
 };
 
@@ -91,7 +82,9 @@ private:
 	/////////////////////////////////////////////////////////////////////
 	// Put private class variables here.
 	/////////////////////////////////////////////////////////////////////
-	/////////////////////////////////////////////////////////////////////
+unsigned int num_log_regs;	
+unsigned int num_phys_regs;       
+        /////////////////////////////////////////////////////////////////////
 	// Structure 1: Rename Map Table
 	// Entry contains: physical register mapping
 	/////////////////////////////////////////////////////////////////////
@@ -149,7 +142,7 @@ unsigned long long *PRF;
 	// Structure 6: Physical Register File Ready Bit Array
 	// Entry contains: ready bit
 	/////////////////////////////////////////////////////////////////////
-unsigned int *PRF_ready_bit;
+bool *PRF_ready_bit;
 
 
 	/////////////////////////////////////////////////////////////////////

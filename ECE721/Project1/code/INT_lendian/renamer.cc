@@ -42,14 +42,15 @@ FreeFIFO::FreeFIFO ( unsigned int size )
     this->head_pointer    = 0; 
     this->tail_pointer    = 0;
     this->size            = size;
-    this->entry_count     = 0;
-    this->empty           = true;
-    this->full            = false;
+    this->entry_count     = size;
+    this->empty           = false;
+    this->full            = true;
     this->entry           = new FreeList [size];
 }
 
-void FreeFIFO::Push(unsigned int phy_reg)
+void FreeFIFO::Push()
 {
+    cout << "F push: " << this->tail_pointer <<  " : " << this << endl; 
   this->entry_count++;
   if(this->entry_count == this->size)
   {
@@ -60,22 +61,15 @@ void FreeFIFO::Push(unsigned int phy_reg)
     this->full            = false;
   }
   this->empty             = false;
-  if(this->tail_pointer == this->size-1)
-  {
+  this->tail_pointer++;
+  if(this->tail_pointer >= this->size)
     this->tail_pointer = 0;
-    this->entry[this->size-1].physical_reg = phy_reg;
-  }
-  else
-  {
-    this->tail_pointer++;
-    this->entry[this->tail_pointer-1].physical_reg = phy_reg;
-  }
 }
 
 
-unsigned int FreeFIFO::Pop()
+void FreeFIFO::Pop()
 {
-  unsigned int temp;
+    cout << "F pop: " << this->head_pointer <<  " : " << this << endl; 
   this->entry_count--;
   if(this->entry_count == 0)
   {
@@ -86,44 +80,10 @@ unsigned int FreeFIFO::Pop()
     this->empty = false;
   }
   this->full = false;
-  if(this->head_pointer == this->size-1)
-  {
+  this->head_pointer++;
+  if(this->head_pointer >= this->size)
     this->head_pointer = 0;
-    temp = this->entry[this->size-1].physical_reg;
-  }
-  else
-  {
-    this->head_pointer++;
-    temp = this->entry[this->head_pointer-1].physical_reg;
-  }
-  return temp;
 }
-
-
-unsigned int FreeFIFO::Walk_Back() {return 0;}
-
-
-void FreeFIFO::Walk_Forward() {}
-
-
-// Used to revert the tail back to the head for the active list..
-void FreeFIFO::Reset_Head()
-{
-  this->head_pointer = this->tail_pointer;
-  this->entry_count = 0;
-  this->empty = true;
-  this->full = false;
-}
-
-// Used to advance to head to the tail for the free list
-void FreeFIFO::Reset_Tail()
-{
-  this->head_pointer = this->tail_pointer;
-  this->entry_count = this->size;
-  this->empty = false;
-  this->full = true;
-}
-
 
 	/////////////////////////////////////////////////////////////////////
 	// Structure 4: Active List
@@ -162,20 +122,6 @@ ActiveList::ActiveList()
 }
 
 
-void ActiveList::Reset()
-{
-  
-    this->dest_flag             = false;
-    this->logical_reg           = 0;
-    this->completed_bit         = false;
-    this->excepiton_bit         = false;
-    this->load_flag             = false;
-    this->store_flag            = false;
-    this->branch_flag           = false;
-    this->program_counter       = 0;
-
-
-}
 
 ActiveFIFO::ActiveFIFO ( unsigned int size )
 {
@@ -188,36 +134,28 @@ ActiveFIFO::ActiveFIFO ( unsigned int size )
     this->entry = new ActiveList [size];
 }
 
-void ActiveFIFO::Push(unsigned int phy_reg)
+void ActiveFIFO::Push()
 {
-  this->entry_count++;
-  if(this->entry_count == this->size)
-  {
-    this->full = true;
-  }
-  else
-  {
-    this->full = false;
-  }
-  this->empty = false;
-  if(this->tail_pointer == this->size-1)
-  {
+    cout << "A push: " << this->tail_pointer <<  " : " << this << endl; 
+    this->entry_count++;
+    if(this->entry_count == this->size)
+    {
+        this->full = true;
+    }
+    else
+    {
+        this->full = false;
+    }
+    this->empty = false;
+  this->tail_pointer++;
+  if(this->tail_pointer >= this->size)
     this->tail_pointer = 0;
-    this->entry[this->size-1].physical_reg = phy_reg;
-    this->entry[this->size-1].Reset();
-  }
-  else
-  {
-    this->tail_pointer++;
-    this->entry[this->tail_pointer-1].physical_reg = phy_reg;
-    this->entry[this->tail_pointer-1].Reset();
-  }
 }
 
 
-unsigned int ActiveFIFO::Pop()
+void ActiveFIFO::Pop()
 {
-  unsigned int temp;
+    cout << "A pop: " << this->head_pointer << " : " << this << endl; 
   this->entry_count--;
   if(this->entry_count == 0)
   {
@@ -228,44 +166,11 @@ unsigned int ActiveFIFO::Pop()
     this->empty = false;
   }
   this->full = false;
-  if(this->head_pointer == this->size-1)
-  {
+  this->head_pointer++;
+  if(this->head_pointer >= this->size)
     this->head_pointer = 0;
-    temp = this->entry[this->size-1].physical_reg;
-  }
-  else
-  {
-    this->head_pointer++;
-    temp = this->entry[this->head_pointer-1].physical_reg;
-  }
-  return temp;
 }
 
-
-unsigned int ActiveFIFO::Walk_Back() {return 0;}
-
-
-void ActiveFIFO::Walk_Forward(){}
-
-
-
-// Used to revert the tail back to the head for the active list..
-void ActiveFIFO::Reset_Head()
-{
-  this->head_pointer = this->tail_pointer;
-  this->entry_count = 0;
-  this->empty = true;
-  this->full = false;
-}
-
-// Used to advance to head to the tail for the free list
-void ActiveFIFO::Reset_Tail()
-{
-  this->head_pointer = this->tail_pointer;
-  this->entry_count = this->size;
-  this->empty = false;
-  this->full = true;
-}
 	/////////////////////////////////////////////////////////////////////
 	// Structure 5: Physical Register File
 	// Entry contains: value
@@ -366,26 +271,31 @@ renamer::renamer(unsigned int n_log_regs,
 {
     assert(1 <= n_branches);
     assert(n_branches <= 64);
+    this->num_log_regs = n_log_regs;
+    this->num_phys_regs = n_phys_regs;
     this->PRF = new unsigned long long[n_phys_regs];
-    for(int i = 0; i < n_phys_regs; i++) this->PRF[i] = 0;
+    for(int i = 0; i < n_phys_regs; i++) 
+        this->PRF[i] = 0;
     
     this->RMT = new unsigned int [n_log_regs];
-    for(int i = 0; i < n_log_regs; i++) this->RMT[i] = i;
+    for(int i = 0; i < n_log_regs; i++) 
+        this->RMT[i] = i;
 
     this->AMT = new unsigned int [n_log_regs];
-    for(int i = 0; i < n_log_regs; i++) this->AMT[i] = this->RMT[i];
+    for(int i = 0; i < n_log_regs; i++) 
+        this->AMT[i] = this->RMT[i];
 
-    this->PRF_ready_bit = new unsigned int [n_phys_regs];
+    this->PRF_ready_bit = new bool [n_phys_regs];
     for(int i = 0; i < n_phys_regs; i++)
     {
-        if(i < n_log_regs) this->PRF_ready_bit[i] = 1;
-        else this->PRF_ready_bit[i] = 0;
+        this->PRF_ready_bit[i] = true;
     }
 
     GBM = 0;
     
     this->free_list = new FreeFIFO(n_phys_regs - n_log_regs); 
-    for(int i = 0; i < n_phys_regs - n_log_regs; i++) this->free_list->entry[i].physical_reg = n_log_regs + i;
+    for(int i = 0; i < n_phys_regs - n_log_regs; i++) 
+        this->free_list->entry[i].physical_reg = n_log_regs + i;
 
     this->active_list = new ActiveFIFO(n_phys_regs - n_log_regs);
      
@@ -423,7 +333,9 @@ renamer::~renamer(){}
 	/////////////////////////////////////////////////////////////////////
 bool renamer::stall_reg(unsigned int bundle_dst)
 {
-    if(this->free_list->entry_count + bundle_dst <= this->free_list->size) return false;
+
+    cout << "renamer::stall" << endl;
+    if(this->free_list->entry_count >= bundle_dst ) return false;
     else return true;
 }
 
@@ -441,7 +353,9 @@ bool renamer::stall_reg(unsigned int bundle_dst)
 bool renamer::stall_branch(unsigned int bundle_branch)
 {
 
-  return false;
+    cout << "renamer::stall_branch" << endl;
+
+    return false;
 }
 
 	/////////////////////////////////////////////////////////////////////
@@ -449,8 +363,10 @@ bool renamer::stall_branch(unsigned int bundle_branch)
 	/////////////////////////////////////////////////////////////////////
 unsigned long long renamer::get_branch_mask()
 {
+    
+    cout << "renamer::get_branch_mask" << endl;
 
-  return 0;
+    return 0;
 }
 
 	/////////////////////////////////////////////////////////////////////
@@ -463,7 +379,9 @@ unsigned long long renamer::get_branch_mask()
 	/////////////////////////////////////////////////////////////////////
 unsigned int renamer::rename_rsrc(unsigned int log_reg)
 {
-  return 0;
+    
+    cout << "renamer::rename_rsrc" << endl;
+    return RMT[log_reg];
 
 }
 
@@ -477,8 +395,12 @@ unsigned int renamer::rename_rsrc(unsigned int log_reg)
 	/////////////////////////////////////////////////////////////////////
 unsigned int renamer::rename_rdst(unsigned int log_reg)
 {
-  
-  return 0;
+    unsigned int phy_reg = this->free_list->entry[this->free_list->head_pointer].physical_reg;
+    assert(!this->free_list->empty);  
+    this->free_list->Pop();
+    RMT[log_reg] = phy_reg;
+    cout << "renamer::rename_rdst" << endl;
+    return phy_reg;
 
 }
 
@@ -509,6 +431,7 @@ unsigned int renamer::rename_rdst(unsigned int log_reg)
 unsigned int renamer::checkpoint()
 {
 
+    cout << "renamer::checkpoint" << endl;
   return 0;
 
 
@@ -532,6 +455,7 @@ unsigned int renamer::checkpoint()
 	/////////////////////////////////////////////////////////////////////
 bool renamer::stall_dispatch(unsigned int bundle_inst)
 {
+    cout << "renamer::stall_dispatch" << endl;
     if(this->active_list->entry_count + bundle_inst <= this->active_list->size) return false;
     else return true;
 
@@ -572,16 +496,26 @@ unsigned int renamer::dispatch_inst(bool dest_valid,
 			   bool branch,
 			   unsigned int PC)
 {
+    int entry_index = this->active_list->tail_pointer;
+    
+    assert(!this->active_list->full);
 
-    assert(this->active_list->entry_count < this->active_list->size);
+    this->active_list->entry[entry_index].dest_flag = dest_valid;
+    this->active_list->entry[entry_index].physical_reg = phys_reg;
+    this->active_list->entry[entry_index].logical_reg = log_reg;
+    this->active_list->entry[entry_index].excepiton_bit = false;
+    this->active_list->entry[entry_index].load_flag = load;
+    this->active_list->entry[entry_index].store_flag = store;
+    this->active_list->entry[entry_index].branch_flag = branch;
+    this->active_list->entry[entry_index].program_counter = PC;
 
+    active_list->Push();
+    
+    
+    
+    cout << "renamer::dispatch_inst" << endl;
 
-
-
-
-
-
-    return 0;
+    return entry_index;
 
 }
 
@@ -597,7 +531,8 @@ unsigned int renamer::dispatch_inst(bool dest_valid,
 bool renamer::is_ready(unsigned int phys_reg)
 {
     
-    return PRF_ready_bit[phys_reg];
+    cout << "renamer::is_ready" << endl;
+    return this->PRF_ready_bit[phys_reg];
 
 }
 
@@ -607,7 +542,8 @@ bool renamer::is_ready(unsigned int phys_reg)
 void renamer::clear_ready(unsigned int phys_reg)
 {
     
-    PRF_ready_bit[phys_reg] = false;
+    cout << "renamer::clear_ready" << phys_reg << endl;
+    this->PRF_ready_bit[phys_reg] = false;
 
 }
 
@@ -617,7 +553,8 @@ void renamer::clear_ready(unsigned int phys_reg)
 void renamer::set_ready(unsigned int phys_reg)
 {
 
-    PRF_ready_bit[phys_reg] = true;
+    cout << "renamer::set_ready" << endl;
+    this->PRF_ready_bit[phys_reg] = true;
 
 }
 
@@ -632,7 +569,8 @@ void renamer::set_ready(unsigned int phys_reg)
 unsigned long long renamer::read(unsigned int phys_reg)
 {
 
-return PRF[phys_reg];
+    cout << "renamer::read" << endl;
+    return this->PRF[phys_reg];
 
 }
 
@@ -647,6 +585,7 @@ return PRF[phys_reg];
 void renamer::write(unsigned int phys_reg, unsigned long long value)
 {
 
+    cout << "renamer::write" << endl;
     PRF[phys_reg] = value;
 
 
@@ -659,6 +598,7 @@ void renamer::set_complete(unsigned int AL_index)
 {
 
     this->active_list->entry[AL_index].completed_bit = true;
+    cout << "renamer::set_complete" << endl;
 
 }
 
@@ -706,6 +646,7 @@ void renamer::resolve(unsigned int AL_index,
 		      bool correct)
 {
 
+    cout << "renamer::resolve" << endl;
 
 
 }
@@ -770,7 +711,64 @@ void renamer::resolve(unsigned int AL_index,
 void renamer::commit(bool &committed, bool &load, bool &store, bool &branch,
 		       bool &exception, unsigned int &offending_PC)
 {
+    int h_pointer = this->active_list->head_pointer;
+    int log_reg = this->active_list->entry[h_pointer].logical_reg;
+    if(this->active_list->entry[h_pointer].completed_bit && this->active_list->entry[h_pointer].excepiton_bit && !this->active_list->empty)
+    {
+        committed = false;
+        load = false;
+        store = false;  
+        branch = false;
+        exception = true;
+        offending_PC = this->active_list->entry[h_pointer].program_counter;
+        for(int i = 0; i < num_log_regs; i++) this->RMT[i] = this->AMT[i];
+        while(!this->active_list->empty)
+        {
+            h_pointer = this->active_list->head_pointer;
+            log_reg = this->active_list->entry[h_pointer].logical_reg;
+            this->active_list->Pop();
+            if(this->active_list->entry[h_pointer].dest_flag)
+            {
+        //        this->free_list->Push(this->active_list->entry[h_pointer].physical_reg);    
+         //       this->AMT[log_reg] = this->active_list->entry[h_pointer].physical_reg;
+            }
 
+        }
+        for(int i = 0; i < num_phys_regs; i++) 
+            PRF_ready_bit[i] = true;
+        cout << "============================================" << endl;    
+        cout << "exception recover" << endl;
+
+
+    }
+    else if(this->active_list->entry[h_pointer].completed_bit && !this->active_list->entry[h_pointer].excepiton_bit && !this->active_list->empty)
+    {   
+        if(this->active_list->entry[h_pointer].dest_flag)
+        {
+            this->free_list->entry[this->free_list->tail_pointer].physical_reg = AMT[log_reg];
+            this->free_list->Push();
+            this->AMT[log_reg] = this->active_list->entry[h_pointer].physical_reg;
+        }
+        committed = true;
+        load = this->active_list->entry[h_pointer].load_flag;
+        store = this->active_list->entry[h_pointer].store_flag;
+        branch = this->active_list->entry[h_pointer].branch_flag;
+        offending_PC = this->active_list->entry[h_pointer].program_counter;
+        exception = false;
+        this->active_list->Pop();
+        cout << "============================================" << endl;    
+        cout << "============== commited ====================" << endl;
+    
+    }
+    else
+    {
+        committed = false;
+        load = false;
+        store = false; 
+        branch = false;
+        exception = false;
+        offending_PC = 0;
+    }
 
 
 }
@@ -786,6 +784,7 @@ void renamer::commit(bool &committed, bool &load, bool &store, bool &branch,
 void renamer::set_exception(unsigned int AL_index)
 {
 
-
+    this->active_list->entry[AL_index].excepiton_bit = true;
+    cout << "renamer::set_exception" << endl;
 
 }
