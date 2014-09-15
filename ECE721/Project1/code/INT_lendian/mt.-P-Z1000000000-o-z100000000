@@ -47,7 +47,3 @@ IC_INTERLEAVED = 1
 	L1_IC_MISS_SRV_PORTS   = 1
 	L1_IC_MISS_SRV_LATENCY = 1
 ----------------------------------------
-starting *fast* functional simulation
-GRADING_PLATEAU_1000 (60%)
-GRADING_PLATEAU_10000 (70%)
-GRADING_PLATEAU_100000 (80%)

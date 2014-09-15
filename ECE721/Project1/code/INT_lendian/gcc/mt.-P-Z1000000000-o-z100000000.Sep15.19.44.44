@@ -1,6 +1,6 @@
 ************************ PARAMETERS *************************
 **ARGS**
-721sim
+/afs/unity.ncsu.edu/users/j/jasteve4/Documents/work/ECE721/Project1/code/INT_lendian/gcc/721sim
 -P
 -o
 -Z1000000000

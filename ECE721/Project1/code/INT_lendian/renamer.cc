@@ -50,7 +50,6 @@ FreeFIFO::FreeFIFO ( unsigned int size )
 
 void FreeFIFO::Push()
 {
-    cout << "F push: " << this->tail_pointer <<  " : " << this << endl; 
   this->entry_count++;
   if(this->entry_count == this->size)
   {
@@ -69,7 +68,6 @@ void FreeFIFO::Push()
 
 void FreeFIFO::Pop()
 {
-    cout << "F pop: " << this->head_pointer <<  " : " << this << endl; 
   this->entry_count--;
   if(this->entry_count == 0)
   {
@@ -136,7 +134,6 @@ ActiveFIFO::ActiveFIFO ( unsigned int size )
 
 void ActiveFIFO::Push()
 {
-    cout << "A push: " << this->tail_pointer <<  " : " << this << endl; 
     this->entry_count++;
     if(this->entry_count == this->size)
     {
@@ -155,7 +152,6 @@ void ActiveFIFO::Push()
 
 void ActiveFIFO::Pop()
 {
-    cout << "A pop: " << this->head_pointer << " : " << this << endl; 
   this->entry_count--;
   if(this->entry_count == 0)
   {
@@ -334,7 +330,6 @@ renamer::~renamer(){}
 bool renamer::stall_reg(unsigned int bundle_dst)
 {
 
-    cout << "renamer::stall" << endl;
     if(this->free_list->entry_count >= bundle_dst ) return false;
     else return true;
 }
@@ -353,7 +348,6 @@ bool renamer::stall_reg(unsigned int bundle_dst)
 bool renamer::stall_branch(unsigned int bundle_branch)
 {
 
-    cout << "renamer::stall_branch" << endl;
 
     return false;
 }
@@ -364,7 +358,6 @@ bool renamer::stall_branch(unsigned int bundle_branch)
 unsigned long long renamer::get_branch_mask()
 {
     
-    cout << "renamer::get_branch_mask" << endl;
 
     return 0;
 }
@@ -380,7 +373,6 @@ unsigned long long renamer::get_branch_mask()
 unsigned int renamer::rename_rsrc(unsigned int log_reg)
 {
     
-    cout << "renamer::rename_rsrc" << endl;
     return RMT[log_reg];
 
 }
@@ -399,7 +391,6 @@ unsigned int renamer::rename_rdst(unsigned int log_reg)
     assert(!this->free_list->empty);  
     this->free_list->Pop();
     RMT[log_reg] = phy_reg;
-    cout << "renamer::rename_rdst" << endl;
     return phy_reg;
 
 }
@@ -431,7 +422,6 @@ unsigned int renamer::rename_rdst(unsigned int log_reg)
 unsigned int renamer::checkpoint()
 {
 
-    cout << "renamer::checkpoint" << endl;
   return 0;
 
 
@@ -455,7 +445,6 @@ unsigned int renamer::checkpoint()
 	/////////////////////////////////////////////////////////////////////
 bool renamer::stall_dispatch(unsigned int bundle_inst)
 {
-    cout << "renamer::stall_dispatch" << endl;
     if(this->active_list->entry_count + bundle_inst <= this->active_list->size) return false;
     else return true;
 
@@ -503,6 +492,7 @@ unsigned int renamer::dispatch_inst(bool dest_valid,
     this->active_list->entry[entry_index].dest_flag = dest_valid;
     this->active_list->entry[entry_index].physical_reg = phys_reg;
     this->active_list->entry[entry_index].logical_reg = log_reg;
+    this->active_list->entry[entry_index].completed_bit = false;
     this->active_list->entry[entry_index].excepiton_bit = false;
     this->active_list->entry[entry_index].load_flag = load;
     this->active_list->entry[entry_index].store_flag = store;
@@ -513,7 +503,6 @@ unsigned int renamer::dispatch_inst(bool dest_valid,
     
     
     
-    cout << "renamer::dispatch_inst" << endl;
 
     return entry_index;
 
@@ -531,7 +520,6 @@ unsigned int renamer::dispatch_inst(bool dest_valid,
 bool renamer::is_ready(unsigned int phys_reg)
 {
     
-    cout << "renamer::is_ready" << endl;
     return this->PRF_ready_bit[phys_reg];
 
 }
@@ -542,7 +530,6 @@ bool renamer::is_ready(unsigned int phys_reg)
 void renamer::clear_ready(unsigned int phys_reg)
 {
     
-    cout << "renamer::clear_ready" << phys_reg << endl;
     this->PRF_ready_bit[phys_reg] = false;
 
 }
@@ -553,7 +540,6 @@ void renamer::clear_ready(unsigned int phys_reg)
 void renamer::set_ready(unsigned int phys_reg)
 {
 
-    cout << "renamer::set_ready" << endl;
     this->PRF_ready_bit[phys_reg] = true;
 
 }
@@ -569,7 +555,6 @@ void renamer::set_ready(unsigned int phys_reg)
 unsigned long long renamer::read(unsigned int phys_reg)
 {
 
-    cout << "renamer::read" << endl;
     return this->PRF[phys_reg];
 
 }
@@ -585,7 +570,6 @@ unsigned long long renamer::read(unsigned int phys_reg)
 void renamer::write(unsigned int phys_reg, unsigned long long value)
 {
 
-    cout << "renamer::write" << endl;
     PRF[phys_reg] = value;
 
 
@@ -598,7 +582,6 @@ void renamer::set_complete(unsigned int AL_index)
 {
 
     this->active_list->entry[AL_index].completed_bit = true;
-    cout << "renamer::set_complete" << endl;
 
 }
 
@@ -646,7 +629,6 @@ void renamer::resolve(unsigned int AL_index,
 		      bool correct)
 {
 
-    cout << "renamer::resolve" << endl;
 
 
 }
@@ -721,23 +703,18 @@ void renamer::commit(bool &committed, bool &load, bool &store, bool &branch,
         branch = false;
         exception = true;
         offending_PC = this->active_list->entry[h_pointer].program_counter;
-        for(int i = 0; i < num_log_regs; i++) this->RMT[i] = this->AMT[i];
-        while(!this->active_list->empty)
-        {
-            h_pointer = this->active_list->head_pointer;
-            log_reg = this->active_list->entry[h_pointer].logical_reg;
-            this->active_list->Pop();
-            if(this->active_list->entry[h_pointer].dest_flag)
-            {
-        //        this->free_list->Push(this->active_list->entry[h_pointer].physical_reg);    
-         //       this->AMT[log_reg] = this->active_list->entry[h_pointer].physical_reg;
-            }
-
-        }
+        this->free_list->head_pointer = this->free_list->tail_pointer; 
+        this->free_list->empty = false;
+        this->free_list->full = true;
+        this->free_list->entry_count = this->free_list->size;
+        this->active_list->tail_pointer = this->active_list->tail_pointer; 
+        this->active_list->empty = true;
+        this->active_list->full = false;
+        this->active_list->entry_count = 0;
+        for(int i = 0; i < num_log_regs; i++ )
+            RMT[i] = AMT[i];
         for(int i = 0; i < num_phys_regs; i++) 
             PRF_ready_bit[i] = true;
-        cout << "============================================" << endl;    
-        cout << "exception recover" << endl;
 
 
     }
@@ -756,8 +733,6 @@ void renamer::commit(bool &committed, bool &load, bool &store, bool &branch,
         offending_PC = this->active_list->entry[h_pointer].program_counter;
         exception = false;
         this->active_list->Pop();
-        cout << "============================================" << endl;    
-        cout << "============== commited ====================" << endl;
     
     }
     else
@@ -785,6 +760,5 @@ void renamer::set_exception(unsigned int AL_index)
 {
 
     this->active_list->entry[AL_index].excepiton_bit = true;
-    cout << "renamer::set_exception" << endl;
 
 }
