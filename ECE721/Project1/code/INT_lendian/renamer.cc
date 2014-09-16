@@ -703,11 +703,11 @@ void renamer::commit(bool &committed, bool &load, bool &store, bool &branch,
         branch = false;
         exception = true;
         offending_PC = this->active_list->entry[h_pointer].program_counter;
-        this->free_list->head_pointer = this->free_list->tail_pointer; 
+        this->free_list->tail_pointer = this->free_list->head_pointer; 
         this->free_list->empty = false;
         this->free_list->full = true;
         this->free_list->entry_count = this->free_list->size;
-        this->active_list->tail_pointer = this->active_list->tail_pointer; 
+        this->active_list->head_pointer = this->active_list->tail_pointer; 
         this->active_list->empty = true;
         this->active_list->full = false;
         this->active_list->entry_count = 0;
