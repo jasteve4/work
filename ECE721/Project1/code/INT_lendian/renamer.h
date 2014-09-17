@@ -7,18 +7,17 @@
 
 using namespace std;
 
-
-
-
-class BranchCheckPoint
+class CheckPoint
 {
-
-  public:
-                        BranchCheckPoint(int);
-    unsigned int        *SMT;
-    unsigned int        checkpoint_FL_head_index; 
-    unsigned long long  checkpoint_GMB;
+    public:
+        CheckPoint();
+        CheckPoint(unsigned int);
+        unsigned int *SMT;
+        unsigned int head_index;
+        unsigned long long CP_GBM;
 };
+
+
 
 class FreeList
 {
@@ -83,7 +82,12 @@ private:
 	// Put private class variables here.
 	/////////////////////////////////////////////////////////////////////
 unsigned int num_log_regs;	
-unsigned int num_phys_regs;       
+unsigned int num_phys_regs;
+
+
+unsigned int num_active_branch;
+unsigned int num_branch; 
+
         /////////////////////////////////////////////////////////////////////
 	// Structure 1: Rename Map Table
 	// Entry contains: physical register mapping
@@ -191,8 +195,9 @@ unsigned long long GBM;
 	// 2. checkpointed Free List head index
 	// 3. checkpointed GBM
 	/////////////////////////////////////////////////////////////////////
-BranchCheckPoint *branch_check_point;
-	
+CheckPoint *br_cp;	
+//int *br;        
+
         /////////////////////////////////////////////////////////////////////
 	// Private functions.
 	// e.g., a generic function to copy state from one map to another.

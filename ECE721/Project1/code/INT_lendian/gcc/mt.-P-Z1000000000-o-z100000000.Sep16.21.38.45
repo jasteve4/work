@@ -48,3 +48,12 @@ IC_INTERLEAVED = 1
 	L1_IC_MISS_SRV_LATENCY = 1
 ----------------------------------------
 starting *fast* functional simulation
+GRADING_PLATEAU_1000 (60%)
+GRADING_PLATEAU_10000 (70%)
+GRADING_PLATEAU_100000 (80%)
+Thread 0: (cycle = 400000) num_insn = 10024152	IPC = 2.39
+Thread 0: (cycle = 800000) num_insn = 22043787	IPC = 2.63
+Thread 0: (cycle = c00000) num_insn = 33292279	IPC = 2.65
+Thread 0: (cycle = 1000000) num_insn = 42333948	IPC = 2.52
+Thread 0: (cycle = 1400000) num_insn = 50924887	IPC = 2.43
+Thread 0: (cycle = 1800000) num_insn = 62613949	IPC = 2.49

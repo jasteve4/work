@@ -227,16 +227,25 @@ void ActiveFIFO::Pop()
 	// 2. checkpointed Free List head index
 	// 3. checkpointed GBM
 	/////////////////////////////////////////////////////////////////////
-BranchCheckPoint::BranchCheckPoint(int size)
-{
+CheckPoint::CheckPoint(){}
 
-    SMT                           = new unsigned int [size];
-    checkpoint_FL_head_index      = 0; 
-    checkpoint_GMB                = 0;
+CheckPoint::CheckPoint(unsigned int size){
 
-}
+        this->head_index = 0;
+        this->CP_GBM = 0;
+        this->SMT = new unsigned int [size];
+        for(int i = 0; i < size; i++)
+            this->SMT[i] = 0;
 
-	/////////////////////////////////////////////////////////////////////
+
+}	
+
+
+
+
+
+
+        /////////////////////////////////////////////////////////////////////
 	// Private functions.
 	// e.g., a generic function to copy state from one map to another.
 	/////////////////////////////////////////////////////////////////////
@@ -287,15 +296,23 @@ renamer::renamer(unsigned int n_log_regs,
         this->PRF_ready_bit[i] = true;
     }
 
-    GBM = 0;
+    this->GBM = 0;
     
     this->free_list = new FreeFIFO(n_phys_regs - n_log_regs); 
     for(int i = 0; i < n_phys_regs - n_log_regs; i++) 
         this->free_list->entry[i].physical_reg = n_log_regs + i;
 
     this->active_list = new ActiveFIFO(n_phys_regs - n_log_regs);
-     
-    this->branch_check_point = new BranchCheckPoint(n_log_regs); 
+
+    this->br_cp = new CheckPoint [n_branches];
+
+    for(int i = 0; i < n_branches; i++)
+    {
+        
+    }
+    this->num_active_branch = 0;
+    this->num_branch = n_branches;
+    this->br_cp[0].head_index = 0;
 
 
 }
@@ -349,7 +366,7 @@ bool renamer::stall_branch(unsigned int bundle_branch)
 {
 
 
-    return false;
+    return (bundle_branch > (num_branch - num_active_branch));
 }
 
 	/////////////////////////////////////////////////////////////////////
@@ -359,7 +376,7 @@ unsigned long long renamer::get_branch_mask()
 {
     
 
-    return 0;
+    return GBM;
 }
 
 	/////////////////////////////////////////////////////////////////////
@@ -410,7 +427,7 @@ unsigned int renamer::rename_rdst(unsigned int log_reg)
 	// * Find a free bit -- i.e., a '0' bit -- in the GBM. Assert that
 	//   a free bit exists: it is the user's responsibility to avoid
 	//   a structural hazard by calling stall_branch() in advance.
-	// * Set the bit to '1' since it is now in use by the new branch.
+	// * Set the bit to '3' since it is now in use by the new branch.
 	// * The position of this bit in the GBM is the branch's ID.
 	// * Use the branch checkpoint that corresponds to this bit.
 	// 
@@ -422,8 +439,24 @@ unsigned int renamer::rename_rdst(unsigned int log_reg)
 unsigned int renamer::checkpoint()
 {
 
-  return 0;
+    unsigned long long GBM_par = GBM;
+    unsigned int entry_index = 0; 
+    unsigned long long  branch_id = 0;
+    num_active_branch++;
+    for(int i = 0; i < num_branch; i++)
+    {
+        if(!((GBM>>i & 1) == 1))
+           entry_index = i; 
+    }
+    
+    branch_id = 1 << entry_index;
+    GBM = GBM | branch_id;
+   // cout << this->br_cp[0].head_index << endl;
+   // this->br_cp[0].head_index = 0; //= this->free_list->head_pointer;
+    
+    return entry_index;
 
+return 0;
 
 }
 
@@ -628,9 +661,12 @@ void renamer::resolve(unsigned int AL_index,
 		      unsigned int branch_ID,
 		      bool correct)
 {
-
-
-
+  /*  unsigned long long GBM_mask = 1 << branch_ID;
+    num_active_branch--;
+    if(correct)
+        GBM &= ~GBM_mask;
+cout << "test" << endl;
+*/
 }
 
 	//////////////////////////////////////////
@@ -710,6 +746,8 @@ void renamer::commit(bool &committed, bool &load, bool &store, bool &branch,
         this->active_list->head_pointer = this->active_list->tail_pointer; 
         this->active_list->empty = true;
         this->active_list->full = false;
+  //      this->GBM = 0;
+  //      this->num_active_branch = 0;
         this->active_list->entry_count = 0;
         for(int i = 0; i < num_log_regs; i++ )
             RMT[i] = AMT[i];

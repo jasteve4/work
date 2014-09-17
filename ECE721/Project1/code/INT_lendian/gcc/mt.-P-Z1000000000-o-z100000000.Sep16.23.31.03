@@ -47,4 +47,3 @@ IC_INTERLEAVED = 1
 	L1_IC_MISS_SRV_PORTS   = 1
 	L1_IC_MISS_SRV_LATENCY = 1
 ----------------------------------------
-starting *fast* functional simulation

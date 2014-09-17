@@ -48,3 +48,7 @@ IC_INTERLEAVED = 1
 	L1_IC_MISS_SRV_LATENCY = 1
 ----------------------------------------
 starting *fast* functional simulation
+Thread 0: (cycle = 400000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 800000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = c00000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 1000000) num_insn = 144	IPC = 0.00

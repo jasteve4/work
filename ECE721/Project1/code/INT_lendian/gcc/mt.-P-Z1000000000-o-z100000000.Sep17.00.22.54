@@ -1,0 +1,97 @@
+************************ PARAMETERS *************************
+**ARGS**
+/afs/unity.ncsu.edu/users/j/jasteve4/Documents/work/ECE721/Project1/code/INT_lendian/gcc/721sim
+-P
+-o
+-Z1000000000
+-z100000000
+job
+--------Benchmark Control.--------------
+FROM -> TO = 1,000,000,000 -> 1,100,000,000
+--------Oracle Controls.----------------
+PERFECT_BRANCH_PRED = 1
+PERFECT_FETCH = 0
+ORACLE_DISAMBIG = 1
+PERFECT_ICACHE = 0
+PERFECT_DCACHE = 0
+--------Core.---------------------------
+FETCH_QUEUE_SIZE = 32
+NUM_CHECKPOINTS = 32
+ACTIVE_LIST_SIZE = 128
+ISSUE_QUEUE_SIZE = 32
+LQ_SIZE = 32
+SQ_SIZE = 32
+FETCH_WIDTH = 4
+DISPATCH_WIDTH = 4
+ISSUE_WIDTH = 8
+RETIRE_WIDTH = 4
+IC_INTERLEAVED = 1
+--------L1 Data Cache.------------------
+*** D$: 64KB, 4-way set-associative, 64B line size
+	L1_DC_SETS             = 256
+	L1_DC_ASSOC            = 4
+	L1_DC_LINE_SIZE        = 6
+	L1_DC_HIT_LATENCY      = 1
+	L1_DC_MISS_LATENCY     = 10
+	L1_DC_NUM_MHSRs        = 512
+	L1_DC_MISS_SRV_PORTS   = 1
+	L1_DC_MISS_SRV_LATENCY = 1
+--------L1 Instruction Cache.-----------
+*** I$: 128KB, 4-way set-associative, 128B line size
+	L1_IC_SETS             = 256
+	L1_IC_ASSOC            = 4
+	L1_IC_LINE_SIZE        = 7
+	L1_IC_HIT_LATENCY      = 1
+	L1_IC_MISS_LATENCY     = 10
+	L1_IC_NUM_MHSRs        = 32
+	L1_IC_MISS_SRV_PORTS   = 1
+	L1_IC_MISS_SRV_LATENCY = 1
+----------------------------------------
+starting *fast* functional simulation
+Thread 0: (cycle = 400000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 800000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = c00000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 1000000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 1400000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 1800000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 1c00000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 2000000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 2400000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 2800000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 2c00000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 3000000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 3400000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 3800000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 3c00000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 4000000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 4400000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 4800000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 4c00000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 5000000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 5400000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 5800000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 5c00000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 6000000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 6400000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 6800000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 6c00000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 7000000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 7400000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 7800000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 7c00000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 8000000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 8400000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 8800000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 8c00000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 9000000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 9400000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 9800000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = 9c00000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = a000000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = a400000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = a800000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = ac00000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = b000000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = b400000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = b800000) num_insn = 144	IPC = 0.00
+Thread 0: (cycle = bc00000) num_insn = 144	IPC = 0.00
