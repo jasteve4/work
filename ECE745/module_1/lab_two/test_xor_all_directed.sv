@@ -10,7 +10,7 @@
  reg [3:0] A=0, B=0;
  reg [3:0] Y, golden_ref_output;
  reg [4:0] i,j;
- reg [71:0] studentid=123456789;
+ reg [71:0] studentid=001055754;
  always #5 clk=~clk;
 
  initial 

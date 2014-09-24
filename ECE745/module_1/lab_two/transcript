@@ -1,0 +1,33 @@
+# //  ModelSim SE 10.0c Jul 21 2011 Linux 2.6.32-431.17.1.el6.x86_64
+# //
+# //  Copyright 1991-2011 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+#  
+ls
+# compile.do
+# modelsim.ini
+# test_xor_all_directed.sv
+# transcript
+# work
+# xor_design.vp
+do compile.do
+# Model Technology ModelSim SE vlog 10.0c Compiler 2011.07 Jul 21 2011
+# -- Compiling module xor_design
+# 
+# Top level modules:
+# 	xor_design
+# Model Technology ModelSim SE vlog 10.0c Compiler 2011.07 Jul 21 2011
+# -- Compiling module test_xor
+# 
+# Top level modules:
+# 	test_xor
+# vsim -novopt test_xor 
+# Loading sv_std.std
+# Loading work.test_xor
+# Loading work.xor_design
+# Window cannot be closed because the modal window "Quit Vsim" is still open.

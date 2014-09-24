@@ -17,12 +17,8 @@ add wave -noupdate -radix hexadecimal /test_xor/A
 add wave -noupdate -radix hexadecimal /test_xor/B
 add wave -noupdate -radix hexadecimal /test_xor/Y
 add wave -noupdate -radix hexadecimal /test_xor/golden_ref_output
+add wave -noupdate -radix hexadecimal /test_xor/test_test
 
-add wave -noupdate -radix hexadecimal /test_xor/u0_xordesign/clk
-add wave -noupdate -radix hexadecimal /test_xor/u0_xordesign/reset
-add wave -noupdate -radix hexadecimal /test_xor/u0_xordesign/a
-add wave -noupdate -radix hexadecimal /test_xor/u0_xordesign/b
-add wave -noupdate -radix hexadecimal /test_xor/u0_xordesign/y
 
 # run the simulation
 run 100000ns
