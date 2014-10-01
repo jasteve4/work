@@ -47,7 +47,7 @@
 							else if(WrEn==1)
 								begin
 									//Mem[Addr]<={WrBus[31:1],StudentId[0]};
-									Mem[Addr]<=WrBus;
+									Mem[Addr]<={WrBus[31:4],4'b1111};
 									$display($time,"ns Mem[%d]=%b",Addr,WrBus);
 									next_state<=S0;
 								end

@@ -9,6 +9,7 @@
  reg reset=0;
  logic WrEn, RdEn;
  logic [1:0] RdEn_Opcode;
+ logic [3:0] [7:0]  golden[logic[15:0]];
  logic [15:0] Addr;
  logic [4:0] BitAddr;
  logic [1:0] ByteAddr;
@@ -18,23 +19,26 @@
  int num_of_tests=0;
  int num_sims=0;
  int i,j;
- int StudentId=123;
+ int StudentId=001055754;
 
  always #5 clk=~clk;
  initial 
 	begin
-		reset=1'b1;
-		#10 reset=1'b0;
-		for(i=0;i<=65535;i=i+1)
+                
+                for(i=0;i<50000;i=i+1)
 		  begin
 			WrEn=1;
 			RdEn=0;
-			Addr=i;
-			WrBus=i;
+			Addr=$random;
+			WrBus=$random;
+                        golden[Addr] = WrBus;
 			#10;
 		  end
-		  
-		for(i=0;i<=65535;i=i+1)
+
+
+		$display("============================ TEST 1 ====================================="); 
+
+		foreach(golden[i])
 		  begin
 			RdEn=1;
 			WrEn=0;
@@ -43,7 +47,14 @@
 			BitAddr=0;
 			//RdEn_Opcode=i[1:0];
 			#20;
-			$display($time,"ns Memory Output[%d]= %b",i,RdBus); 
+                        if(RdBus == golden[i])
+                            begin
+		       	        $display("Memory good  Output[%d]  =          %b",i,RdBus,); 
+                            end
+                        else
+                            begin
+		       	        $display("Memory bad Output[%d]   =          %b",i,RdBus,); 
+                            end
 		  end
 
 		$finish;

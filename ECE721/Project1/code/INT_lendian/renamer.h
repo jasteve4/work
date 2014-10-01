@@ -15,6 +15,8 @@ class CheckPoint
         unsigned int *SMT;
         unsigned int head_index;
         unsigned long long CP_GBM;
+//        unsigned int * get(unsigned int entry_index);
+//        void set(unsigned int &MT);
 };
 
 
@@ -195,7 +197,7 @@ unsigned long long GBM;
 	// 2. checkpointed Free List head index
 	// 3. checkpointed GBM
 	/////////////////////////////////////////////////////////////////////
-CheckPoint *br_cp;	
+CheckPoint **br_cp;	
 //int *br;        
 
         /////////////////////////////////////////////////////////////////////
