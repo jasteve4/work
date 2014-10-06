@@ -1,0 +1,101 @@
+************************ PARAMETERS *************************
+**ARGS**
+721sim
+-o
+-Z1000000000
+-z100000000
+job
+--------Benchmark Control.--------------
+FROM -> TO = 1,000,000,000 -> 1,100,000,000
+--------Oracle Controls.----------------
+PERFECT_BRANCH_PRED = 0
+PERFECT_FETCH = 0
+ORACLE_DISAMBIG = 1
+PERFECT_ICACHE = 0
+PERFECT_DCACHE = 0
+--------Core.---------------------------
+FETCH_QUEUE_SIZE = 32
+NUM_CHECKPOINTS = 32
+ACTIVE_LIST_SIZE = 128
+ISSUE_QUEUE_SIZE = 32
+LQ_SIZE = 32
+SQ_SIZE = 32
+FETCH_WIDTH = 4
+DISPATCH_WIDTH = 4
+ISSUE_WIDTH = 8
+RETIRE_WIDTH = 4
+IC_INTERLEAVED = 1
+--------L1 Data Cache.------------------
+*** D$: 64KB, 4-way set-associative, 64B line size
+	L1_DC_SETS             = 256
+	L1_DC_ASSOC            = 4
+	L1_DC_LINE_SIZE        = 6
+	L1_DC_HIT_LATENCY      = 1
+	L1_DC_MISS_LATENCY     = 10
+	L1_DC_NUM_MHSRs        = 512
+	L1_DC_MISS_SRV_PORTS   = 1
+	L1_DC_MISS_SRV_LATENCY = 1
+--------L1 Instruction Cache.-----------
+*** I$: 128KB, 4-way set-associative, 128B line size
+	L1_IC_SETS             = 256
+	L1_IC_ASSOC            = 4
+	L1_IC_LINE_SIZE        = 7
+	L1_IC_HIT_LATENCY      = 1
+	L1_IC_MISS_LATENCY     = 10
+	L1_IC_NUM_MHSRs        = 32
+	L1_IC_MISS_SRV_PORTS   = 1
+	L1_IC_MISS_SRV_LATENCY = 1
+----------------------------------------
+starting *fast* functional simulation
+GRADING_PLATEAU_1000 (60%)
+GRADING_PLATEAU_10000 (70%)
+GRADING_PLATEAU_100000 (80%)
+Thread 0: (cycle = 400000) num_insn = 7192566	IPC = 1.71
+Thread 0: (cycle = 800000) num_insn = 15759074	IPC = 1.88
+Thread 0: (cycle = c00000) num_insn = 24257968	IPC = 1.93
+Thread 0: (cycle = 1000000) num_insn = 32313534	IPC = 1.93
+Thread 0: (cycle = 1400000) num_insn = 40166047	IPC = 1.92
+Thread 0: (cycle = 1800000) num_insn = 45790003	IPC = 1.82
+Thread 0: (cycle = 1c00000) num_insn = 56532227	IPC = 1.93
+Thread 0: (cycle = 2000000) num_insn = 64912303	IPC = 1.93
+Thread 0: (cycle = 2400000) num_insn = 74109722	IPC = 1.96
+Thread 0: (cycle = 2800000) num_insn = 83127500	IPC = 1.98
+Thread 0: (cycle = 2c00000) num_insn = 91895089	IPC = 1.99
+sim: simulation time: 5m 9s (324056.362460 insts/sec)
+sim: number of instructions: 100133416
+sim: number of cycles: 50017531
+sim: IPC: 2.00
+sim: number of split instructions: 165403
+sim: eff-IPC: 2.00
+----------------------------------------------------------
+	BTB_SIZE   = 4096
+	BTB_MASK   = fff (4095)
+	TABLE_SIZE = 65536
+	INDEX_MASK = ffff (65535)
+	HIST_MASK  = fffc (65532)
+	HIST_BIT   = 8000 (32768)
+	PC_MASK    = 3fff (16383)
+----------------------------------------------------------
+bpred: ALL CTI
+bpred:     1004232 / 18610399 = 0.053961
+bpred: 
+bpred: CONDITIONAL
+bpred:     669678 / 14056488 = 0.047642
+bpred: 
+bpred: RAS flushes = 6
+bpred: 
+bpred: conf_corr    = 15598377 (0.838)
+bpred: conf_ncorr   = 433989 (0.023)
+bpred: nconf_corr   = 2007790 (0.108)
+bpred: nconf_ncorr  = 570243 (0.031)
+----------------------------------------------------------
+----memory system results----
+LOADS (retired)
+  loads            = 28519616
+  disambig. stall  = 372047 (1.30%)
+  forward          = 1888006 (6.62%)
+  miss stall       = 1481023 (5.19%)
+STORES (retired)
+  stores           = 18659706
+  miss stall       = 0 (0.00%)
+----memory system results----

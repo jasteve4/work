@@ -1,0 +1,62 @@
+************************ PARAMETERS *************************
+**ARGS**
+721sim
+-o
+job
+--------Benchmark Control.--------------
+FROM -> TO = begin -> end
+--------Oracle Controls.----------------
+PERFECT_BRANCH_PRED = 0
+PERFECT_FETCH = 0
+ORACLE_DISAMBIG = 1
+PERFECT_ICACHE = 0
+PERFECT_DCACHE = 0
+--------Core.---------------------------
+FETCH_QUEUE_SIZE = 32
+NUM_CHECKPOINTS = 32
+ACTIVE_LIST_SIZE = 128
+ISSUE_QUEUE_SIZE = 32
+LQ_SIZE = 32
+SQ_SIZE = 32
+FETCH_WIDTH = 4
+DISPATCH_WIDTH = 4
+ISSUE_WIDTH = 8
+RETIRE_WIDTH = 4
+IC_INTERLEAVED = 1
+--------L1 Data Cache.------------------
+*** D$: 64KB, 4-way set-associative, 64B line size
+	L1_DC_SETS             = 256
+	L1_DC_ASSOC            = 4
+	L1_DC_LINE_SIZE        = 6
+	L1_DC_HIT_LATENCY      = 1
+	L1_DC_MISS_LATENCY     = 10
+	L1_DC_NUM_MHSRs        = 512
+	L1_DC_MISS_SRV_PORTS   = 1
+	L1_DC_MISS_SRV_LATENCY = 1
+--------L1 Instruction Cache.-----------
+*** I$: 128KB, 4-way set-associative, 128B line size
+	L1_IC_SETS             = 256
+	L1_IC_ASSOC            = 4
+	L1_IC_LINE_SIZE        = 7
+	L1_IC_HIT_LATENCY      = 1
+	L1_IC_MISS_LATENCY     = 10
+	L1_IC_NUM_MHSRs        = 32
+	L1_IC_MISS_SRV_PORTS   = 1
+	L1_IC_MISS_SRV_LATENCY = 1
+----------------------------------------
+starting *fast* functional simulation
+GRADING_PLATEAU_1000 (60%)
+GRADING_PLATEAU_10000 (70%)
+GRADING_PLATEAU_100000 (80%)
+Thread 0: (cycle = 400000) num_insn = 7213660	IPC = 1.72
+Thread 0: (cycle = 800000) num_insn = 14245065	IPC = 1.70
+Thread 0: (cycle = c00000) num_insn = 21015715	IPC = 1.67
+Thread 0: (cycle = 1000000) num_insn = 27921023	IPC = 1.66
+Thread 0: (cycle = 1400000) num_insn = 34740553	IPC = 1.66
+Thread 0: (cycle = 1800000) num_insn = 41775376	IPC = 1.66
+Thread 0: (cycle = 1c00000) num_insn = 48637516	IPC = 1.66
+Thread 0: (cycle = 2000000) num_insn = 55458487	IPC = 1.65
+Thread 0: (cycle = 2400000) num_insn = 62326792	IPC = 1.65
+Thread 0: (cycle = 2800000) num_insn = 69511942	IPC = 1.66
+Thread 0: (cycle = 2c00000) num_insn = 76718758	IPC = 1.66
+Thread 0: (cycle = 3000000) num_insn = 83743637	IPC = 1.66
