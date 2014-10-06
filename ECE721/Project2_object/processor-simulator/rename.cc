@@ -116,13 +116,13 @@ void processor::rename2() {
 
 
 
-   stall_check_int = REN_INT->stall_branch(num_checkpoints);
-   stall_check_float = REN_FP->stall_branch(num_checkpoints);
+   stall_check_int = REN__stall_branch(true,num_checkpoints);
+   stall_check_float = REN__stall_branch(false,num_checkpoints);
 
    assert(stall_check_int == stall_check_float);
 
-   stall_reg_int = REN_INT->stall_reg(num_int_dest_reg);
-   stall_reg_float = REN_FP->stall_reg(num_float_dest_reg);
+   stall_reg_int = REN__stall_reg(true,num_int_dest_reg);
+   stall_reg_float = REN__stall_reg(false,num_float_dest_reg);
 
    if(stall_check_int || stall_check_float || stall_reg_int || stall_reg_float)
       return;
@@ -148,25 +148,25 @@ void processor::rename2() {
       if(PAY.buf[index].A_valid)
       {
          if(PAY.buf[index].A_int)
-            PAY.buf[index].A_phys_reg = REN_INT->rename_rsrc(PAY.buf[index].A_log_reg);
+            PAY.buf[index].A_phys_reg = REN__rename_rsrc(true,PAY.buf[index].A_log_reg);
          else
-            PAY.buf[index].A_phys_reg = REN_FP->rename_rsrc(PAY.buf[index].A_log_reg);
+            PAY.buf[index].A_phys_reg = REN__rename_rsrc(false,PAY.buf[index].A_log_reg);
       } 
 
       if(PAY.buf[index].B_valid)
       {
          if(PAY.buf[index].B_int)
-            PAY.buf[index].B_phys_reg = REN_INT->rename_rsrc(PAY.buf[index].B_log_reg);
+            PAY.buf[index].B_phys_reg = REN__rename_rsrc(true,PAY.buf[index].B_log_reg);
          else
-            PAY.buf[index].B_phys_reg = REN_FP->rename_rsrc(PAY.buf[index].B_log_reg);
+            PAY.buf[index].B_phys_reg = REN__rename_rsrc(false,PAY.buf[index].B_log_reg);
       }
       
       if(PAY.buf[index].C_valid)
       {
          if(PAY.buf[index].C_int)
-            PAY.buf[index].C_phys_reg = REN_INT->rename_rdst(PAY.buf[index].C_log_reg);
+            PAY.buf[index].C_phys_reg = REN__rename_rdst(true,PAY.buf[index].C_log_reg);
          else
-            PAY.buf[index].C_phys_reg = REN_FP->rename_rdst(PAY.buf[index].C_log_reg);
+            PAY.buf[index].C_phys_reg = REN__rename_rdst(false,PAY.buf[index].C_log_reg);
       }
 
 
@@ -184,8 +184,8 @@ void processor::rename2() {
       // 3. Both renamers should return the same branch_mask because their checkpoints are managed identically.
       //    You should assert this: get branch_mask's from both renamers and assert they are identical.
 
-      RENAME2[i].branch_mask = REN_INT->get_branch_mask();
-      assert(RENAME2[i].branch_mask == REN_FP->get_branch_mask());
+      RENAME2[i].branch_mask = REN__get_branch_mask(true);
+      assert(RENAME2[i].branch_mask == REN__get_branch_mask(false));
 
 
 
@@ -201,8 +201,8 @@ void processor::rename2() {
 
       if(PAY.buf[index].checkpoint)
       {
-            int_checkpoint = REN_INT->checkpoint();
-            fp_checkpoint = REN_FP->checkpoint();
+            int_checkpoint = REN__checkpoint(true);
+            fp_checkpoint = REN__checkpoint(false);
             assert(int_checkpoint == fp_checkpoint);
             PAY.buf[index].branch_ID = int_checkpoint;
       }

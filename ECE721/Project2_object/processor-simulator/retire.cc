@@ -40,7 +40,7 @@ void processor::retire() {
       //      exceptions in our benchmarks).
       //    * If the instruction was not committed nor was it an exception -- "else" -- we stall retirement.
 
-      REN_INT->commit(  committed1,
+      REN__commit(true,  committed1,
                         load1,
                         store1,
                         branch1,
@@ -48,7 +48,7 @@ void processor::retire() {
                         offending_PC1
                         );
 
-      REN_FP->commit(  committed2,
+      REN__commit(false,  committed2,
                         load2,
                         store2,
                         branch2,
@@ -171,14 +171,14 @@ void processor::retire() {
       if(PAY.buf[index].C_int)
       {
          IQ_INT.wakeup(PAY.buf[index].C_phys_reg);
-         REN_INT->set_ready(PAY.buf[index].C_phys_reg);
-         REN_INT->write(PAY.buf[index].C_phys_reg,PAY.buf[index].C_value.dw);
+         REN__set_ready(true,PAY.buf[index].C_phys_reg);
+         REN__write(true,PAY.buf[index].C_phys_reg,PAY.buf[index].C_value.dw);
       }
       else
       {
          IQ_FP.wakeup(PAY.buf[index].C_phys_reg);
-         REN_FP->set_ready(PAY.buf[index].C_phys_reg);
-         REN_FP->write(PAY.buf[index].C_phys_reg, PAY.buf[index].C_value.dw);
+         REN__set_ready(false,PAY.buf[index].C_phys_reg);
+         REN__write(false,PAY.buf[index].C_phys_reg, PAY.buf[index].C_value.dw);
       }
 
 
@@ -189,8 +189,8 @@ void processor::retire() {
       // 1. At this point of the code, 'index' is the instruction's index into PAY.buf[] (payload).
       // 2. Set the completed bit for this instruction in both the integer Active List and floating-point Active List.
       
-      REN_INT->set_complete(PAY.buf[index].AL_index_int);
-      REN_FP->set_complete(PAY.buf[index].AL_index_fp);
+      REN__set_complete(true,PAY.buf[index].AL_index_int);
+      REN__set_complete(false,PAY.buf[index].AL_index_fp);
 
 
    }

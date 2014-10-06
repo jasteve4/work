@@ -20,7 +20,7 @@
 
 #include "fetch_queue.h"	// FETCH QUEUE
 
-#include "renamer.h"		// REGISTER RENAMER + REGISTER FILE
+#include "glue.h"		// REGISTER RENAMER + REGISTER FILE
 
 #include "lane.h"		// EXECUTION LANES
 
@@ -98,8 +98,8 @@ class processor {
 		/////////////////////////////////////////////////////////////
 		// Register renaming modules.
 		/////////////////////////////////////////////////////////////
-		renamer *REN_INT;
-		renamer *REN_FP;
+		//renamer *REN_INT;
+		//renamer *REN_FP;
 
 		/////////////////////////////////////////////////////////////
 		// Pipeline register between the Rename and Dispatch Stages.

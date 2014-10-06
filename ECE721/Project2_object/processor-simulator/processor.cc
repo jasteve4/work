@@ -69,8 +69,8 @@ IC(L1_IC_SETS, L1_IC_ASSOC, L1_IC_LINE_SIZE, L1_IC_HIT_LATENCY, L1_IC_MISS_LATEN
    // Set up the register renaming modules.
    ////////////////////////////////////////////////////////////
 
-   REN_INT = new renamer(TOTAL_INT_REGS, (TOTAL_INT_REGS + rob_size), num_chkpts);
-   REN_FP = new renamer(TOTAL_FP_REGS, (TOTAL_FP_REGS + rob_size), num_chkpts);
+   REN__renamer(true,TOTAL_INT_REGS, (TOTAL_INT_REGS + rob_size), num_chkpts);
+   REN__renamer(false,TOTAL_FP_REGS, (TOTAL_FP_REGS + rob_size), num_chkpts);
 
    // Initialize the physical register files from func. sim.
    copy_reg();
@@ -124,12 +124,12 @@ void processor::copy_reg() {
 
    // Integer RF: general registers 0-31.
    for (unsigned int i = 0; i < TOTAL_GP_INT_REGS; i++)
-      REN_INT->write(REN_INT->rename_rsrc(i), (unsigned long long)THREAD[Tid]->get_arch_reg_value(i));
+      REN__write(true,REN__rename_rsrc(true,i), (unsigned long long)THREAD[Tid]->get_arch_reg_value(i));
 
    // Integer RF: HI, LO, FCC.
-   REN_INT->write(REN_INT->rename_rsrc(HI_ID_NEW), (unsigned long long)THREAD[Tid]->get_arch_reg_value(HI_ID));
-   REN_INT->write(REN_INT->rename_rsrc(LO_ID_NEW), (unsigned long long)THREAD[Tid]->get_arch_reg_value(LO_ID));
-   REN_INT->write(REN_INT->rename_rsrc(FCC_ID_NEW), (unsigned long long)THREAD[Tid]->get_arch_reg_value(FCC_ID));
+   REN__write(true, REN__rename_rsrc(true,HI_ID_NEW), (unsigned long long)THREAD[Tid]->get_arch_reg_value(HI_ID));
+   REN__write(true, REN__rename_rsrc(true,LO_ID_NEW), (unsigned long long)THREAD[Tid]->get_arch_reg_value(LO_ID));
+   REN__write(true, REN__rename_rsrc(true,FCC_ID_NEW), (unsigned long long)THREAD[Tid]->get_arch_reg_value(FCC_ID));
 
    // Floating-point RF.
    for (unsigned int i = 0; i < TOTAL_FP_REGS; i+=2) {
@@ -137,10 +137,10 @@ void processor::copy_reg() {
       x.w[1] = THREAD[Tid]->get_arch_reg_value((i+1) + FPR_BASE);
 
       // single precision value or double precision value for F0
-      REN_FP->write(REN_FP->rename_rsrc(i), x.dw);
+      REN__write(false,REN__rename_rsrc(false,i), x.dw);
 
       // single precision value for F1
-      REN_FP->write(REN_FP->rename_rsrc(i+1), (unsigned long long)x.w[1]);
+      REN__write(false,REN__rename_rsrc(false,i+1), (unsigned long long)x.w[1]);
    }
 }
 

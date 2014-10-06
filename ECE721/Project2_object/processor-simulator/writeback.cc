@@ -53,12 +53,12 @@ void processor::writeback(unsigned int lane_number) {
 	    //    This is unnecessary since instructions don't need accurate branch masks in perfect branch prediction
 	    //    mode... since they are never squashed anyway.
             
-            REN_INT->resolve( PAY.buf[index].AL_index_int,
+            REN__resolve(true, PAY.buf[index].AL_index_int,
                               PAY.buf[index].branch_ID,
                               true
                             );                              
 
-            REN_FP->resolve( PAY.buf[index].AL_index_fp,
+            REN__resolve(false, PAY.buf[index].AL_index_fp,
                               PAY.buf[index].branch_ID,
                               true
                             );                              
@@ -82,12 +82,12 @@ void processor::writeback(unsigned int lane_number) {
 	    //      indicates whether or not the branch was predicted correctly: in this case it is correct.
 	    //    * See processor.h for details about the two arguments of resolve().
 
-            REN_INT->resolve( PAY.buf[index].AL_index_int,
+            REN__resolve(true, PAY.buf[index].AL_index_int,
                               PAY.buf[index].branch_ID,
                               true
                             );                              
 
-            REN_FP->resolve( PAY.buf[index].AL_index_fp,
+            REN__resolve(false, PAY.buf[index].AL_index_fp,
                               PAY.buf[index].branch_ID,
                               true
                             );                              
@@ -120,12 +120,12 @@ void processor::writeback(unsigned int lane_number) {
 	    // 2. See #15a, item 2 -- EXCEPT in this case the branch was mispredicted, so specify not-correct instead of correct.
 	    //    This will restore the RMT, FL, and AL, and also free this and future checkpoints... etc.
 
-            REN_INT->resolve( PAY.buf[index].AL_index_int,
+            REN__resolve(true, PAY.buf[index].AL_index_int,
                               PAY.buf[index].branch_ID,
                               false
                             );                              
 
-            REN_FP->resolve( PAY.buf[index].AL_index_fp,
+            REN__resolve(false, PAY.buf[index].AL_index_fp,
                               PAY.buf[index].branch_ID,
                               false
                             );                              
@@ -164,8 +164,8 @@ void processor::writeback(unsigned int lane_number) {
       // 2. Set the completed bit for this instruction in both the integer Active List and floating-point Active List.
       //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-      REN_INT->set_complete(PAY.buf[index].AL_index_int);
-      REN_FP->set_complete(PAY.buf[index].AL_index_fp);
+      REN__set_complete(true,PAY.buf[index].AL_index_int);
+      REN__set_complete(false,PAY.buf[index].AL_index_fp);
 
       //////////////////////////////////////////////////////////////////////////////////////////////////////////
       // Remove the instruction from the Execution Lane.

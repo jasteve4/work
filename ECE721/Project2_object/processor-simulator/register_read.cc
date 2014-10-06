@@ -39,12 +39,12 @@ void processor::register_read(unsigned int lane_number) {
          if(PAY.buf[index].C_int)
          {
             IQ_INT.wakeup(PAY.buf[index].C_phys_reg);
-            REN_INT->set_ready(PAY.buf[index].C_phys_reg);
+            REN__set_ready(true,PAY.buf[index].C_phys_reg);
          }
          else
          {
             IQ_FP.wakeup(PAY.buf[index].C_phys_reg);
-            REN_FP->set_ready(PAY.buf[index].C_phys_reg);
+            REN__set_ready(false,PAY.buf[index].C_phys_reg);
          }
       }
 
@@ -67,14 +67,14 @@ void processor::register_read(unsigned int lane_number) {
 
       if(PAY.buf[index].A_valid)
          if(PAY.buf[index].A_int)
-            PAY.buf[index].A_value.dw = REN_INT->read(PAY.buf[index].A_phys_reg);
+            PAY.buf[index].A_value.dw = REN__read(true,PAY.buf[index].A_phys_reg);
          else
-            PAY.buf[index].A_value.dw = REN_FP->read(PAY.buf[index].A_phys_reg);
+            PAY.buf[index].A_value.dw = REN__read(false,PAY.buf[index].A_phys_reg);
       if(PAY.buf[index].B_valid)
          if(PAY.buf[index].B_int)
-            PAY.buf[index].B_value.dw = REN_INT->read(PAY.buf[index].B_phys_reg);
+            PAY.buf[index].B_value.dw = REN__read(true,PAY.buf[index].B_phys_reg);
          else
-            PAY.buf[index].B_value.dw = REN_FP->read(PAY.buf[index].B_phys_reg);
+            PAY.buf[index].B_value.dw = REN__read(false,PAY.buf[index].B_phys_reg);
 
 
 

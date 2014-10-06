@@ -38,7 +38,7 @@ void processor::dispatch() {
    // - There aren't enough IQ entries for the dispatch bundle.
    // - There aren't enough LQ/SQ entries for the dispatch bundle.
    
-   if(REN_INT->stall_dispatch(dispatch_width) || REN_FP->stall_dispatch(dispatch_width))
+   if(REN__stall_dispatch(true,dispatch_width) || REN__stall_dispatch(false,dispatch_width))
       return;
 
 
@@ -147,7 +147,7 @@ void processor::dispatch() {
          fp_dest_flag = false;
       }
   
-     PAY.buf[index].AL_index_int = REN_INT->dispatch_inst( int_dest_flag,
+     PAY.buf[index].AL_index_int = REN__dispatch_inst(true, int_dest_flag,
 				                           PAY.buf[index].C_log_reg,
 				                           PAY.buf[index].C_phys_reg,
 				                           load_flag,
@@ -157,7 +157,7 @@ void processor::dispatch() {
  
 
 
-     PAY.buf[index].AL_index_fp = REN_FP->dispatch_inst(  fp_dest_flag,
+     PAY.buf[index].AL_index_fp = REN__dispatch_inst(false,  fp_dest_flag,
 				                           PAY.buf[index].C_log_reg,
 				                           PAY.buf[index].C_phys_reg,
 				                           load_flag,
@@ -185,9 +185,9 @@ void processor::dispatch() {
       if(PAY.buf[index].A_valid)
       {
          if(PAY.buf[index].A_int)
-            A_ready = REN_INT->is_ready(PAY.buf[index].A_phys_reg);
+            A_ready = REN__is_ready(true,PAY.buf[index].A_phys_reg);
          else
-            A_ready = REN_FP->is_ready(PAY.buf[index].A_phys_reg);
+            A_ready = REN__is_ready(false,PAY.buf[index].A_phys_reg);
       }
       else
          A_ready = true;
@@ -195,9 +195,9 @@ void processor::dispatch() {
       if(PAY.buf[index].B_valid)
       {
          if(PAY.buf[index].B_int)
-            B_ready = REN_INT->is_ready(PAY.buf[index].B_phys_reg);
+            B_ready = REN__is_ready(true,PAY.buf[index].B_phys_reg);
          else
-            B_ready = REN_FP->is_ready(PAY.buf[index].B_phys_reg);
+            B_ready = REN__is_ready(false,PAY.buf[index].B_phys_reg);
       }
       else
          B_ready = true;
@@ -217,9 +217,9 @@ void processor::dispatch() {
       //    Remember to use the renamer module corresponding to the destination register's type.
       if(PAY.buf[index].C_valid)
          if(PAY.buf[index].C_int)
-            REN_INT->clear_ready(PAY.buf[index].C_phys_reg);
+            REN__clear_ready(true,PAY.buf[index].C_phys_reg);
          else
-            REN_FP->clear_ready(PAY.buf[index].C_phys_reg);
+            REN__clear_ready(false,PAY.buf[index].C_phys_reg);
 
       // FIX_ME #10
       // Dispatch the instruction into its corresponding Issue Queue (IQ_INT or IQ_FP),
@@ -298,8 +298,8 @@ void processor::dispatch() {
 	    // 1. At this point of the code, 'index' is the instruction's index into PAY.buf[] (payload).
 	    // 2. Set the completed bit for this instruction in both the integer Active List and floating-point Active List.
 
-            REN_INT->set_complete(PAY.buf[index].AL_index_int);
-            REN_FP->set_complete(PAY.buf[index].AL_index_fp);
+            REN__set_complete(true,PAY.buf[index].AL_index_int);
+            REN__set_complete(false,PAY.buf[index].AL_index_fp);
             
 
 	    break;
@@ -315,11 +315,11 @@ void processor::dispatch() {
 	    // 2. Set the completed bit for this instruction in both the integer Active List and floating-point Active List.
 	    // 3. Set the exception bit for this instruction in both the integer Active List and floating-point Active List.
 
-            REN_INT->set_complete(PAY.buf[index].AL_index_int);
-            REN_FP->set_complete(PAY.buf[index].AL_index_fp);
+            REN__set_complete(true,PAY.buf[index].AL_index_int);
+            REN__set_complete(false,PAY.buf[index].AL_index_fp);
 
-            REN_INT->set_exception(PAY.buf[index].AL_index_int);
-            REN_FP->set_exception(PAY.buf[index].AL_index_fp);
+            REN__set_exception(true,PAY.buf[index].AL_index_int);
+            REN__set_exception(false,PAY.buf[index].AL_index_fp);
 
 	    break;
 

@@ -68,14 +68,14 @@ void processor::execute(unsigned int lane_number) {
                if(PAY.buf[index].C_int)
                {
                   IQ_INT.wakeup(PAY.buf[index].C_phys_reg);
-                  REN_INT->set_ready(PAY.buf[index].C_phys_reg);
-                  REN_INT->write(PAY.buf[index].C_phys_reg,PAY.buf[index].C_value.dw);
+                  REN__set_ready(true,PAY.buf[index].C_phys_reg);
+                  REN__write(true,PAY.buf[index].C_phys_reg,PAY.buf[index].C_value.dw);
                }
                else
                {
                   IQ_FP.wakeup(PAY.buf[index].C_phys_reg);
-                  REN_FP->set_ready(PAY.buf[index].C_phys_reg);
-                  REN_FP->write(PAY.buf[index].C_phys_reg, PAY.buf[index].C_value.dw);
+                  REN__set_ready(false,PAY.buf[index].C_phys_reg);
+                  REN__write(false,PAY.buf[index].C_phys_reg, PAY.buf[index].C_value.dw);
                }
 
             }
@@ -123,9 +123,9 @@ void processor::execute(unsigned int lane_number) {
          
          if(PAY.buf[index].C_valid)
             if(PAY.buf[index].C_int)
-               REN_INT->write(PAY.buf[index].C_phys_reg,PAY.buf[index].C_value.dw);
+               REN__write(true,PAY.buf[index].C_phys_reg,PAY.buf[index].C_value.dw);
             else
-               REN_FP->write(PAY.buf[index].C_phys_reg, PAY.buf[index].C_value.dw);
+               REN__write(false,PAY.buf[index].C_phys_reg, PAY.buf[index].C_value.dw);
 
 
       }
