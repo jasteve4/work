@@ -1,6 +1,6 @@
 ************************ PARAMETERS *************************
 **ARGS**
-/afs/unity.ncsu.edu/users/j/jasteve4/Documents/work/ECE721/Project1/code/INT_lendian/gzip/721sim
+721sim
 -o
 -Z1000000000
 -z100000000
@@ -32,7 +32,7 @@ IC_INTERLEAVED = 1
 	L1_DC_LINE_SIZE        = 6
 	L1_DC_HIT_LATENCY      = 1
 	L1_DC_MISS_LATENCY     = 10
-	L1_DC_NUM_MHSRs        = 512
+	L1_DC_NUM_MHSRs        = 1024
 	L1_DC_MISS_SRV_PORTS   = 1
 	L1_DC_MISS_SRV_LATENCY = 1
 --------L1 Instruction Cache.-----------
@@ -50,5 +50,54 @@ starting *fast* functional simulation
 GRADING_PLATEAU_1000 (60%)
 GRADING_PLATEAU_10000 (70%)
 GRADING_PLATEAU_100000 (80%)
-Thread 0: (cycle = 400000) num_insn = 9270659	IPC = 2.21
-Thread 0: (cycle = 800000) num_insn = 17861028	IPC = 2.13
+Thread 0: (cycle = 400000) num_insn = 8724079	IPC = 2.08
+Thread 0: (cycle = 800000) num_insn = 16576436	IPC = 1.98
+Thread 0: (cycle = c00000) num_insn = 24139282	IPC = 1.92
+Thread 0: (cycle = 1000000) num_insn = 31958868	IPC = 1.90
+Thread 0: (cycle = 1400000) num_insn = 38529590	IPC = 1.84
+Thread 0: (cycle = 1800000) num_insn = 45798906	IPC = 1.82
+Thread 0: (cycle = 1c00000) num_insn = 52411623	IPC = 1.79
+Thread 0: (cycle = 2000000) num_insn = 59275379	IPC = 1.77
+Thread 0: (cycle = 2400000) num_insn = 66711823	IPC = 1.77
+Thread 0: (cycle = 2800000) num_insn = 72846410	IPC = 1.74
+Thread 0: (cycle = 2c00000) num_insn = 80714318	IPC = 1.75
+Thread 0: (cycle = 3000000) num_insn = 87516791	IPC = 1.74
+Thread 0: (cycle = 3400000) num_insn = 95233931	IPC = 1.75
+sim: simulation time: 7m 2s (236901.251185 insts/sec)
+sim: number of instructions: 99972328
+sim: number of cycles: 57493297
+sim: IPC: 1.74
+sim: number of split instructions: 4409
+sim: eff-IPC: 1.74
+----------------------------------------------------------
+	BTB_SIZE   = 4096
+	BTB_MASK   = fff (4095)
+	TABLE_SIZE = 65536
+	INDEX_MASK = ffff (65535)
+	HIST_MASK  = fffc (65532)
+	HIST_BIT   = 8000 (32768)
+	PC_MASK    = 3fff (16383)
+----------------------------------------------------------
+bpred: ALL CTI
+bpred:     1282743 / 16705879 = 0.076784
+bpred: 
+bpred: CONDITIONAL
+bpred:     1282738 / 13382228 = 0.095854
+bpred: 
+bpred: RAS flushes = 3
+bpred: 
+bpred: conf_corr    = 11657380 (0.698)
+bpred: conf_ncorr   = 69646 (0.004)
+bpred: nconf_corr   = 3765756 (0.225)
+bpred: nconf_ncorr  = 1213097 (0.073)
+----------------------------------------------------------
+----memory system results----
+LOADS (retired)
+  loads            = 21895892
+  disambig. stall  = 1696565 (7.75%)
+  forward          = 3867963 (17.67%)
+  miss stall       = 993475 (4.54%)
+STORES (retired)
+  stores           = 10256734
+  miss stall       = 0 (0.00%)
+----memory system results----

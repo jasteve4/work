@@ -30,7 +30,7 @@ IC_INTERLEAVED = 1
 	L1_DC_LINE_SIZE        = 6
 	L1_DC_HIT_LATENCY      = 1
 	L1_DC_MISS_LATENCY     = 10
-	L1_DC_NUM_MHSRs        = 512
+	L1_DC_NUM_MHSRs        = 1024
 	L1_DC_MISS_SRV_PORTS   = 1
 	L1_DC_MISS_SRV_LATENCY = 1
 --------L1 Instruction Cache.-----------
@@ -48,15 +48,62 @@ starting *fast* functional simulation
 GRADING_PLATEAU_1000 (60%)
 GRADING_PLATEAU_10000 (70%)
 GRADING_PLATEAU_100000 (80%)
-Thread 0: (cycle = 400000) num_insn = 7213660	IPC = 1.72
-Thread 0: (cycle = 800000) num_insn = 14245065	IPC = 1.70
-Thread 0: (cycle = c00000) num_insn = 21015715	IPC = 1.67
-Thread 0: (cycle = 1000000) num_insn = 27921023	IPC = 1.66
-Thread 0: (cycle = 1400000) num_insn = 34740553	IPC = 1.66
-Thread 0: (cycle = 1800000) num_insn = 41775376	IPC = 1.66
-Thread 0: (cycle = 1c00000) num_insn = 48637516	IPC = 1.66
-Thread 0: (cycle = 2000000) num_insn = 55458487	IPC = 1.65
-Thread 0: (cycle = 2400000) num_insn = 62326792	IPC = 1.65
-Thread 0: (cycle = 2800000) num_insn = 69511942	IPC = 1.66
-Thread 0: (cycle = 2c00000) num_insn = 76718758	IPC = 1.66
-Thread 0: (cycle = 3000000) num_insn = 83743637	IPC = 1.66
+Thread 0: (cycle = 400000) num_insn = 6521748	IPC = 1.55
+Thread 0: (cycle = 800000) num_insn = 12751172	IPC = 1.52
+Thread 0: (cycle = c00000) num_insn = 18972136	IPC = 1.51
+Thread 0: (cycle = 1000000) num_insn = 25154940	IPC = 1.50
+Thread 0: (cycle = 1400000) num_insn = 31145681	IPC = 1.49
+Thread 0: (cycle = 1800000) num_insn = 37422203	IPC = 1.49
+Thread 0: (cycle = 1c00000) num_insn = 43656581	IPC = 1.49
+Thread 0: (cycle = 2000000) num_insn = 49658251	IPC = 1.48
+Thread 0: (cycle = 2400000) num_insn = 55738143	IPC = 1.48
+Thread 0: (cycle = 2800000) num_insn = 61809383	IPC = 1.47
+Thread 0: (cycle = 2c00000) num_insn = 68234326	IPC = 1.48
+Thread 0: (cycle = 3000000) num_insn = 74647017	IPC = 1.48
+Thread 0: (cycle = 3400000) num_insn = 80927635	IPC = 1.48
+Thread 0: (cycle = 3800000) num_insn = 87155749	IPC = 1.48
+Thread 0: (cycle = 3c00000) num_insn = 93492034	IPC = 1.49
+Thread 0: (cycle = 4000000) num_insn = 99866876	IPC = 1.49
+Thread 0: (cycle = 4400000) num_insn = 106294376	IPC = 1.49
+Thread 0: (cycle = 4800000) num_insn = 112603922	IPC = 1.49
+Thread 0: (cycle = 4c00000) num_insn = 119089683	IPC = 1.49
+Thread 0: (cycle = 5000000) num_insn = 125576815	IPC = 1.50
+Thread 0: (cycle = 5400000) num_insn = 131879432	IPC = 1.50
+sim: simulation time: 6m 32s (339636.061224 insts/sec)
+sim: number of instructions: 133137336
+sim: number of cycles: 88892743
+sim: IPC: 1.50
+sim: number of split instructions: 171524
+sim: eff-IPC: 1.50
+----------------------------------------------------------
+	BTB_SIZE   = 4096
+	BTB_MASK   = fff (4095)
+	TABLE_SIZE = 65536
+	INDEX_MASK = ffff (65535)
+	HIST_MASK  = fffc (65532)
+	HIST_BIT   = 8000 (32768)
+	PC_MASK    = 3fff (16383)
+----------------------------------------------------------
+bpred: ALL CTI
+bpred:     2544283 / 20238764 = 0.125713
+bpred: 
+bpred: CONDITIONAL
+bpred:     2494773 / 15995581 = 0.155966
+bpred: 
+bpred: RAS flushes = 0
+bpred: 
+bpred: conf_corr    = 11002072 (0.544)
+bpred: conf_ncorr   = 280596 (0.014)
+bpred: nconf_corr   = 6692409 (0.331)
+bpred: nconf_ncorr  = 2263687 (0.112)
+----------------------------------------------------------
+----memory system results----
+LOADS (retired)
+  loads            = 27479009
+  disambig. stall  = 659395 (2.40%)
+  forward          = 2000128 (7.28%)
+  miss stall       = 135208 (0.49%)
+STORES (retired)
+  stores           = 9257470
+  miss stall       = 0 (0.00%)
+----memory system results----

@@ -1,0 +1,28 @@
+1. Instructor will provide the following two files.
+   Place them under processor-simulator/ directory.  
+	glue.h
+	libREN.a
+
+
+2. processor-simulator/processor.h:
+
+a) Replace...
+	#include "renamer.h"
+   with...
+	#include "glue.h"
+
+b) Comment-out member variables REN_INT and REN_FP.
+
+
+3. processor-simulator/processor.cc:
+
+Replace REN_INT and REN_FP member function calls with global function calls according to "glue.h".
+This should include renamer() constructor and write().
+Note that "sel==true" selects integer renamer, "sel==false" selects floating-point renamer.
+
+4. processor-simulator/Makefile
+
+a) Remove reference to renamer.cc
+b) Remove reference to renamer.o
+c) Add -L. to LIB paths
+d) Add -lREN after -lUTILS

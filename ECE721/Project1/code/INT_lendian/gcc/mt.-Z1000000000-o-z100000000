@@ -32,7 +32,7 @@ IC_INTERLEAVED = 1
 	L1_DC_LINE_SIZE        = 6
 	L1_DC_HIT_LATENCY      = 1
 	L1_DC_MISS_LATENCY     = 10
-	L1_DC_NUM_MHSRs        = 512
+	L1_DC_NUM_MHSRs        = 1024
 	L1_DC_MISS_SRV_PORTS   = 1
 	L1_DC_MISS_SRV_LATENCY = 1
 --------L1 Instruction Cache.-----------
@@ -50,23 +50,25 @@ starting *fast* functional simulation
 GRADING_PLATEAU_1000 (60%)
 GRADING_PLATEAU_10000 (70%)
 GRADING_PLATEAU_100000 (80%)
-Thread 0: (cycle = 400000) num_insn = 7192566	IPC = 1.71
-Thread 0: (cycle = 800000) num_insn = 15759074	IPC = 1.88
-Thread 0: (cycle = c00000) num_insn = 24257968	IPC = 1.93
-Thread 0: (cycle = 1000000) num_insn = 32313534	IPC = 1.93
-Thread 0: (cycle = 1400000) num_insn = 40166047	IPC = 1.92
-Thread 0: (cycle = 1800000) num_insn = 45790003	IPC = 1.82
-Thread 0: (cycle = 1c00000) num_insn = 56532227	IPC = 1.93
-Thread 0: (cycle = 2000000) num_insn = 64912303	IPC = 1.93
-Thread 0: (cycle = 2400000) num_insn = 74109722	IPC = 1.96
-Thread 0: (cycle = 2800000) num_insn = 83127500	IPC = 1.98
-Thread 0: (cycle = 2c00000) num_insn = 91895089	IPC = 1.99
-sim: simulation time: 5m 9s (324056.362460 insts/sec)
+Thread 0: (cycle = 400000) num_insn = 6427349	IPC = 1.53
+Thread 0: (cycle = 800000) num_insn = 14034186	IPC = 1.67
+Thread 0: (cycle = c00000) num_insn = 21619602	IPC = 1.72
+Thread 0: (cycle = 1000000) num_insn = 28625020	IPC = 1.71
+Thread 0: (cycle = 1400000) num_insn = 36847115	IPC = 1.76
+Thread 0: (cycle = 1800000) num_insn = 43185393	IPC = 1.72
+Thread 0: (cycle = 1c00000) num_insn = 49418454	IPC = 1.68
+Thread 0: (cycle = 2000000) num_insn = 58089319	IPC = 1.73
+Thread 0: (cycle = 2400000) num_insn = 65949827	IPC = 1.75
+Thread 0: (cycle = 2800000) num_insn = 74472899	IPC = 1.78
+Thread 0: (cycle = 2c00000) num_insn = 82696493	IPC = 1.79
+Thread 0: (cycle = 3000000) num_insn = 90819624	IPC = 1.80
+Thread 0: (cycle = 3400000) num_insn = 98868215	IPC = 1.81
+sim: simulation time: 6m 46s (246634.029557 insts/sec)
 sim: number of instructions: 100133416
-sim: number of cycles: 50017531
-sim: IPC: 2.00
-sim: number of split instructions: 165403
-sim: eff-IPC: 2.00
+sim: number of cycles: 55139189
+sim: IPC: 1.82
+sim: number of split instructions: 165482
+sim: eff-IPC: 1.81
 ----------------------------------------------------------
 	BTB_SIZE   = 4096
 	BTB_MASK   = fff (4095)
@@ -77,24 +79,24 @@ sim: eff-IPC: 2.00
 	PC_MASK    = 3fff (16383)
 ----------------------------------------------------------
 bpred: ALL CTI
-bpred:     1004232 / 18610399 = 0.053961
+bpred:     1004099 / 18610399 = 0.053954
 bpred: 
 bpred: CONDITIONAL
-bpred:     669678 / 14056488 = 0.047642
+bpred:     670863 / 14056488 = 0.047726
 bpred: 
 bpred: RAS flushes = 6
 bpred: 
-bpred: conf_corr    = 15598377 (0.838)
-bpred: conf_ncorr   = 433989 (0.023)
-bpred: nconf_corr   = 2007790 (0.108)
-bpred: nconf_ncorr  = 570243 (0.031)
+bpred: conf_corr    = 15562737 (0.836)
+bpred: conf_ncorr   = 432019 (0.023)
+bpred: nconf_corr   = 2043563 (0.110)
+bpred: nconf_ncorr  = 572080 (0.031)
 ----------------------------------------------------------
 ----memory system results----
 LOADS (retired)
   loads            = 28519616
-  disambig. stall  = 372047 (1.30%)
-  forward          = 1888006 (6.62%)
-  miss stall       = 1481023 (5.19%)
+  disambig. stall  = 839050 (2.94%)
+  forward          = 3413198 (11.97%)
+  miss stall       = 1500674 (5.26%)
 STORES (retired)
   stores           = 18659706
   miss stall       = 0 (0.00%)

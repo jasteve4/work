@@ -1,7 +1,7 @@
 # Compilation File for Modelsim
 
 vlog -sv test_arbiter.sv
-vlog arbiter.v
+vlog arbiter.vp
 vlog arbiter_interface.sv
 vlog top.sv
 vsim -novopt top

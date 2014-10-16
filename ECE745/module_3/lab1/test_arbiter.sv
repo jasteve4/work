@@ -35,7 +35,7 @@
 				$display($time,"ns------------------------------------------------------");
 				$display($time,"ns [TB][DRIVER] Drove Request: %b",request);
 				golden_ref();
-				repeat (1) @(posedge clk);
+				repeat (2) @(posedge clk);
 				if(grant==tb_grant)
 					begin
 						$display($time,"[TB][CHECKER] Test Passed: %b", grant);

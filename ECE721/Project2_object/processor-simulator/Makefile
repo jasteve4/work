@@ -1,6 +1,6 @@
 CC = g++
-#OPT = -O3
-OPT = -g
+OPT = -O3
+#OPT = -g
 
 INC = -I. -I../functional-simulator -I./BP -I./CACHE -I./UTILS 
 LIB = -L../functional-simulator -L./BP -L./CACHE -L./UTILS -L.
