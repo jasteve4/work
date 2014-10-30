@@ -22,12 +22,26 @@
  int num_sims=100;
  int i,j;
 
- /*class instruction; 
-	
-endclass */
+class instruction; 
+
+   logic [7:0] opcode;
+   logic [31:0] operand1, operand2;
+
+   function new();
+      opcode = 0;
+      operand1 = 0;
+      operand2 = 0;
+   endfunction
+
+   function generatefn();
+      opcode = $urandom_range(1,7);
+      operand1 = $random;
+      operand2 = $ramdom;
+   endfunction
+endclass 
 
 //declare handle
-
+instruction inst;
 
  always #5 clk=~clk;
  initial 
@@ -54,10 +68,11 @@ task resetfn();
 endtask
 
 task generate_instr();
-	//inst_gen=new();
-	inst_opcode=$urandom_range(1,7);
-	inst_operand1=$random;
-	inst_operand2=$random;
+        inst = new();
+        inst.generatefn();
+	inst_opcode=inst.opcode;
+	inst_operand1=inst.operand1;
+	inst_operand2=inst.operand2;
 	$display($time,"[TEST][GEN]Instruction[%d][%d][%d]",inst_opcode,inst_operand1,inst_operand2); 
 endtask
 
